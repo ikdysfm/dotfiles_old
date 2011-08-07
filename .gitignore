@@ -1,0 +1,18 @@
+# 全てのファイルを一度無視する
+/*
+# さらに、ドットから始まる設定ファイルを無視する
+/.*
+
+# その上で管理したいファイルを以下に設定
+!/.gitignore
+!/.gitmodules
+!/.gitconfig
+!/.vim
+!/_vimrc
+!/_gvimrc
+
+# 管理したいファイルの中で個別に無視したいものを以下に設定
+/.vim/.DS_store
+/.vim/autoload/.DS_store
+/.vim/bundle/.DS_store
+/.vim/backup
