@@ -7,6 +7,7 @@
 !/.gitignore
 !/.gitmodules
 !/.gitconfig
+!/.gitconfig_all
 !/.vim
 !/_vimrc
 !/_gvimrc
@@ -16,5 +17,3 @@
 /.vim/bundle/.DS_store
 /.vim/autoload
 /.vim/backup
-doc/tags
-doc/tags-ja
