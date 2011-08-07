@@ -223,13 +223,13 @@ nmap <C-t> :tabnew<cr>
 "imap <C-t> <ESC>:tabnew<cr>
 "imap <C-w> :tabclose<cr>
 
-"inoremap { {}<Left>
-"inoremap [ []<Left>
-"inoremap ( ()<Left>
-"inoremap < <><Left>
-"inoremap " ""<Left>
-"inoremap ' ''<Left>
-"inoremap ` ``<Left>
+inoremap {} {}<Left>
+inoremap [] []<Left>
+inoremap () ()<Left>
+inoremap <> <><Left>
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap `` ``<Left>
 
 "file name copy 
 nnoremap <silent><Leader>y :let @"=expand('%:p')<CR>:echo "Copy filename to noname register."<CR>
