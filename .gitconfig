@@ -3,3 +3,5 @@
 	email = ikd.ysfm@gmail.com
 [color]
 	ui = auto
+[core]
+	excludesfile = ~/.gitignore_all
