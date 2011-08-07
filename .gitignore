@@ -16,3 +16,5 @@
 /.vim/bundle/.DS_store
 /.vim/autoload
 /.vim/backup
+doc/tags
+doc/tags-ja
