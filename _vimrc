@@ -231,7 +231,7 @@ inoremap "" ""<Left>
 inoremap '' ''<Left>
 inoremap `` ``<Left>
 
-"file name copy 
+"file name copy
 nnoremap <silent><Leader>y :let @"=expand('%:p')<CR>:echo "Copy filename to noname register."<CR>
 
 "--------------------------------------------------------------------------------
@@ -239,23 +239,34 @@ nnoremap <silent><Leader>y :let @"=expand('%:p')<CR>:echo "Copy filename to nona
 "--------------------------------------------------------------------------------
 
 "------------------------------------
-" pathogen.vim
+" pathogen
 "------------------------------------
-" pathogen.vimでftdetectなどをloadさせるために一度ファイルタイプ判定をoff
-filetype off
-" .vim/bundle/plugin_nameを読み込むようにする
-call pathogen#runtime_append_all_bundles()
-" .vim/bunle/plugin_nameのヘルプを読み込めるようにする
-call pathogen#helptags()
-" 最後にファイルタイプ判定を元に戻す
-filetype on
+filetype off                                			" 一度ファイルタイプ判定をoff
+call pathogen#runtime_append_all_bundles()  			" .vim/bundle/plugin_nameを読み込むようにする
+call pathogen#helptags()                    			" .vim/bunle/plugin_nameのヘルプを読み込めるようにする
+filetype on                                             " 最後にファイルタイプ判定を元に戻す
 
 "------------------------------------
-" NERD_commenter.vim
+" NERD_commenter
 "------------------------------------
-" コメントの間にスペースを空ける
-let NERDSpaceDelims = 1
-" <Leader>xでコメントをトグル(NERD_commenter.vim)
-map <Leader>x <Leader>c<space>
-"未対応ファイルタイプのエラーメッセージを表示しない
-"let NERDShutUp=1
+let NERDSpaceDelims = 1                                 " コメントの間にスペースを空ける
+map <Leader>x <Leader>c<space>                          " <Leader>xでコメントをトグル(NERD_commenter.vim)
+"let NERDShutUp=1                                       " 未対応ファイルタイプのエラーメッセージを表示しない
+
+" ------------------------------------
+" neocomplcache
+"------------------------------------
+let g:neocomplcache_enable_at_startup = 1               " neocomplcacheを有効にする
+"let g:neocomplcache_max_list = 100                     " 補完リストの最大件数
+"let g:neocomplcache_max_keyword_width = 50             " 補完候補の表示幅
+"g:neocomplcache_max_filename_width = 15			    " 補完ファイル名の表示幅
+"let g:neocomplcache_auto_completion_start_length = 2   " 補完を開始する文字数
+"let g:neocomplcache_enable_auto_select = 1             " 補完リストの先頭を自動選択するか
+let g:neocomplcache_enable_smart_case = 1               " smart_case補完を有効にする
+"let g:neocomplcache_enable_camel_case_completion = 1   " camel_case補完を有効にする
+"let g:neocomplcache_enable_underbar_completion = 1     " アンダーバー区切りの補完を有効にする
+let g:neocomplcache_min_syntax_length = 3               " シンタックスのキャッシュ最小文字長
+"let g:neocomplcache_disable_caching_file_path_pattern  " キャッシュしないバッファ名の正規表現
+"let g:neocomplcache_lock_buffer_name_pattern =         " 自動補完を無効化するバッファ名の正規表現
+"let g:neocomplcache_dictionary_filetype_lists = {      " ファイルタイプごとの辞書設定
+"let g:neocomplcache_keyword_patterns['default'] =      " キーワードパターンの設定
