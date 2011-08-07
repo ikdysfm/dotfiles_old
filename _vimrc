@@ -21,6 +21,7 @@ set backupdir=~/.vim/backup                                 " バックアップ
 let &directory=&backupdir                                   " スワップディレクトリを指定
 filetype indent on                                          " ファイルタイプによるインデント
 filetype plugin on                                          " ファイルタイプによるプラグイン
+let mapleader = ","                                         " キーマップリーダー
 
 "--------------------------------------------------------------------------------
 " ステータス
@@ -236,13 +237,25 @@ nnoremap <silent><Leader>y :let @"=expand('%:p')<CR>:echo "Copy filename to nona
 "--------------------------------------------------------------------------------
 " プラグインの設定
 "--------------------------------------------------------------------------------
+
+"------------------------------------
+" pathogen.vim
+"------------------------------------
 " pathogen.vimでftdetectなどをloadさせるために一度ファイルタイプ判定をoff
 filetype off
-
 " .vim/bundle/plugin_nameを読み込むようにする
 call pathogen#runtime_append_all_bundles()
 " .vim/bunle/plugin_nameのヘルプを読み込めるようにする
 call pathogen#helptags()
-
 " 最後にファイルタイプ判定を元に戻す
 filetype on
+
+"------------------------------------
+" NERD_commenter.vim
+"------------------------------------
+" コメントの間にスペースを空ける
+let NERDSpaceDelims = 1
+" <Leader>xでコメントをトグル(NERD_commenter.vim)
+map <Leader>x <Leader>c<space>
+"未対応ファイルタイプのエラーメッセージを表示しない
+"let NERDShutUp=1
