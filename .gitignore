@@ -5,9 +5,9 @@
 
 # その上で管理したいファイルを以下に設定
 !/.gitignore
+!/.gitignore_all
 !/.gitmodules
 !/.gitconfig
-!/.gitconfig_all
 !/.vim
 !/_vimrc
 !/_gvimrc
