@@ -13,10 +13,10 @@ if has('win32')
     set ambiwidth=auto
   endif
 elseif has('gui_macvim')
-  set transparency=10
+  set transparency=5
   set antialias
-  set guifont=Inconsolata:h14
-  set guifontwide=Takao\ Pゴシック:h14
+  set guifont=Migu\ 1M:h14
+  set guifontwide=Migu\ 1M:h14
 elseif has('mac')
   set guifont=Osaka－等幅:h20
 elseif has('xfontset')
@@ -28,9 +28,9 @@ endif
 " ウインドウに関する設定:
 "---------------------------------------------------------------------------
 " ウインドウの幅
-set columns=100
+set columns=130
 " ウインドウの高さ
-set lines=40
+set lines=45
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
 " 画面を黒地に白にする (次行の先頭の " を削除すれば有効になる)
