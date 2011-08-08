@@ -12,7 +12,11 @@ set novisualbell                                            " ビジュアルベ
 set whichwrap=b,s,h,l,<,>,[,]                               " 行頭、行末でカーソルを止めない
 set backup                                                  " バックアップを有効に
 set swapfile                                                " スワップを有効に
-set backupdir=~/.vim/backup                                 " バックアップディレクトリを指定
+if has('win32') || has('win64')                             " バックアップディレクトリを指定
+    set backupdir=~/vimfiles/backup
+else
+    set backupdir=~/.vim/backup
+endif
 let &directory=&backupdir                                   " スワップディレクトリを指定
 filetype indent on                                          " ファイルタイプによるインデント
 filetype plugin on                                          " ファイルタイプによるプラグイン
@@ -245,7 +249,9 @@ filetype on                                             " 最後にファイル�
 " NERD_commenter
 "------------------------------------
 let NERDSpaceDelims = 1                                 " コメントの間にスペースを空ける
-map <Leader>x <Leader>c<space>                          " <Leader>xでコメントをトグル(NERD_commenter.vim)
+"map <Leader>x ,c<space>                                " 一行コメントアウトのトグル(Windowsだと実行後にカーソルが滑る？)
+"map <Leader>cs ,cs                                     " 複数行コメントアウト
+"map <Leader>ca ,cA                                     " 行末コメント
 "let NERDShutUp=1                                       " 未対応ファイルタイプのエラーメッセージを表示しない
 
 " ------------------------------------
