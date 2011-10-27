@@ -18,3 +18,4 @@
 /.vim/bundle/.DS_store
 /.vim/autoload
 /.vim/backup
+/.vim/.netrwhist
