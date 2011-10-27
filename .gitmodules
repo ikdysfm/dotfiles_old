@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/bufexplorer"]
 	path = .vim/bundle/bufexplorer
 	url = https://github.com/corntrace/bufexplorer.git
+[submodule ".vim/bundle/vim-vis"]
+	path = .vim/bundle/vim-vis
+	url = https://github.com/taku-o/vim-vis.git
