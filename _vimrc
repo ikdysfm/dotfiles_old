@@ -263,8 +263,7 @@ function! CompleteCD(arglead, cmdline, cursorpos)
 endfunction
 
 " 既存のcdコマンドを置き換える
-cnoreabbrev <expr> cd
-            \ (getcmdtype() == ':' && getcmdline() ==# 'cd') ? 'CD' : 'cd'
+cnoreabbrev <expr> cd (getcmdtype() == ':' && getcmdline() ==# 'cd') ? 'CD' : 'cd'
 
 "--------------------------------------------------------------------------------
 " プラグインの設定
