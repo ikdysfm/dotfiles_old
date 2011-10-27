@@ -10,6 +10,7 @@ set foldmethod=marker                                       " デフォルトの折り畳
 set noerrorbells                                            " ビープを鳴らさない
 set novisualbell                                            " ビジュアルベル無効
 set whichwrap=b,s,h,l,<,>,[,]                               " 行頭、行末でカーソルを止めない
+set modeline                                                " モードラインを有効にする
 set backup                                                  " バックアップを有効に
 set swapfile                                                " スワップを有効に
 if has('win32') || has('win64')                             " バックアップディレクトリを指定
@@ -26,7 +27,6 @@ let mapleader = ","                                         " キーマップリーダー
 " ステータス
 "--------------------------------------------------------------------------------
 set showmode                                                " 最終行にメッセージを表示
-set showcmd                                                 " コマンドを最下行に表示
 set laststatus=2                                            " 常にステータスラインを表示
 set statusline=
 set statusline+=[*%n]\                                      " バッファ番号
@@ -114,54 +114,9 @@ set hlsearch                                                " 検索文字のハイライ
 "--------------------------------------------------------------------------------
 set fileformats=unix,dos,mac                                " ファイル形式の認識順序
 
-" 適当な文字コード判別
-set termencoding=utf-8
+set termencoding=utf-8                                      " 適当な文字コード判別
 set encoding=utf-8
 set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp
-
-" 厳密な文字コード判別
-" http://www.kawaz.jp/pukiwiki/?vim#content_1_7
-" http://d.hatena.ne.jp/hazy-moon/20061229/1167407073
-" if &encoding !=# 'utf-8'
-    " set encoding=japan
-    " set fileencoding=japan
-" endif
-" if has('iconv')
-    " let s:enc_euc = 'euc-jp'
-    " let s:enc_jis = 'iso-2022-jp'
-    " iconvがeucJP-msに対応しているかをチェック
-    " if iconv("?x87?x64?x87?x6a", 'cp932', 'eucjp-ms') ==# "?xad?xc5?xad?xcb"
-        " let s:enc_euc = 'eucjp-ms'
-        " let s:enc_jis = 'iso-2022-jp-3'
-    " iconvがJISX0213に対応しているかをチェック
-    " elseif iconv("?x87?x64?x87?x6a", 'cp932', 'euc-jisx0213') ==# "?xad?xc5?xad?xcb"
-        " let s:enc_euc = 'euc-jisx0213'
-        " let s:enc_jis = 'iso-2022-jp-3'
-    " endif
-    " fileencodingsを構築
-    " if &encoding ==# 'utf-8'
-        " let s:fileencodings_default = &fileencodings
-        " let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-        " let &fileencodings = &fileencodings .','. s:fileencodings_default
-        " unlet s:fileencodings_default
-    " else
-        " let &fileencodings = &fileencodings .','. s:enc_jis
-        " set fileencodings+=utf-8,ucs-2le,ucs-2
-        " if &encoding =~# '^?(euc-jp?|euc-jisx0213?|eucjp-ms?)$'
-            " set fileencodings+=cp932
-            " set fileencodings-=euc-jp
-            " set fileencodings-=euc-jisx0213
-            " set fileencodings-=eucjp-ms
-            " let &encoding = s:enc_euc
-            " let &fileencoding = s:enc_euc
-        " else
-            " let &fileencodings = &fileencodings .','. s:enc_euc
-        " endif
-    " endif
-    " 定数を処分
-    " unlet s:enc_euc
-    " unlet s:enc_jis
-" endif
 
 if has('win32') && has('kaoriya')                           " 文字幅認識の設定
     set ambiwidth=auto
@@ -298,7 +253,7 @@ let NERDSpaceDelims = 1                                 " コメントの間にスペース
 let g:neocomplcache_enable_at_startup = 1               " neocomplcacheを有効にする
 "let g:neocomplcache_max_list = 100                     " 補完リストの最大件数
 "let g:neocomplcache_max_keyword_width = 50             " 補完候補の表示幅
-"g:neocomplcache_max_filename_width = 15                " 補完ファイル名の表示幅
+"let g:neocomplcache_max_filename_width = 15            " 補完ファイル名の表示幅
 "let g:neocomplcache_auto_completion_start_length = 2   " 補完を開始する文字数
 "let g:neocomplcache_enable_auto_select = 1             " 補完リストの先頭を自動選択するか
 let g:neocomplcache_enable_smart_case = 1               " smart_case補完を有効にする
@@ -313,5 +268,5 @@ let g:neocomplcache_min_syntax_length = 3               " シンタックスのキャッシ
 "---------------------------------------------------------------------------
 " カラー設定:
 "---------------------------------------------------------------------------
-set background=dark
-colorscheme desert
+set background=light
+colorscheme solarized
