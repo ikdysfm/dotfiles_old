@@ -22,9 +22,9 @@ set modeline                                                " モードライン
 set backup                                                  " バックアップを有効に
 set swapfile                                                " スワップを有効に
 if has('win32') || has('win64')                             " バックアップディレクトリを指定
-    set backupdir=~/vimfiles/backup
+  set backupdir=~/vimfiles/backup
 else
-    set backupdir=~/.vim/backup
+  set backupdir=~/.vim/backup
 endif
 let &directory=&backupdir                                   " スワップディレクトリを指定
 let mapleader = ","                                         " キーマップリーダー
@@ -103,7 +103,7 @@ augroup END
 set cindent                                                 " インデント有効
 set autoindent
 set smartindent
-set ts=4 sts=0 sw=4                                         " タブで挿入されるスペース量の設定
+set ts=2 sts=0 sw=2                                         " タブで挿入されるスペース量の設定
 set expandtab                                               " スペースをタブに展開する
 
 "--------------------------------------------------------------------------------
@@ -134,9 +134,9 @@ set encoding=utf-8
 set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp
 
 if has('win32') && has('kaoriya')                           " 文字幅認識の設定
-    set ambiwidth=auto
+  set ambiwidth=auto
 else
-    set ambiwidth=double
+  set ambiwidth=double
 endif
 
 "--------------------------------------------------------------------------------
@@ -174,13 +174,13 @@ nnoremap ;;g <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
 
 " クリップボードとの連携
 if has('mac') && !has('gui')
-    nnoremap <silent> gy :.w !pbcopy<CR><CR>
-    vnoremap <silent> gy :w !pbcopy<CR><CR>
-    nnoremap <silent> gp :r !pbpaste<CR>
-    vnoremap <silent> gp :r !pbpaste<CR>
+  nnoremap <silent> gy :.w !pbcopy<CR><CR>
+  vnoremap <silent> gy :w !pbcopy<CR><CR>
+  nnoremap <silent> gp :r !pbpaste<CR>
+  vnoremap <silent> gp :r !pbpaste<CR>
 else
-    noremap gy "+y
-    noremap gp "+p
+  noremap gy "+y
+  noremap gp "+p
 endif
 
 " コマンドラインでのキーバインドを Emacs スタイルにする
