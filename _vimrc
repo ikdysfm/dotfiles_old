@@ -1,6 +1,14 @@
 "--------------------------------------------------------------------------------
+" Vundleの設定
+"--------------------------------------------------------------------------------
+filetype off " このセクションを抜けたらonにすること
+:source <sfile>:h/_vundle.vim
+
+"--------------------------------------------------------------------------------
 " 基本設定
 "--------------------------------------------------------------------------------
+filetype plugin on                                          " ファイルタイプによるプラグイン
+filetype indent on                                          " ファイルタイプによるインデント
 set scrolloff=0                                             " カーソルの上下に表示する行数
 set formatoptions+=lmoq                                     " テキスト整形オプション、マルチバイト系を追加
 set textwidth=0                                             " 自動改行無し
@@ -19,8 +27,6 @@ else
     set backupdir=~/.vim/backup
 endif
 let &directory=&backupdir                                   " スワップディレクトリを指定
-filetype indent on                                          " ファイルタイプによるインデント
-filetype plugin on                                          " ファイルタイプによるプラグイン
 let mapleader = ","                                         " キーマップリーダー
 
 "--------------------------------------------------------------------------------
@@ -166,9 +172,6 @@ nnoremap g# g#zz
 nnoremap ;g <Esc>:<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
 nnoremap ;;g <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
 
-" 水平分割を分かりやすく
-nnoremap <C-w>h <C-w>s
-
 " クリップボードとの連携
 if has('mac') && !has('gui')
     nnoremap <silent> gy :.w !pbcopy<CR><CR>
@@ -229,57 +232,6 @@ endfunction
 
 " 既存のcdコマンドを置き換える
 cnoreabbrev <expr> cd (getcmdtype() == ':' && getcmdline() ==# 'cd') ? 'CD' : 'cd'
-
-"--------------------------------------------------------------------------------
-" プラグインの設定
-"--------------------------------------------------------------------------------
-
-"------------------------------------
-" pathogen
-"------------------------------------
-filetype off                                            " 一度ファイルタイプ判定をoff
-call pathogen#runtime_append_all_bundles()              " .vim/bundle/plugin_nameを読み込むようにする
-call pathogen#helptags()                                " .vim/bunle/plugin_nameのヘルプを読み込めるようにする
-filetype on                                             " 最後にファイルタイプ判定を元に戻す
-
-"------------------------------------
-" surround
-"------------------------------------
-nmap s  <Plug>Ysurround
-nmap ss <Plug>Yssurround
-
-"------------------------------------
-" NERD_commenter
-"------------------------------------
-let NERDSpaceDelims = 1                                 " コメントの間にスペースを空ける
-"map <Leader>x ,c<space>                                " 一行コメントアウトのトグル(Windowsだと実行後にカーソルが滑る？)
-"map <Leader>cs ,cs                                     " 複数行コメントアウト
-"map <Leader>ca ,cA                                     " 行末コメント
-"let NERDShutUp=1                                       " 未対応ファイルタイプのエラーメッセージを表示しない
-
-" ------------------------------------
-" neocomplcache
-"------------------------------------
-let g:neocomplcache_enable_at_startup = 1               " neocomplcacheを有効にする
-"let g:neocomplcache_max_list = 100                     " 補完リストの最大件数
-"let g:neocomplcache_max_keyword_width = 50             " 補完候補の表示幅
-"let g:neocomplcache_max_filename_width = 15            " 補完ファイル名の表示幅
-"let g:neocomplcache_auto_completion_start_length = 2   " 補完を開始する文字数
-"let g:neocomplcache_enable_auto_select = 1             " 補完リストの先頭を自動選択するか
-let g:neocomplcache_enable_smart_case = 1               " smart_case補完を有効にする
-"let g:neocomplcache_enable_camel_case_completion = 1   " camel_case補完を有効にする
-"let g:neocomplcache_enable_underbar_completion = 1     " アンダーバー区切りの補完を有効にする
-let g:neocomplcache_min_syntax_length = 3               " シンタックスのキャッシュ最小文字長
-"let g:neocomplcache_disable_caching_file_path_pattern  " キャッシュしないバッファ名の正規表現
-"let g:neocomplcache_lock_buffer_name_pattern =         " 自動補完を無効化するバッファ名の正規表現
-"let g:neocomplcache_dictionary_filetype_lists = {      " ファイルタイプごとの辞書設定
-"let g:neocomplcache_keyword_patterns['default'] =      " キーワードパターンの設定
-
-" ------------------------------------
-" bufexplorer
-"------------------------------------
-let bufExplorerDetailedHelp = 1
-nnoremap <Leader>bh :<C-u>BufExplorerH<CR>                   " 水平分割を分かりやすく
 
 "---------------------------------------------------------------------------
 " カラー設定

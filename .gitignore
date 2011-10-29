@@ -11,11 +11,12 @@
 !/.vim
 !/_vimrc
 !/_gvimrc
+!/_vundle.vim
 !/.tmux.conf
 
 # 管理したいファイルの中で個別に無視したいものを以下に設定
 /.vim/.DS_store
-/.vim/bundle/.DS_store
+/.vim/bundle
 /.vim/autoload
 /.vim/backup
 /.vim/.netrwhist
