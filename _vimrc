@@ -21,11 +21,7 @@ set whichwrap=b,s,h,l,<,>,[,]                               " 行頭、行末で
 set modeline                                                " モードラインを有効にする
 set backup                                                  " バックアップを有効に
 set swapfile                                                " スワップを有効に
-if has('win32') || has('win64')                             " バックアップディレクトリを指定
-  set backupdir=~/vimfiles/backup
-else
-  set backupdir=~/.vim/backup
-endif
+set backupdir=~/.vim/backup                                 " バックアップディレクトリを指定
 let &directory=&backupdir                                   " スワップディレクトリを指定
 let mapleader = ","                                         " キーマップリーダー
 
