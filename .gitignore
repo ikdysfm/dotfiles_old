@@ -9,9 +9,9 @@
 !/.gitmodules
 !/.gitconfig
 !/.vim
-!/_vimrc
-!/_gvimrc
-!/_vundle.vim
+!/.vimrc
+!/.gvimrc
+!/.vundle.vim
 !/.zshrc
 !/.tmux.conf
 
