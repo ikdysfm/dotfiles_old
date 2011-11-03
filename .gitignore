@@ -21,3 +21,4 @@
 /.vim/autoload
 /.vim/backup
 /.vim/.netrwhist
+/.vim/yankring_history*

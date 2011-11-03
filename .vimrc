@@ -1,6 +1,7 @@
 "--------------------------------------------------------------------------------
 " Vundleの設定
 "--------------------------------------------------------------------------------
+let mapleader = ","                                         " キーマップリーダー
 filetype off " このセクションを抜けたらonにすること
 :source <sfile>:h/.vundle.vim
 
@@ -23,7 +24,9 @@ set backup                                                  " バックアップ
 set swapfile                                                " スワップを有効に
 set backupdir=~/.vim/backup                                 " バックアップディレクトリを指定
 let &directory=&backupdir                                   " スワップディレクトリを指定
-let mapleader = ","                                         " キーマップリーダー
+if exists('+macmeta')                                       " METAキーを有効にする
+  set macmeta
+endif
 
 "--------------------------------------------------------------------------------
 " ステータス
@@ -159,16 +162,16 @@ onoremap gc :<C-u>normal gc<CR>
 nnoremap <ESC><ESC> :<C-u>nohl<CR><ESC>
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
+nnoremap * *Nzz
+nnoremap # #Nzz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
 " grep
-nnoremap ;g <Esc>:<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
-nnoremap ;;g <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
+nnoremap <Leader>g <Esc>:<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
+nnoremap <Leader><Leader>g <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
 
-" クリップボードとの連携
+" クリップボードとの連携 -> iTerm上だと上手くいかない…
 if has('mac') && !has('gui')
   nnoremap <silent> gy :.w !pbcopy<CR><CR>
   vnoremap <silent> gy :w !pbcopy<CR><CR>
@@ -206,9 +209,6 @@ inoremap <> <><Left>
 inoremap "" ""<Left>
 inoremap '' ''<Left>
 inoremap `` ``<Left>
-
-"file name copy
-nnoremap <silent><Leader>y :let @"=expand('%:p')<CR>:echo "Copy filename to noname register."<CR>
 
 "--------------------------------------------------------------------------------
 " コマンド
