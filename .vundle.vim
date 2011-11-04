@@ -12,10 +12,21 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'corntrace/bufexplorer'
 Bundle 'taku-o/vim-vis'
 Bundle 'tpope/vim-surround'
+Bundle 'houtsnip/vim-emacscommandline'
 " www.vim.org
-" Bundle 'example.vim'
+Bundle 'visualstar.vim'
+Bundle 'ShowMarks'
+Bundle 'YankRing.vim'
+Bundle 'matchit.zip'
 " それ以外のリポジトリ
 " Bundle 'git://git.example.com/example.git'
+
+" ------------------------------------
+" C/Migemo
+"------------------------------------
+if has("migemo")
+  set migemo
+endif
 
 "------------------------------------
 " surround
@@ -54,3 +65,29 @@ let g:neocomplcache_min_syntax_length = 3               " シンタックスの�
 " bufexplorer
 "------------------------------------
 let bufExplorerDetailedHelp = 1
+
+" ------------------------------------
+" visualstar
+"------------------------------------
+noremap <Plug>N N
+map * <Plug>(visualstar-*)<Plug>N
+map # <Plug>(visualstar-#)<Plug>N
+
+" ------------------------------------
+" showmarks
+"------------------------------------
+let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+" ------------------------------------
+" YankRing
+"------------------------------------
+nnoremap <silent> <Leader>y :YRShow<CR>
+let g:yankring_history_dir=expand('$HOME/.vim')
+let g:yankring_history_file='yankring_history'
+let g:yankring_max_history=10
+let g:yankring_window_height=13
+
+" ------------------------------------
+" matchit
+"------------------------------------
+:runtime macros/matchit.vim
