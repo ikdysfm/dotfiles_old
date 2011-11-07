@@ -27,6 +27,8 @@ let &directory=&backupdir                                   " スワップディ
 if exists('+macmeta')                                       " METAキーを有効にする
   set macmeta
 endif
+set virtualedit=block                                       " 矩形選択時に仮想編集を有効にする
+set nrformats=                                              " インクリメントは常に10進数
 
 "--------------------------------------------------------------------------------
 " ステータス
@@ -57,7 +59,7 @@ set showmatch                                               " 対応する括弧
 set showcmd                                                 " コマンドをステータス行に表示
 set number                                                  " 行番号表示
 set list                                                    " 不可視文字の表示
-set lcs=eol:\ ,tab:>.,trail:_,extends:>,precedes:<          " 不可視文字の表示設定
+set lcs=eol:\ ,tab:\ \ ,trail:\ ,extends:>,precedes:<       " 不可視文字の表示設定
 set display=uhex                                            " 印字不可文字を16進表示
 set cmdheight=2                                             " コマンド行の高さ
 set showtabline=2                                           " タブバーを常に表示
@@ -159,13 +161,17 @@ nnoremap gc `[v`]
 vnoremap gc :<C-u>normal gc<CR>
 onoremap gc :<C-u>normal gc<CR>
 
-nnoremap <ESC><ESC> :<C-u>nohl<CR><ESC>
+nnoremap <ESC><ESC> :<C-u>nohl<CR>
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *Nzz
 nnoremap # #Nzz
 nnoremap g* g*zz
 nnoremap g# g#zz
+
+" ビジュアルモードでインデント変更後も選択状態を継続する
+vnoremap < <gv
+vnoremap > >gv
 
 " grep
 nnoremap <Leader>g <Esc>:<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
