@@ -6,7 +6,6 @@ Bundle 'gmarik/vundle'
 " github
 Bundle 'tpope/vim-surround'
 Bundle 'thinca/vim-quickrun'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'Shougo/neocomplcache'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'corntrace/bufexplorer'
@@ -20,6 +19,7 @@ Bundle 'ShowMarks'
 Bundle 'YankRing.vim'
 Bundle 'matchit.zip'
 Bundle 'Indent-Guides'
+Bundle 'tComment'
 " それ以外のリポジトリ
 " Bundle 'git://git.example.com/example.git'
 
@@ -35,15 +35,6 @@ endif
 "------------------------------------
 nmap s  <Plug>Ysurround
 nmap ss <Plug>Yssurround
-
-"------------------------------------
-" NERD_commenter
-"------------------------------------
-let NERDSpaceDelims = 1                                 " コメントの間にスペースを空ける
-"map <Leader>x ,c<space>                                " 一行コメントアウトのトグル(Windowsだと実行後にカーソルが滑る？)
-"map <Leader>cs ,cs                                     " 複数行コメントアウト
-"map <Leader>ca ,cA                                     " 行末コメント
-"let NERDShutUp=1                                       " 未対応ファイルタイプのエラーメッセージを表示しない
 
 "------------------------------------
 " neocomplcache
