@@ -22,6 +22,7 @@ Bundle 'YankRing.vim'
 Bundle 'matchit.zip'
 Bundle 'Indent-Guides'
 Bundle 'tComment'
+Bundle 'smartchr'
 " それ以外のリポジトリ
 " Bundle 'git://git.example.com/example.git'
 
@@ -100,3 +101,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
+
+"------------------------------------
+" smartchr
+"------------------------------------
+inoremap <expr> = smartchr#loop('=', ' = ', ' == ')
