@@ -12,6 +12,7 @@ Bundle 'Shougo/vimshell'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'corntrace/bufexplorer'
 Bundle 'taku-o/vim-vis'
+Bundle 'taku-o/vim-toggle'
 Bundle 'tpope/vim-surround'
 Bundle 'houtsnip/vim-emacscommandline'
 Bundle 'tsaleh/vim-align'
@@ -63,6 +64,14 @@ let g:neocomplcache_min_syntax_length = 3               " シンタックスの�
 let bufExplorerDetailedHelp = 1
 
 "------------------------------------
+" toggle
+"------------------------------------
+imap <C-c> <Plug>ToggleI
+nmap <C-c> <Plug>ToggleN
+vmap <C-c> <Plug>ToggleV
+"let g:toggle_pairs = {'&&':'||', '||':'&&'}
+
+"------------------------------------
 " Align
 "------------------------------------
 let g:Align_xstrlen = 3       " 日本語対策
@@ -105,4 +114,4 @@ let g:indent_guides_guide_size = 1
 "------------------------------------
 " smartchr
 "------------------------------------
-inoremap <expr> = smartchr#loop('=', ' = ', ' == ')
+inoremap <expr> = smartchr#loop(' = ', '=', ' == ')
