@@ -4,6 +4,7 @@ call vundle#rc()
 " Vundleで管理するプラグイン
 Bundle 'gmarik/vundle'
 " github
+Bundle 'unite.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'thinca/vim-quickrun'
 Bundle 'Shougo/neocomplcache'
