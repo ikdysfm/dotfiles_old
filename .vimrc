@@ -92,11 +92,11 @@ augroup grlcd
   autocmd BufEnter * lcd %:p:h
 augroup END
 
-" vimgrepの結果を常にQuickFixに表示する
-augroup grepToQuickFix
-  autocmd!
-  autocmd QuickfixCmdPost vimgrep cw
-augroup END
+" vimgrepの結果を常にQuickFixに表示する -> uniteに統一
+"augroup grepToQuickFix
+"  autocmd!
+"  autocmd QuickfixCmdPost vimgrep cw
+"augroup END
 
 "--------------------------------------------------------------------------------
 " インデント
@@ -145,8 +145,8 @@ endif
 "--------------------------------------------------------------------------------
 nnoremap <Space>.   :<C-u>edit $MYVIMRC<CR>
 nnoremap <Space>s.  :<C-u>source $MYVIMRC<CR>
-nnoremap <C-h>      :<C-u>help<Space>
-nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><CR>
+"nnoremap <C-h>      :<C-u>help<Space> -> uniteに統一
+nnoremap <C-h> :<C-u>help<Space><C-r><C-w><CR>
 
 noremap j gj
 noremap k gk
@@ -173,9 +173,9 @@ nnoremap g# g#zz
 vnoremap < <gv
 vnoremap > >gv
 
-" grep
-nnoremap <Leader>g <Esc>:<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
-nnoremap <Leader><Leader>g <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
+" grep -> uniteに統一
+"nnoremap <Leader>g <Esc>:<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
+"nnoremap <Leader><Leader>g <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
 
 " クリップボードとの連携 -> iTerm上だと上手くいかない…
 if has('mac') && !has('gui')
@@ -188,15 +188,15 @@ else
   noremap gp "+p
 endif
 
-" コマンドラインでのキーバインドを Emacs スタイルにする
+" コマンドラインでのキーバインドを Emacs スタイルにする -> emacscommandlineを導入したのでコメントアウト
 " 行頭へ移動
-cnoremap <C-a> <Home>
+"cnoremap <C-a> <Home>
 " 一文字戻る
 "cnoremap <C-b><Left>
 " カーソルの下の文字を削除
 "cnoremap <C-d> <Del>
 " 行末へ移動
-cnoremap <C-e> <End>
+"cnoremap <C-e> <End>
 " 一文字進む
 "cnoremap <C-f> <Right>
 " コマンドライン履歴を一つ進む
