@@ -5,6 +5,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 " github
 Bundle 'unite.vim'
+Bundle 'tsukkee/unite-help'
+Bundle 'h1mesuke/unite-outline'
 Bundle 'tpope/vim-surround'
 Bundle 'thinca/vim-quickrun'
 Bundle 'Shougo/neocomplcache'
@@ -28,7 +30,19 @@ Bundle 'smartchr'
 " それ以外のリポジトリ
 " Bundle 'git://git.example.com/example.git'
 
-" ------------------------------------
+"------------------------------------
+" unite
+"------------------------------------
+"let g:unite_enable_start_insert = 1                      " 常にインサートモードで起動する
+"imap <C-k> <Plug>(neocomplcache_start_unite_complete)    " neocomplcacheと連携するはずだが、エラーになる
+"imap <C-q> <Plug>(neocomplcache_start_unite_quick_match) " neocomplcacheと連携するはずだが、エラーになる
+nnoremap <silent> <Leader>f :<C-u>Unite -buffer-name=files buffer_tab file_mru file<CR>
+nnoremap <silent> <Leader>g :<C-u>Unite grep -no-quit<CR>
+nnoremap <silent> <Leader>h :<C-u>Unite -start-insert help<CR>
+nnoremap <silent> <Leader>o :<C-u>Unite -start-insert outline<CR>
+nnoremap <silent> <Leader>l :<C-u>Unite -start-insert line<CR>
+
+"------------------------------------
 " C/Migemo
 "------------------------------------
 if has("migemo")
