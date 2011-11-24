@@ -79,11 +79,6 @@ let g:neocomplcache_min_syntax_length = 3               " シンタックスの�
 "let g:neocomplcache_keyword_patterns['default'] =      " キーワードパターンの設定
 
 "------------------------------------
-" bufexplorer
-"------------------------------------
-let bufExplorerDetailedHelp = 1
-
-"------------------------------------
 " toggle
 "------------------------------------
 imap <C-c> <Plug>ToggleI
