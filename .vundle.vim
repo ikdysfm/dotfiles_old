@@ -36,9 +36,15 @@ Bundle 'smartchr'
 "let g:unite_enable_start_insert = 1                      " 常にインサートモードで起動する
 "imap <C-k> <Plug>(neocomplcache_start_unite_complete)    " neocomplcacheと連携するはずだが、エラーになる
 "imap <C-q> <Plug>(neocomplcache_start_unite_quick_match) " neocomplcacheと連携するはずだが、エラーになる
+if has('win32')
+  let g:unite_source_grep_command='jvgrep'
+  let g:unite_source_grep_default_opts=''
+  let g:unite_source_grep_recursive_opt='-R'
+endif
 nnoremap <silent> <Leader>f :<C-u>Unite -buffer-name=files buffer_tab file_mru file<CR>
 nnoremap <silent> <Leader>g :<C-u>Unite grep -no-quit<CR>
 nnoremap <silent> <Leader>h :<C-u>Unite -start-insert help<CR>
+nnoremap <silent> <Leader>H :<C-u>UniteWithCursorWord -start-insert help<CR>
 nnoremap <silent> <Leader>o :<C-u>Unite -start-insert outline<CR>
 nnoremap <silent> <Leader>l :<C-u>Unite -start-insert line<CR>
 

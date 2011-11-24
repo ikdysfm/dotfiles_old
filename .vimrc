@@ -29,6 +29,9 @@ if exists('+macmeta')                                       " METAキーを有�
 endif
 set virtualedit=block                                       " 矩形選択時に仮想編集を有効にする
 set nrformats=                                              " インクリメントは常に10進数
+if has('win32')                                             " grepの置き換え
+  set grepprg=jvgrep
+endif
 
 "--------------------------------------------------------------------------------
 " ステータス
@@ -146,7 +149,7 @@ endif
 nnoremap <Space>.   :<C-u>edit $MYVIMRC<CR>
 nnoremap <Space>s.  :<C-u>source $MYVIMRC<CR>
 "nnoremap <C-h>      :<C-u>help<Space> -> uniteに統一
-nnoremap <C-h> :<C-u>help<Space><C-r><C-w><CR>
+"nnoremap <C-h> :<C-u>help<Space><C-r><C-w><CR>
 
 noremap j gj
 noremap k gk
