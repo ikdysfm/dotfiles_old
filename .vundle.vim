@@ -4,15 +4,15 @@ call vundle#rc()
 " Vundleで管理するプラグイン
 Bundle 'gmarik/vundle'
 " github
-Bundle 'unite.vim'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
+Bundle 'Shougo/vimfiler'
+Bundle 'Shougo/neocomplcache'
 Bundle 'tsukkee/unite-help'
 Bundle 'h1mesuke/unite-outline'
 Bundle 'tpope/vim-surround'
 Bundle 'thinca/vim-quickrun'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-Bundle 'Shougo/vimfiler'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'taku-o/vim-vis'
 Bundle 'taku-o/vim-toggle'
@@ -34,8 +34,8 @@ Bundle 'smartchr'
 " unite
 "------------------------------------
 "let g:unite_enable_start_insert = 1                      " 常にインサートモードで起動する
-"imap <C-k> <Plug>(neocomplcache_start_unite_complete)    " neocomplcacheと連携するはずだが、エラーになる
-"imap <C-q> <Plug>(neocomplcache_start_unite_quick_match) " neocomplcacheと連携するはずだが、エラーになる
+imap <C-k> <Plug>(neocomplcache_start_unite_complete)     " neocomplcacheと連携する
+imap <C-q> <Plug>(neocomplcache_start_unite_quick_match)  " neocomplcacheと連携する
 if has('win32')
   let g:unite_source_grep_command='jvgrep'
   let g:unite_source_grep_default_opts=''
