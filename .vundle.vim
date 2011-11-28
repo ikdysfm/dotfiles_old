@@ -34,19 +34,24 @@ Bundle 'smartchr'
 " unite
 "------------------------------------
 "let g:unite_enable_start_insert = 1                      " 常にインサートモードで起動する
-imap <C-k> <Plug>(neocomplcache_start_unite_complete)     " neocomplcacheと連携する
-imap <C-q> <Plug>(neocomplcache_start_unite_quick_match)  " neocomplcacheと連携する
+"imap <Nul> <Plug>(neocomplcache_start_unite_complete)
+"imap <C-q> <Plug>(neocomplcache_start_unite_quick_match)
 if has('win32')
   let g:unite_source_grep_command='jvgrep'
   let g:unite_source_grep_default_opts=''
   let g:unite_source_grep_recursive_opt='-R'
 endif
-nnoremap <silent> <Leader>f :<C-u>Unite -buffer-name=files buffer_tab file_mru file<CR>
+nnoremap <silent> <Leader>b :<C-u>Unite -buffer-name=files buffer_tab file_mru file<CR>
 nnoremap <silent> <Leader>g :<C-u>Unite grep -no-quit<CR>
 nnoremap <silent> <Leader>h :<C-u>Unite -start-insert help<CR>
 nnoremap <silent> <Leader>H :<C-u>UniteWithCursorWord -start-insert help<CR>
 nnoremap <silent> <Leader>o :<C-u>Unite -start-insert outline<CR>
 nnoremap <silent> <Leader>l :<C-u>Unite -start-insert line<CR>
+
+"------------------------------------
+" VimFiler
+"------------------------------------
+nnoremap <silent> <Leader>f :<C-u>VimFilerSplit<CR>
 
 "------------------------------------
 " C/Migemo

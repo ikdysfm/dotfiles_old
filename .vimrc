@@ -32,6 +32,7 @@ set nrformats=                                              " インクリメン
 if has('win32')                                             " grepの置き換え
   set grepprg=jvgrep
 endif
+setlocal omnifunc=syntaxcomplete#Complete                   " omni補完用
 
 "--------------------------------------------------------------------------------
 " ステータス
@@ -160,9 +161,9 @@ noremap ; :
 noremap : ;
 
 " 最後に変更したテキストを選択する
-nnoremap gc `[v`]
-vnoremap gc :<C-u>normal gc<CR>
-onoremap gc :<C-u>normal gc<CR>
+nnoremap gcv `[v`]
+vnoremap gcv :<C-u>normal gc<CR>
+onoremap gcv :<C-u>normal gc<CR>
 
 nnoremap <ESC><ESC> :<C-u>nohl<CR>
 nnoremap n nzz
@@ -211,6 +212,7 @@ endif
 " 次の単語へ移動
 "cnoremap <Esc><C-f> <S-Right>
 
+inoremap <Nul> <C-x><C-o>
 inoremap {} {}<Left>
 inoremap [] []<Left>
 inoremap () ()<Left>
