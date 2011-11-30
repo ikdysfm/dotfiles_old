@@ -13,12 +13,12 @@ Bundle 'tsukkee/unite-help'
 Bundle 'h1mesuke/unite-outline'
 Bundle 'tpope/vim-surround'
 Bundle 'thinca/vim-quickrun'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'taku-o/vim-vis'
 Bundle 'taku-o/vim-toggle'
 Bundle 'tpope/vim-surround'
 Bundle 'houtsnip/vim-emacscommandline'
 Bundle 'tsaleh/vim-align'
+Bundle 'altercation/vim-colors-solarized'
 " www.vim.org
 Bundle 'visualstar.vim'
 Bundle 'ShowMarks'
@@ -27,6 +27,9 @@ Bundle 'matchit.zip'
 Bundle 'Indent-Guides'
 Bundle 'tComment'
 Bundle 'smartchr'
+Bundle 'desert256.vim'
+Bundle 'desert-warm-256'
+Bundle 'Zenburn'
 " それ以外のリポジトリ
 " Bundle 'git://git.example.com/example.git'
 
@@ -51,7 +54,8 @@ nnoremap <silent> <Leader>l :<C-u>Unite -start-insert line<CR>
 "------------------------------------
 " VimFiler
 "------------------------------------
-nnoremap <silent> <Leader>f :<C-u>VimFilerSplit<CR>
+nnoremap <silent> <Leader>f :<C-u>VimFiler<CR>
+let g:vimfiler_as_default_explorer=1                    " netrwの代わりにデフォルトのファイラーにする
 
 "------------------------------------
 " C/Migemo

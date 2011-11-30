@@ -244,5 +244,5 @@ cnoreabbrev <expr> cd (getcmdtype() == ':' && getcmdline() ==# 'cd') ? 'CD' : 'c
 " カラー設定
 "---------------------------------------------------------------------------
 set t_Co=256
-set background=dark
+" set background=light
 colorscheme solarized
