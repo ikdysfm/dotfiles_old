@@ -125,4 +125,4 @@ endif
 " カラー設定:
 "---------------------------------------------------------------------------
 set background=dark
-colorscheme solarized
+colorscheme desert-warm-256
