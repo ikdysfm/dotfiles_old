@@ -55,6 +55,7 @@ nnoremap <silent> <Leader>l :<C-u>Unite -start-insert line<CR>
 " VimFiler
 "------------------------------------
 nnoremap <silent> <Leader>f :<C-u>VimFiler<CR>
+nnoremap <silent> <Leader>F :<C-u>VimFilerSplit<CR>
 let g:vimfiler_as_default_explorer=1                    " netrwの代わりにデフォルトのファイラーにする
 
 "------------------------------------
