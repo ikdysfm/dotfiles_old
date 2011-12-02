@@ -16,6 +16,8 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'taku-o/vim-vis'
 Bundle 'taku-o/vim-toggle'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'houtsnip/vim-emacscommandline'
 Bundle 'tsaleh/vim-align'
 Bundle 'altercation/vim-colors-solarized'
@@ -54,8 +56,8 @@ nnoremap <silent> <Leader>l :<C-u>Unite -start-insert line<CR>
 "------------------------------------
 " VimFiler
 "------------------------------------
-nnoremap <silent> <Leader>f :<C-u>VimFiler<CR>
-nnoremap <silent> <Leader>F :<C-u>VimFilerSplit<CR>
+nnoremap <silent> <Leader>f :<C-u>execute "VimFiler" expand("%:p:h")<CR>
+nnoremap <silent> <Leader>F :<C-u>execute "VimFilerSplit" expand("%:p:h")<CR>
 let g:vimfiler_as_default_explorer=1                    " netrwの代わりにデフォルトのファイラーにする
 
 "------------------------------------
