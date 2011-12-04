@@ -11,27 +11,7 @@ filetype off " このセクションを抜けたらonにすること
 filetype plugin on                                          " ファイルタイプによるプラグイン
 filetype indent on                                          " ファイルタイプによるインデント
 set scrolloff=0                                             " カーソルの上下に表示する行数
-set formatoptions+=lmoq                                     " テキスト整形オプション、マルチバイト系を追加
-set textwidth=0                                             " 自動改行無し
-set autoread                                                " 他で書き換えられたら自動で読み直す
-set backspace=eol,start,indent                              " バックスペースで何でも消せるように
-set foldmethod=marker                                       " デフォルトの折り畳みを有効に
-set noerrorbells                                            " ビープを鳴らさない
-set novisualbell                                            " ビジュアルベル無効
-set whichwrap=b,s,h,l,<,>,[,]                               " 行頭、行末でカーソルを止めない
-set modeline                                                " モードラインを有効にする
-set backup                                                  " バックアップを有効に
-set swapfile                                                " スワップを有効に
-set backupdir=~/.vim/backup                                 " バックアップディレクトリを指定
-let &directory=&backupdir                                   " スワップディレクトリを指定
-if exists('+macmeta')                                       " METAキーを有効にする
-  set macmeta
-endif
-set virtualedit=block                                       " 矩形選択時に仮想編集を有効にする
-set nrformats=                                              " インクリメントは常に10進数
-if has('win32')                                             " grepの置き換え
-  set grepprg=jvgrep
-endif
+]c]
 setlocal omnifunc=syntaxcomplete#Complete                   " omni補完用
 
 "--------------------------------------------------------------------------------
@@ -180,6 +160,9 @@ vnoremap > >gv
 " grep -> uniteに統一
 "nnoremap <Leader>g <Esc>:<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
 "nnoremap <Leader><Leader>g <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
+
+"diff
+nnoremap <Leader>d :<C-u>vertical diffsplit 
 
 " クリップボードとの連携 -> iTerm上だと上手くいかない…
 if has('mac') && !has('gui')
