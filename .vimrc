@@ -248,4 +248,4 @@ cnoreabbrev <expr> cd (getcmdtype() == ':' && getcmdline() ==# 'cd') ? 'CD' : 'c
 "---------------------------------------------------------------------------
 "set t_Co=256
 "set background=light
-colorscheme desert-warm-256
+colorscheme wombat256mod

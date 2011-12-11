@@ -32,6 +32,7 @@ Bundle 'smartchr'
 Bundle 'desert256.vim'
 Bundle 'desert-warm-256'
 Bundle 'Zenburn'
+Bundle 'wombat256.vim'
 " それ以外のリポジトリ
 " Bundle 'git://git.example.com/example.git'
 
