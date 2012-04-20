@@ -28,7 +28,7 @@ if exists('+macmeta')                                       " METAキーを有�
   set macmeta
 endif
 set virtualedit=block                                       " 矩形選択時に仮想編集を有効にする
-set nrformats=                                              " インクリメントは常に10進数
+set nrformats=hex                                           " インクリメントは常に10進数
 if has('win32')                                             " grepの置き換え
   set grepprg=jvgrep
 endif
