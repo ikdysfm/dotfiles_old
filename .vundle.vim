@@ -20,8 +20,10 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'houtsnip/vim-emacscommandline'
 Bundle 'tsaleh/vim-align'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'tyru/open-browser.vim'
 " www.vim.org
 Bundle 'visualstar.vim'
+Bundle 'Markdown'
 Bundle 'ShowMarks'
 Bundle 'YankRing.vim'
 Bundle 'matchit.zip'
@@ -34,6 +36,16 @@ Bundle 'Zenburn'
 Bundle 'wombat256.vim'
 " それ以外のリポジトリ
 " Bundle 'git://git.example.com/example.git'
+
+"------------------------------------
+" quick-run
+"------------------------------------
+let g:quickrun_config = {}
+let g:quickrun_config['markdown'] = {
+      \ 'type': 'markdown/pandoc',
+      \ 'outputter': 'browser',
+      \ 'cmdopt': '-s'
+      \ }
 
 "------------------------------------
 " unite

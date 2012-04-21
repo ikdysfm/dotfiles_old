@@ -11,7 +11,7 @@ case ${UID} in
     ;;
 esac
 
-PATH=${PATH}:${HOME}/bin:/usr/local/bin
+PATH=$HOME/Library/Haskell/bin:${PATH}:${HOME}/bin:/usr/local/bin
 
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
