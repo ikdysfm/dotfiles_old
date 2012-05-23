@@ -184,3 +184,5 @@ inoremap <expr> = smartchr#loop(' = ', '=', ' == ')
 " powerline
 "------------------------------------
 let g:Powerline_symbols = 'fancy'
+let g:Powerline_colorscheme = 'default'
+let g:Powerline_theme = 'default'
