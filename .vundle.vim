@@ -16,7 +16,8 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'taku-o/vim-vis'
 Bundle 'taku-o/vim-toggle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'houtsnip/vim-emacscommandline'
 Bundle 'tsaleh/vim-align'
 Bundle 'altercation/vim-colors-solarized'
@@ -178,3 +179,8 @@ let g:indent_guides_guide_size = 1
 " smartchr
 "------------------------------------
 inoremap <expr> = smartchr#loop(' = ', '=', ' == ')
+
+"------------------------------------
+" powerline
+"------------------------------------
+let g:Powerline_symbols = 'fancy'

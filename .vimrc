@@ -35,25 +35,25 @@ endif
 setlocal omnifunc=syntaxcomplete#Complete                   " omni補完用
 
 "--------------------------------------------------------------------------------
-" ステータス
+" ステータス -> powerlineに変更
 "--------------------------------------------------------------------------------
-set showmode                                                " 最終行にメッセージを表示
-set laststatus=2                                            " 常にステータスラインを表示
-set statusline=
-set statusline+=[*%n]\                                      " バッファ番号
-set statusline+=%f\                                         " ファイル名
-set statusline+=%{'['.(&fenc!=''?&fenc:'?').'-'.&ff.']'}    " 文字コード
-set statusline+=%y                                          " ファイルタイプ
-set statusline+=%r                                          " 読み取り専用フラグ
-set statusline+=%h                                          " ヘルプバッファ
-set statusline+=%w                                          " プレビューウィンドウ
-set statusline+=%m                                          " バッファ状態[+]とか
-set statusline+=%=                                          " 区切り
-"set statusline+=\ %{strftime('%c')}                        " 時間
-set statusline+=%4l/%4L%4p%%                                " どこにいるか
-set statusline+=\ %3c                                       " 列
-set statusline+=\ %4B                                       " 文字コード
-set statusline+=%<                                          " 折り返しの指定
+"set showmode                                                " 最終行にメッセージを表示
+"set laststatus=2                                            " 常にステータスラインを表示
+"set statusline=
+"set statusline+=[*%n]\                                      " バッファ番号
+"set statusline+=%f\                                         " ファイル名
+"set statusline+=%{'['.(&fenc!=''?&fenc:'?').'-'.&ff.']'}    " 文字コード
+"set statusline+=%y                                          " ファイルタイプ
+"set statusline+=%r                                          " 読み取り専用フラグ
+"set statusline+=%h                                          " ヘルプバッファ
+"set statusline+=%w                                          " プレビューウィンドウ
+"set statusline+=%m                                          " バッファ状態[+]とか
+"set statusline+=%=                                          " 区切り
+""set statusline+=\ %{strftime('%c')}                        " 時間
+"set statusline+=%4l/%4L%4p%%                                " どこにいるか
+"set statusline+=\ %3c                                       " 列
+"set statusline+=\ %4B                                       " 文字コード
+"set statusline+=%<                                          " 折り返しの指定
 
 "--------------------------------------------------------------------------------
 " 表示

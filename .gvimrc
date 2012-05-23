@@ -4,7 +4,8 @@
 if has('win32')
   " Windows用
   ""set guifont=MS_Gothic:h12:cSHIFTJIS
-  set guifont=Consolas:h8:cSHIFTJIS
+  set guifont=Ricty_for_Powerline:h14
+  set guifontwide=Ricty:h14
   "set guifont=MS_Mincho:h12:cSHIFTJIS
   " 行間隔の設定
   set linespace=1
@@ -15,8 +16,8 @@ if has('win32')
 elseif has('gui_macvim')
   set transparency=5
   set antialias
-  set guifont=Migu\ 1M:h14
-  set guifontwide=Migu\ 1M:h14
+  set guifont=Ricty_for_Powerline:h14
+  set guifontwide=Ricty:h14
 elseif has('mac')
   set guifont=Osaka－等幅:h20
 elseif has('xfontset')
