@@ -22,6 +22,8 @@ Bundle 'houtsnip/vim-emacscommandline'
 Bundle 'tsaleh/vim-align'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tyru/open-browser.vim'
+Bundle 'othree/eregex.vim'
+Bundle 'sjl/gundo.vim'
 " www.vim.org
 Bundle 'visualstar.vim'
 Bundle 'Markdown'
@@ -186,3 +188,17 @@ inoremap <expr> = smartchr#loop(' = ', '=', ' == ')
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'default'
 let g:Powerline_theme = 'default'
+
+"------------------------------------
+" eregex
+"------------------------------------
+let plugin_dicwin_disable = 1 " キーマップが被るので無効化しておく
+nnoremap / :M/
+nnoremap ? :M?
+nnoremap <Leader>/ /
+nnoremap <Leader>? ?
+
+"------------------------------------
+" gundo
+"------------------------------------
+nnoremap <silent> <Leader>u :<C-u>GundoToggle<CR>
