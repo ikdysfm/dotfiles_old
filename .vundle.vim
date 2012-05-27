@@ -1,30 +1,43 @@
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Vundleで管理するプラグイン
 Bundle 'gmarik/vundle'
-" github
+
+""""" github
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc'
-"Bundle 'Shougo/vimshell'
 Bundle 'Shougo/vimfiler'
 Bundle 'Shougo/neocomplcache'
+"Bundle 'Shougo/vimshell'
 Bundle 'tsukkee/unite-help'
 Bundle 'h1mesuke/unite-outline'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
 Bundle 'thinca/vim-quickrun'
 Bundle 'taku-o/vim-vis'
 Bundle 'taku-o/vim-toggle'
-Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'houtsnip/vim-emacscommandline'
-Bundle 'tsaleh/vim-align'
+Bundle 'h1mesuke/vim-alignta'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tyru/open-browser.vim'
 Bundle 'othree/eregex.vim'
 Bundle 'sjl/gundo.vim'
-" www.vim.org
+Bundle 't9md/vim-textmanip'
+Bundle 'ujihisa/unite-colorscheme'
+Bundle 'Lokaltog/vim-powerline'
+"Bundle 'lokaltog/vim-easymotion'
+Bundle 'kana/vim-smartchr'
+" textobj
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-fold'
+Bundle 'kana/vim-textobj-line'
+Bundle 'kana/vim-textobj-syntax'
+Bundle 'kana/vim-textobj-indent'
+Bundle 'thinca/vim-textobj-comment'
+Bundle 'h1mesuke/textobj-wiw'
+
+""""" www.vim.org
 Bundle 'visualstar.vim'
 Bundle 'Markdown'
 Bundle 'ShowMarks'
@@ -32,7 +45,7 @@ Bundle 'YankRing.vim'
 Bundle 'matchit.zip'
 Bundle 'Indent-Guides'
 Bundle 'tComment'
-Bundle 'smartchr'
+" colorscheme
 Bundle 'desert256.vim'
 Bundle 'desert-warm-256'
 Bundle 'Zenburn'
@@ -61,12 +74,15 @@ if has('win32')
   let g:unite_source_grep_default_opts=''
   let g:unite_source_grep_recursive_opt='-R'
 endif
+nnoremap <silent> <Leader>a :<C-u>Unite alignta:options<CR>
+xnoremap <silent> <Leader>a :<C-u>Unite alignta:arguments<CR>
 nnoremap <silent> <Leader>b :<C-u>Unite -buffer-name=files buffer_tab file_mru file<CR>
+nnoremap <silent> <Leader>c :<C-u>Unite colorscheme<CR>
 nnoremap <silent> <Leader>g :<C-u>Unite grep -no-quit<CR>
 nnoremap <silent> <Leader>h :<C-u>Unite -start-insert help<CR>
 nnoremap <silent> <Leader>H :<C-u>UniteWithCursorWord -start-insert help<CR>
-nnoremap <silent> <Leader>o :<C-u>Unite -start-insert outline<CR>
 nnoremap <silent> <Leader>l :<C-u>Unite -start-insert line<CR>
+nnoremap <silent> <Leader>o :<C-u>Unite -start-insert outline<CR>
 
 "------------------------------------
 " VimFiler
@@ -138,10 +154,38 @@ vmap <C-c> <Plug>ToggleV
 "let g:toggle_pairs = {'&&':'||', '||':'&&'}
 
 "------------------------------------
-" Align
+" Alignta
 "------------------------------------
-let g:Align_xstrlen = 3       " 日本語対策
-let g:DrChipTopLvlMenu = ''   " DrChipメニューを無効にする
+let g:alignta_default_options = "<<<1:1"
+
+let g:unite_source_alignta_preset_arguments = [
+      \ ["Align at '='", '='],  
+      \ ["Align at ':'", ':'],
+      \ ["Align at '|'", '|'],
+      \ ["Align at ')'", ')'],
+      \ ["Align at ']'", ']'],
+      \ ["Align at '}'", '}'],
+      \]
+
+let s:comment_leadings = '^\s*\("\|#\|/\*\|//\|<!--\)'
+let g:unite_source_alignta_preset_options = [
+      \ ["Justify Left",      '<<' ],
+      \ ["Justify Center",    '||' ],
+      \ ["Justify Right",     '>>' ],
+      \ ["Justify None",      '==' ],
+      \ ["Shift Left",        '<-' ],
+      \ ["Shift Right",       '->' ],
+      \ ["Shift Left  [Tab]", '<--'],
+      \ ["Shift Right [Tab]", '-->'],
+      \ ["Margin 0:0",        '0'  ],
+      \ ["Margin 0:1",        '01' ],
+      \ ["Margin 1:0",        '10' ],
+      \ ["Margin 1:1",        '1'  ],
+      \
+      \ 'v/' . s:comment_leadings,
+      \ 'g/' . s:comment_leadings,
+      \]
+unlet s:comment_leadings
 
 "------------------------------------
 " visualstar
@@ -180,7 +224,7 @@ let g:indent_guides_guide_size = 1
 "------------------------------------
 " smartchr
 "------------------------------------
-inoremap <expr> = smartchr#loop(' = ', '=', ' == ')
+inoremap <expr> = smartchr#loop('=', ' = ', ' == ')
 
 "------------------------------------
 " powerline
@@ -202,3 +246,20 @@ nnoremap <Leader>? ?
 " gundo
 "------------------------------------
 nnoremap <silent> <Leader>u :<C-u>GundoToggle<CR>
+
+"------------------------------------
+" textmanip
+"------------------------------------
+" 選択したテキストの移動
+vmap <S-h> <Plug>(textmanip-move-left)
+vmap <S-j> <Plug>(textmanip-move-down)
+vmap <S-k> <Plug>(textmanip-move-up)
+vmap <S-l> <Plug>(textmanip-move-right)
+" 行の複製
+"vmap <M-d> <Plug>(textmanip-duplicate-down)
+"nmap <M-d> <Plug>(textmanip-duplicate-down)
+
+"------------------------------------
+" textobj-wiw
+"------------------------------------
+let g:textobj_wiw_default_key_mappings_prefix = ','

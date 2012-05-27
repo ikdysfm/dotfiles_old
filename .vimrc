@@ -1,7 +1,7 @@
 "--------------------------------------------------------------------------------
 " Vundleの設定
 "--------------------------------------------------------------------------------
-let mapleader = ","                                         " キーマップリーダー
+let mapleader = "\<Space>"                                  " キーマップリーダー
 filetype off " このセクションを抜けたらonにすること
 :source <sfile>:h/.vundle.vim
 
@@ -147,8 +147,8 @@ endif
 "--------------------------------------------------------------------------------
 " キーマップ
 "--------------------------------------------------------------------------------
-nnoremap <Space>.   :<C-u>edit $MYVIMRC<CR>
-nnoremap <Space>s.  :<C-u>source $MYVIMRC<CR>
+nnoremap <Leader>.  :<C-u>edit $MYVIMRC<CR>
+nnoremap <Leader>s. :<C-u>source $MYVIMRC<CR>
 "nnoremap <C-h>      :<C-u>help<Space> -> uniteに統一
 "nnoremap <C-h> :<C-u>help<Space><C-r><C-w><CR>
 
