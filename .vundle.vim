@@ -14,6 +14,7 @@ Bundle 'h1mesuke/unite-outline'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'thinca/vim-quickrun'
+Bundle 'thinca/vim-visualstar'
 Bundle 'taku-o/vim-vis'
 Bundle 'taku-o/vim-toggle'
 Bundle 'houtsnip/vim-emacscommandline'
@@ -26,6 +27,12 @@ Bundle 't9md/vim-textmanip'
 Bundle 'ujihisa/unite-colorscheme'
 Bundle 'Lokaltog/vim-powerline'
 "Bundle 'lokaltog/vim-easymotion'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'vim-scripts/matchparenpp'
+Bundle 'vim-scripts/YankRing.vim'
+Bundle 'vim-scripts/ShowMarks'
+Bundle 'vim-scripts/tComment'
 Bundle 'kana/vim-smartchr'
 " textobj
 Bundle 'kana/vim-textobj-user'
@@ -38,13 +45,7 @@ Bundle 'thinca/vim-textobj-comment'
 Bundle 'h1mesuke/textobj-wiw'
 
 """"" www.vim.org
-Bundle 'visualstar.vim'
 Bundle 'Markdown'
-Bundle 'ShowMarks'
-Bundle 'YankRing.vim'
-Bundle 'matchit.zip'
-Bundle 'Indent-Guides'
-Bundle 'tComment'
 " colorscheme
 Bundle 'desert256.vim'
 Bundle 'desert-warm-256'
@@ -107,7 +108,7 @@ function! my_action.func(candidates)
 endfunction
 call unite#custom_action('file', 'my_split', my_action)
 
-let my_action = { 'is_selectable' : 1 }                     
+let my_action = { 'is_selectable' : 1 }
 function! my_action.func(candidates)
   wincmd p
   exec 'vsplit '. a:candidates[0].action__path
