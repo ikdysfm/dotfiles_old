@@ -34,6 +34,10 @@ Bundle 'vim-scripts/YankRing.vim'
 Bundle 'vim-scripts/ShowMarks'
 Bundle 'vim-scripts/tComment'
 Bundle 'kana/vim-smartchr'
+" operator
+Bundle 'kana/vim-operator-user'
+Bundle 'kana/vim-operator-replace'
+Bundle 'tyru/operator-camelize.vim'
 " textobj
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-entire'
@@ -78,7 +82,7 @@ endif
 nnoremap <silent> <Leader>a :<C-u>Unite alignta:options<CR>
 xnoremap <silent> <Leader>a :<C-u>Unite alignta:arguments<CR>
 nnoremap <silent> <Leader>b :<C-u>Unite -buffer-name=files buffer_tab file_mru file<CR>
-nnoremap <silent> <Leader>c :<C-u>Unite colorscheme<CR>
+"nnoremap <silent> <Leader>c :<C-u>Unite colorscheme<CR>
 nnoremap <silent> <Leader>g :<C-u>Unite grep -no-quit<CR>
 nnoremap <silent> <Leader>h :<C-u>Unite -start-insert help<CR>
 nnoremap <silent> <Leader>H :<C-u>UniteWithCursorWord -start-insert help<CR>
@@ -264,3 +268,14 @@ vmap <S-l> <Plug>(textmanip-move-right)
 " textobj-wiw
 "------------------------------------
 let g:textobj_wiw_default_key_mappings_prefix = ','
+
+"------------------------------------
+" vim-operator-replace
+"------------------------------------
+map _ <Plug>(operator-replace)
+
+"------------------------------------
+" operator-camelize.vim
+"------------------------------------
+map <Leader>C <Plug>(operator-camelize)
+map <Leader>c <Plug>(operator-decamelize)
