@@ -184,16 +184,16 @@ vnoremap > >gv
 "diff
 nnoremap <Leader>d :<C-u>vertical diffsplit 
 
-" クリップボードとの連携 -> iTerm上だと上手くいかない…
-if has('mac') && !has('gui')
-  nnoremap <silent> gy :.w !pbcopy<CR><CR>
-  vnoremap <silent> gy :w !pbcopy<CR><CR>
-  nnoremap <silent> gp :r !pbpaste<CR>
-  vnoremap <silent> gp :r !pbpaste<CR>
-else
+" クリップボードとの連携 -> fakeclipの導入が前提
+"if has('mac') && !has('gui')
+"  nnoremap <silent> gy :.w !pbcopy<CR><CR>
+"  vnoremap <silent> gy :w !pbcopy<CR><CR>
+"  nnoremap <silent> gp :r !pbpaste<CR>
+"  vnoremap <silent> gp :r !pbpaste<CR>
+"else
   noremap gy "+y
   noremap gp "+p
-endif
+"endif
 
 " コマンドラインでのキーバインドを Emacs スタイルにする -> emacscommandlineを導入したのでコメントアウト
 " 行頭へ移動

@@ -15,6 +15,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-visualstar'
+Bundle 'thinca/vim-fontzoom'
 Bundle 'taku-o/vim-vis'
 Bundle 'taku-o/vim-toggle'
 Bundle 'houtsnip/vim-emacscommandline'
@@ -33,6 +34,7 @@ Bundle 'vim-scripts/matchparenpp'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'vim-scripts/ShowMarks'
 Bundle 'vim-scripts/tComment'
+Bundle 'kana/vim-fakeclip'
 Bundle 'kana/vim-smartchr'
 " operator
 Bundle 'kana/vim-operator-user'
@@ -279,3 +281,13 @@ map _ <Plug>(operator-replace)
 "------------------------------------
 map <Leader>C <Plug>(operator-camelize)
 map <Leader>c <Plug>(operator-decamelize)
+
+"------------------------------------
+" vim-fontzoom
+"------------------------------------
+"silent! nmap <unique> <silent> <leader>0 :<C-u>Fontzoom!<CR>
+
+"------------------------------------
+" vim-fakeclip
+"------------------------------------
+let g:fakeclip_terminal_multiplexer_type = "tmux"
