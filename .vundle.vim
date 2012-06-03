@@ -31,7 +31,6 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-scripts/matchparenpp'
-Bundle 'vim-scripts/YankRing.vim'
 Bundle 'vim-scripts/ShowMarks'
 Bundle 'vim-scripts/tComment'
 Bundle 'kana/vim-fakeclip'
@@ -51,6 +50,7 @@ Bundle 'thinca/vim-textobj-comment'
 Bundle 'h1mesuke/textobj-wiw'
 
 """"" www.vim.org
+Bundle 'YankRing.vim'
 Bundle 'Markdown'
 " colorscheme
 Bundle 'desert256.vim'
