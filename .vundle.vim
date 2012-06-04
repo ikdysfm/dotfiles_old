@@ -33,6 +33,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-scripts/matchparenpp'
 Bundle 'vim-scripts/ShowMarks'
 Bundle 'vim-scripts/tComment'
+Bundle 'vim-scripts/YankRing.vim'
 Bundle 'kana/vim-fakeclip'
 Bundle 'kana/vim-smartchr'
 " operator
@@ -50,7 +51,6 @@ Bundle 'thinca/vim-textobj-comment'
 Bundle 'h1mesuke/textobj-wiw'
 
 """"" www.vim.org
-Bundle 'YankRing.vim'
 Bundle 'Markdown'
 " colorscheme
 Bundle 'desert256.vim'
