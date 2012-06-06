@@ -33,6 +33,8 @@ if has('win32')                                             " grepの置き換�
   set grepprg=jvgrep
 endif
 setlocal omnifunc=syntaxcomplete#Complete                   " omni補完用
+set iminsert=0                                              " insert時にIMEをONにしない
+set imsearch=-1                                             " 検索時にIMEをONにしない
 
 "--------------------------------------------------------------------------------
 " ステータス -> powerlineに変更
