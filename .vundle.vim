@@ -36,6 +36,11 @@ Bundle 'vim-scripts/tComment'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'kana/vim-fakeclip'
 Bundle 'kana/vim-smartchr'
+" twitter
+Bundle 'basyura/TweetVim'
+Bundle 'basyura/twibill.vim'
+Bundle 'basyura/bitly.vim'
+Bundle 'mattn/webapi-vim'
 " operator
 Bundle 'kana/vim-operator-user'
 Bundle 'kana/vim-operator-replace'
