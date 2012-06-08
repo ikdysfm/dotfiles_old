@@ -41,7 +41,7 @@ esac
 
 # auto change directory
 #
-#setopt auto_cd
+setopt auto_cd
 
 # auto directory pushd that you can get dirs list by cd -[tab]
 #
@@ -69,7 +69,7 @@ setopt nolistbeep
 # emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes
 # to end of it)
 #
-bindkey -v
+bindkey -e
 
 # historical backward/forward search with linehead string binded to ^P/^N
 #
@@ -78,7 +78,7 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-bindkey "^R" history-incremental-search-backward
+bindkey "^R" history-incremental-pattern-search-backward
 #bindkey "\\ep" history-beginning-search-backward-end
 #bindkey "\\en" history-beginning-search-forward-end
 
