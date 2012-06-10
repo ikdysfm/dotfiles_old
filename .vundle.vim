@@ -8,6 +8,7 @@ Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimfiler'
 Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplcache-snippets-complete'
 "Bundle 'Shougo/vimshell'
 Bundle 'tsukkee/unite-help'
 Bundle 'h1mesuke/unite-outline'
@@ -160,6 +161,13 @@ let g:neocomplcache_min_syntax_length = 3               " シンタックスの�
 "let g:neocomplcache_lock_buffer_name_pattern =         " 自動補完を無効化するバッファ名の正規表現
 "let g:neocomplcache_dictionary_filetype_lists = {      " ファイルタイプごとの辞書設定
 "let g:neocomplcache_keyword_patterns['default'] =      " キーワードパターンの設定
+
+"------------------------------------
+" neocomplcache-snippets-complete
+"------------------------------------
+let g:neocomplcache_snippets_dir='~/.vim/snippets'      " snippetの配置場所
+imap <C-k> <Plug>(neocomplcache_snippets_expand)
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
 
 "------------------------------------
 " toggle
