@@ -300,3 +300,13 @@ map <Leader>c <Plug>(operator-decamelize)
 " vim-fakeclip
 "------------------------------------
 let g:fakeclip_terminal_multiplexer_type = "tmux"
+
+"------------------------------------
+" ghc-mod.vim
+"------------------------------------
+nnoremap [ghc] <Nop>
+nmap <Leader>G [ghc]
+nnoremap [ghc]t :<C-u>GhcModType<CR>
+nnoremap [ghc]T :<C-u>GhcModTypeClear<CR>
+nnoremap [ghc]c :<C-u>GhcModCheck<CR>
+nnoremap [ghc]l :<C-u>GhcModLint<CR>
