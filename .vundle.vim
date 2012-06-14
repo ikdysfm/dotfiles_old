@@ -25,7 +25,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'tyru/open-browser.vim'
 Bundle 'othree/eregex.vim'
 Bundle 'sjl/gundo.vim'
-Bundle 't9md/vim-textmanip'
+"Bundle 't9md/vim-textmanip'
 Bundle 'ujihisa/unite-colorscheme'
 Bundle 'Lokaltog/vim-powerline'
 "Bundle 'lokaltog/vim-easymotion'
@@ -275,10 +275,10 @@ nnoremap <silent> <Leader>u :<C-u>GundoToggle<CR>
 " textmanip
 "------------------------------------
 " 選択したテキストの移動
-vmap <S-h> <Plug>(textmanip-move-left)
-vmap <S-j> <Plug>(textmanip-move-down)
-vmap <S-k> <Plug>(textmanip-move-up)
-vmap <S-l> <Plug>(textmanip-move-right)
+"vmap <S-h> <Plug>(textmanip-move-left)
+"vmap <S-j> <Plug>(textmanip-move-down)
+"vmap <S-k> <Plug>(textmanip-move-up)
+"vmap <S-l> <Plug>(textmanip-move-right)
 " 行の複製
 "vmap <M-d> <Plug>(textmanip-duplicate-down)
 "nmap <M-d> <Plug>(textmanip-duplicate-down)
