@@ -65,7 +65,7 @@ set showmatch                                               " 対応する括弧
 set showcmd                                                 " コマンドをステータス行に表示
 set number                                                  " 行番号表示
 set list                                                    " 不可視文字の表示
-set lcs=eol:\ ,tab:\ \ ,trail:\ ,extends:>,precedes:<       " 不可視文字の表示設定
+set lcs=eol:\ ,tab:»\ ,trail:_,extends:>,precedes:<          " 不可視文字の表示設定
 set display=uhex                                            " 印字不可文字を16進表示
 set cmdheight=2                                             " コマンド行の高さ
 set showtabline=2                                           " タブバーを常に表示
