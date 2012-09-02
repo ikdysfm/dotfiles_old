@@ -154,6 +154,8 @@ nnoremap <Leader>s. :<C-u>source $MYVIMRC<CR>
 "nnoremap <C-h>      :<C-u>help<Space> -> uniteに統一
 "nnoremap <C-h> :<C-u>help<Space><C-r><C-w><CR>
 
+noremap <CR> o<Esc>
+noremap <S-Enter> O<Esc>
 noremap j gj
 noremap k gk
 noremap gj j
@@ -218,13 +220,13 @@ nnoremap <Leader>d :<C-u>vertical diffsplit
 "cnoremap <Esc><C-f> <S-Right>
 
 inoremap <Nul> <C-x><C-o>
-inoremap {} {}<Left>
-inoremap [] []<Left>
-inoremap () ()<Left>
-inoremap <> <><Left>
-inoremap "" ""<Left>
-inoremap '' ''<Left>
-inoremap `` ``<Left>
+" inoremap {} {}<Left> -> smartinputに移行
+" inoremap [] []<Left>
+" inoremap () ()<Left>
+" inoremap <> <><Left>
+" inoremap "" ""<Left>
+" inoremap '' ''<Left>
+" inoremap `` ``<Left>
 
 "--------------------------------------------------------------------------------
 " コマンド

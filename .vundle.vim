@@ -37,6 +37,7 @@ Bundle 'vim-scripts/tComment'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'kana/vim-fakeclip'
 Bundle 'kana/vim-smartchr'
+Bundle 'kana/vim-smartinput'
 " Haskell
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'eagletmt/unite-haddock'
