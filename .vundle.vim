@@ -42,6 +42,9 @@ Bundle 'kana/vim-smartinput'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'eagletmt/unite-haddock'
 Bundle 'ujihisa/neco-ghc'
+" js
+Bundle 'pangloss/vim-javascript'
+Bundle 'scrooloose/syntastic'
 " twitter
 "Bundle 'basyura/TweetVim'
 "Bundle 'basyura/twibill.vim'
@@ -319,3 +322,12 @@ nnoremap [ghc]t :<C-u>GhcModType<CR>
 nnoremap [ghc]T :<C-u>GhcModTypeClear<CR>
 nnoremap [ghc]c :<C-u>GhcModCheck<CR>
 nnoremap [ghc]l :<C-u>GhcModLint<CR>
+
+"------------------------------------
+" syntastic
+"------------------------------------
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html', 'javascript'] }
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_javascript_checker = 'gjslint'
