@@ -121,6 +121,10 @@ set wildchar=<tab>                                          " コマンド補完
 set wildmode=list:full                                      " リスト表示・最長マッチ
 set history=1000                                            " コマンド履歴のサイズ
 "set cdpath=                                                " cdコマンドで移動出来るディレクトリ定義
+" if has('persistent_undo')                                 " undo履歴の永続化
+"     set undodir=~/.vimundo
+"     set undofile
+" endif
 
 "--------------------------------------------------------------------------------
 " 検索
