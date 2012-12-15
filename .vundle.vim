@@ -34,7 +34,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-scripts/matchparenpp'
 Bundle 'vim-scripts/ShowMarks'
 Bundle 'vim-scripts/tComment'
-Bundle 'vim-scripts/YankRing.vim'
+" Bundle 'vim-scripts/YankRing.vim'
 Bundle 'kana/vim-fakeclip'
 Bundle 'kana/vim-smartchr'
 Bundle 'kana/vim-smartinput'
@@ -230,11 +230,11 @@ let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 "------------------------------------
 " YankRing
 "------------------------------------
-nnoremap <silent> <Leader>y :YRShow<CR>
-let g:yankring_history_dir=expand('$HOME/.vim')
-let g:yankring_history_file='yankring_history'
-let g:yankring_max_history=10
-let g:yankring_window_height=13
+" nnoremap <silent> <Leader>y :YRShow<CR>
+" let g:yankring_history_dir=expand('$HOME/.vim')
+" let g:yankring_history_file='yankring_history'
+" let g:yankring_max_history=10
+" let g:yankring_window_height=13
 
 "------------------------------------
 " matchit
