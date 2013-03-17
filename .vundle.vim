@@ -43,7 +43,10 @@ Bundle 'eagletmt/ghcmod-vim'
 Bundle 'eagletmt/unite-haddock'
 Bundle 'ujihisa/neco-ghc'
 " js
-Bundle 'pangloss/vim-javascript'
+"Bundle 'pangloss/vim-javascript'
+Bundle 'vim-scripts/Simple-Javascript-Indenter'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'teramako/jscomplete-vim'
 Bundle 'scrooloose/syntastic'
 " twitter
 "Bundle 'basyura/TweetVim'
@@ -71,6 +74,7 @@ Bundle 'desert256.vim'
 Bundle 'desert-warm-256'
 Bundle 'Zenburn'
 Bundle 'wombat256.vim'
+Bundle 'w0ng/vim-hybrid'
 " それ以外のリポジトリ
 " Bundle 'git://git.example.com/example.git'
 
@@ -326,8 +330,15 @@ nnoremap [ghc]l :<C-u>GhcModLint<CR>
 "------------------------------------
 " syntastic
 "------------------------------------
+" active=保存時に自動チェック、passive=手動
 let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html', 'javascript'] }
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_javascript_checker = 'gjslint'
+
+"------------------------------------
+" Simple-Javascript-Indenter
+"------------------------------------
+let g:SimpleJsIndenter_BriefMode = 1
+let g:SimpleJsIndenter_CaseIndentLevel = -1
