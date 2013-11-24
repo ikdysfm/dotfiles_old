@@ -11,7 +11,9 @@ case ${UID} in
     ;;
 esac
 
-PATH=$HOME/Library/Haskell/bin:${PATH}:${HOME}/bin:/usr/local/bin:/usr/bin
+export JAVA_HOME=`/usr/libexec/java_home`
+export DERBY_HOME=/usr/share/java/derby-10.8.1.2
+PATH=$PATH:$HOME/bin:/usr/local/bin:/usr/bin:$JAVA_HOME/bin:$DERBY_HOME/bin:$HOME/glassfish4/bin:$HOME/Library/Haskell/bin
 
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -195,4 +197,22 @@ if [ -f ~/.zsh/auto-fu.zsh ]; then
     }
     zle -N zle-line-init
     zstyle ':completion:*' completer _oldlist _complete
+fi
+
+
+#=============================
+# tmux auto launch
+#=============================
+if [ -z "$TMUX" -a -z "$STY" ]; then
+  if type tmuxx >/dev/null 2>&1; then
+    tmuxx
+  elif type tmux >/dev/null 2>&1; then
+    if tmux has-session && tmux list-sessions | /usr/bin/grep -qE '.*]$'; then
+      tmux attach && echo "tmux attached session "
+    else
+      tmux new-session && echo "tmux created new session"
+    fi
+  elif type screen >/dev/null 2>&1; then
+    screen -rx || screen -D -RR
+  fi
 fi

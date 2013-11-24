@@ -1,82 +1,89 @@
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+  set nocompatible                                         " Be iMproved
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-Bundle 'gmarik/vundle'
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc'
 
 """"" github
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimfiler'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
-"Bundle 'Shougo/vimshell'
-Bundle 'tsukkee/unite-help'
-Bundle 'h1mesuke/unite-outline'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'thinca/vim-quickrun'
-Bundle 'thinca/vim-visualstar'
-Bundle 'thinca/vim-fontzoom'
-Bundle 'taku-o/vim-vis'
-Bundle 'taku-o/vim-toggle'
-Bundle 'houtsnip/vim-emacscommandline'
-Bundle 'h1mesuke/vim-alignta'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tyru/open-browser.vim'
-Bundle 'othree/eregex.vim'
-Bundle 'sjl/gundo.vim'
-"Bundle 't9md/vim-textmanip'
-Bundle 'ujihisa/unite-colorscheme'
-Bundle 'Lokaltog/vim-powerline'
-"Bundle 'lokaltog/vim-easymotion'
-Bundle 'tsaleh/vim-matchit'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'vim-scripts/matchparenpp'
-Bundle 'vim-scripts/ShowMarks'
-Bundle 'vim-scripts/tComment'
-" Bundle 'vim-scripts/YankRing.vim'
-Bundle 'kana/vim-fakeclip'
-Bundle 'kana/vim-smartchr'
-Bundle 'kana/vim-smartinput'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+" NeoBundle 'Shougo/vimshell'
+" NeoBundle 'tsukkee/unite-help'
+" NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'tpope/vim-surround'
+" NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'thinca/vim-quickrun'
+" NeoBundle 'thinca/vim-visualstar'
+" NeoBundle 'thinca/vim-fontzoom'
+" NeoBundle 'taku-o/vim-vis'
+" NeoBundle 'taku-o/vim-toggle'
+" NeoBundle 'houtsnip/vim-emacscommandline'
+NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'tyru/open-browser.vim'
+" NeoBundle 'othree/eregex.vim'
+NeoBundle 'sjl/gundo.vim'
+" NeoBundle 't9md/vim-textmanip'
+" NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'Lokaltog/vim-powerline'
+" NeoBundle 'lokaltog/vim-easymotion'
+" NeoBundle 'tsaleh/vim-matchit'
+" NeoBundle 'nathanaelkane/vim-indent-guides'
+" NeoBundle 'vim-scripts/matchparenpp'
+NeoBundle 'vim-scripts/ShowMarks'
+NeoBundle 'vim-scripts/tComment'
+" NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'kana/vim-fakeclip'
+NeoBundle 'kana/vim-smartchr'
+NeoBundle 'kana/vim-smartinput'
 " Haskell
-Bundle 'eagletmt/ghcmod-vim'
-Bundle 'eagletmt/unite-haddock'
-Bundle 'ujihisa/neco-ghc'
+" NeoBundle 'eagletmt/ghcmod-vim'
+" NeoBundle 'eagletmt/unite-haddock'
+" NeoBundle 'ujihisa/neco-ghc'
 " js
-"Bundle 'pangloss/vim-javascript'
-Bundle 'vim-scripts/Simple-Javascript-Indenter'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'teramako/jscomplete-vim'
-Bundle 'scrooloose/syntastic'
-" twitter
-"Bundle 'basyura/TweetVim'
-"Bundle 'basyura/twibill.vim'
-"Bundle 'basyura/bitly.vim'
-"Bundle 'mattn/webapi-vim'
+" NeoBundle 'pangloss/vim-javascript'
+" NeoBundle 'vim-scripts/Simple-Javascript-Indenter'
+" NeoBundle 'jelera/vim-javascript-syntax'
+" NeoBundle 'teramako/jscomplete-vim'
+" NeoBundle 'scrooloose/syntastic'
 " operator
-Bundle 'kana/vim-operator-user'
-Bundle 'kana/vim-operator-replace'
-Bundle 'tyru/operator-camelize.vim'
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'kana/vim-operator-replace'
+NeoBundle 'tyru/operator-camelize.vim'
 " textobj
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-entire'
-Bundle 'kana/vim-textobj-fold'
-Bundle 'kana/vim-textobj-line'
-Bundle 'kana/vim-textobj-syntax'
-Bundle 'kana/vim-textobj-indent'
-Bundle 'thinca/vim-textobj-comment'
-Bundle 'h1mesuke/textobj-wiw'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-entire'
+NeoBundle 'kana/vim-textobj-fold'
+NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'kana/vim-textobj-syntax'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'thinca/vim-textobj-comment'
+" NeoBundle 'h1mesuke/textobj-wiw'
 
 """"" www.vim.org
-Bundle 'Markdown'
+NeoBundle 'Markdown'
 " colorscheme
-Bundle 'desert256.vim'
-Bundle 'desert-warm-256'
-Bundle 'Zenburn'
-Bundle 'wombat256.vim'
-Bundle 'w0ng/vim-hybrid'
+NeoBundle 'desert256.vim'
+NeoBundle 'desert-warm-256'
+NeoBundle 'Zenburn'
+NeoBundle 'wombat256.vim'
+NeoBundle 'w0ng/vim-hybrid'
+
 " それ以外のリポジトリ
-" Bundle 'git://git.example.com/example.git'
+" NeoBundle 'git://git.example.com/example.git'
+
+filetype plugin indent on
+NeoBundleCheck
 
 "------------------------------------
 " quick-run
@@ -180,9 +187,9 @@ smap <C-k> <Plug>(neocomplcache_snippets_expand)
 "------------------------------------
 " toggle
 "------------------------------------
-imap <C-c> <Plug>ToggleI
-nmap <C-c> <Plug>ToggleN
-vmap <C-c> <Plug>ToggleV
+" imap <C-c> <Plug>ToggleI
+" nmap <C-c> <Plug>ToggleN
+" vmap <C-c> <Plug>ToggleV
 "let g:toggle_pairs = {'&&':'||', '||':'&&'}
 
 "------------------------------------
@@ -222,9 +229,9 @@ unlet s:comment_leadings
 "------------------------------------
 " visualstar
 "------------------------------------
-noremap <Plug>N N
-map * <Plug>(visualstar-*)<Plug>N
-map # <Plug>(visualstar-#)<Plug>N
+" noremap <Plug>N N
+" map * <Plug>(visualstar-*)<Plug>N
+" map # <Plug>(visualstar-#)<Plug>N
 
 "------------------------------------
 " showmarks
@@ -243,7 +250,7 @@ let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 "------------------------------------
 " matchit
 "------------------------------------
-:runtime macros/matchit.vim
+" :runtime macros/matchit.vim
 
 "------------------------------------
 " indent-guides
@@ -251,7 +258,7 @@ let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 "let g:indent_guides_enable_on_vim_startup = 1
 "let g:indent_guides_start_level = 2
 "let g:indent_guides_color_change_percent = 30
-let g:indent_guides_guide_size = 1
+" let g:indent_guides_guide_size = 1
 
 "------------------------------------
 " smartchr
@@ -268,11 +275,11 @@ let g:Powerline_theme = 'default'
 "------------------------------------
 " eregex
 "------------------------------------
-let plugin_dicwin_disable = 1 " キーマップが被るので無効化しておく
-nnoremap / :M/
-nnoremap ? :M?
-nnoremap <Leader>/ /
-nnoremap <Leader>? ?
+" let plugin_dicwin_disable = 1 " キーマップが被るので無効化しておく
+" nnoremap / :M/
+" nnoremap ? :M?
+" nnoremap <Leader>/ /
+" nnoremap <Leader>? ?
 
 "------------------------------------
 " gundo
@@ -294,7 +301,7 @@ nnoremap <silent> <Leader>u :<C-u>GundoToggle<CR>
 "------------------------------------
 " textobj-wiw
 "------------------------------------
-let g:textobj_wiw_default_key_mappings_prefix = ','
+" let g:textobj_wiw_default_key_mappings_prefix = ','
 
 "------------------------------------
 " vim-operator-replace
@@ -320,25 +327,25 @@ let g:fakeclip_terminal_multiplexer_type = "tmux"
 "------------------------------------
 " ghc-mod.vim
 "------------------------------------
-nnoremap [ghc] <Nop>
-nmap <Leader>G [ghc]
-nnoremap [ghc]t :<C-u>GhcModType<CR>
-nnoremap [ghc]T :<C-u>GhcModTypeClear<CR>
-nnoremap [ghc]c :<C-u>GhcModCheck<CR>
-nnoremap [ghc]l :<C-u>GhcModLint<CR>
+" nnoremap [ghc] <Nop>
+" nmap <Leader>G [ghc]
+" nnoremap [ghc]t :<C-u>GhcModType<CR>
+" nnoremap [ghc]T :<C-u>GhcModTypeClear<CR>
+" nnoremap [ghc]c :<C-u>GhcModCheck<CR>
+" nnoremap [ghc]l :<C-u>GhcModLint<CR>
 
 "------------------------------------
 " syntastic
 "------------------------------------
 " active=保存時に自動チェック、passive=手動
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html', 'javascript'] }
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_javascript_checker = 'gjslint'
+" let g:syntastic_mode_map = { 'mode': 'active',
+"   \ 'active_filetypes': [],
+"   \ 'passive_filetypes': ['html', 'javascript'] }
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_javascript_checker = 'gjslint'
 
 "------------------------------------
 " Simple-Javascript-Indenter
 "------------------------------------
-let g:SimpleJsIndenter_BriefMode = 1
-let g:SimpleJsIndenter_CaseIndentLevel = -1
+" let g:SimpleJsIndenter_BriefMode = 1
+" let g:SimpleJsIndenter_CaseIndentLevel = -1

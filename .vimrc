@@ -1,15 +1,11 @@
 "--------------------------------------------------------------------------------
-" Vundleの設定
+" NeoBundleの設定
 "--------------------------------------------------------------------------------
 let mapleader = "\<Space>"                                  " キーマップリーダー
-filetype off " このセクションを抜けたらonにすること
-:source <sfile>:h/.vundle.vim
-
+:source <sfile>:h/.neobundle.vim
 "--------------------------------------------------------------------------------
 " 基本設定
 "--------------------------------------------------------------------------------
-filetype plugin on                                          " ファイルタイプによるプラグイン
-filetype indent on                                          " ファイルタイプによるインデント
 set scrolloff=0                                             " カーソルの上下に表示する行数
 set formatoptions+=lmoq                                     " テキスト整形オプション、マルチバイト系を追加
 set textwidth=0                                             " 自動改行無し
@@ -165,8 +161,8 @@ noremap k gk
 noremap gj j
 noremap gk k
 
-noremap ; :
-noremap : ;
+" noremap ; :
+" noremap : ;
 
 " 最後に変更したテキストを選択する
 nnoremap gcv `[v`]
