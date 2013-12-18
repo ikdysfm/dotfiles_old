@@ -1,11 +1,17 @@
-"--------------------------------------------------------------------------------
-" NeoBundleの設定
-"--------------------------------------------------------------------------------
-let mapleader = "\<Space>"                                  " キーマップリーダー
+set encoding=utf-8
+scriptencoding utf-8
+
+" PREFIXの設定 {{{
+nnoremap [PREFIX] <Nop>
+nmap <Space> [PREFIX]
+" }}}
+
+" プラグインの読み込み・設定 {{{
 :source <sfile>:h/.neobundle.vim
-"--------------------------------------------------------------------------------
-" 基本設定
-"--------------------------------------------------------------------------------
+" }}}
+
+" 基本設定 {{{
+set mouse=                                                  " マウスを無効に
 set scrolloff=0                                             " カーソルの上下に表示する行数
 set formatoptions+=lmoq                                     " テキスト整形オプション、マルチバイト系を追加
 set textwidth=0                                             " 自動改行無し
@@ -14,7 +20,7 @@ set backspace=eol,start,indent                              " バックスペー
 set foldmethod=marker                                       " デフォルトの折り畳みを有効に
 set noerrorbells                                            " ビープを鳴らさない
 set novisualbell                                            " ビジュアルベル無効
-set whichwrap=b,s,h,l,<,>,[,]                               " 行頭、行末でカーソルを止めない
+set whichwrap=b,s,<,>,[,],~                                 " 行頭、行末でカーソルを止めない
 set modeline                                                " モードラインを有効にする
 set backup                                                  " バックアップを有効に
 set swapfile                                                " スワップを有効に
@@ -31,87 +37,25 @@ endif
 setlocal omnifunc=syntaxcomplete#Complete                   " omni補完用
 set iminsert=0                                              " insert時にIMEをONにしない
 set imsearch=0                                              " 検索時にIMEをONにしない
+set timeout
+set timeoutlen=3000                                         " マッピングの待ち時間
+set ttimeoutlen=100                                         " キーコードの待ち時間
 
-"--------------------------------------------------------------------------------
-" ステータス -> powerlineに変更
-"--------------------------------------------------------------------------------
-"set showmode                                                " 最終行にメッセージを表示
-"set laststatus=2                                            " 常にステータスラインを表示
-"set statusline=
-"set statusline+=[*%n]\                                      " バッファ番号
-"set statusline+=%f\                                         " ファイル名
-"set statusline+=%{'['.(&fenc!=''?&fenc:'?').'-'.&ff.']'}    " 文字コード
-"set statusline+=%y                                          " ファイルタイプ
-"set statusline+=%r                                          " 読み取り専用フラグ
-"set statusline+=%h                                          " ヘルプバッファ
-"set statusline+=%w                                          " プレビューウィンドウ
-"set statusline+=%m                                          " バッファ状態[+]とか
-"set statusline+=%=                                          " 区切り
-""set statusline+=\ %{strftime('%c')}                        " 時間
-"set statusline+=%4l/%4L%4p%%                                " どこにいるか
-"set statusline+=\ %3c                                       " 列
-"set statusline+=\ %4B                                       " 文字コード
-"set statusline+=%<                                          " 折り返しの指定
+set fileencodings=ucs-bom,iso-2022-jp,utf-8,cp932,euc-jp,default,latin
+set fileformats=unix,dos,mac                                " ファイル形式の認識順序
+set termencoding=utf-8                                      " 適当な文字コード判別
+" }}}
 
-"--------------------------------------------------------------------------------
-" 表示
-"--------------------------------------------------------------------------------
-syntax on
-set showmatch                                               " 対応する括弧のハイライト
-set showcmd                                                 " コマンドをステータス行に表示
-set number                                                  " 行番号表示
-set list                                                    " 不可視文字の表示
-set lcs=eol:\ ,tab:>\ ,trail:_,extends:>,precedes:<          " 不可視文字の表示設定
-set display=uhex                                            " 印字不可文字を16進表示
-set cmdheight=2                                             " コマンド行の高さ
-set showtabline=2                                           " タブバーを常に表示
-set title                                                   " タイトルをウィンドウ枠に表示
-set wrap                                                    " 長い行は折り返して表示
-
-" 全角スペースのハイライト
-scriptencoding utf-8
-
-augroup highlightIdeographicSpace
-  autocmd!
-  autocmd ColorScheme * highlight IdeographicSpace term=underline ctermbg=Red guibg=Red
-  autocmd VimEnter,WinEnter * match IdeographicSpace /　/
-augroup END
-
-" カレントウィンドウのカーソル行のみハイライト
-setlocal cursorline
-augroup cch
-  autocmd!
-  autocmd WinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-augroup END
-
-"--------------------------------------------------------------------------------
-" オートコマンド
-"--------------------------------------------------------------------------------
-" 編集するファイルのある場所をカレントディレクトリにする
-augroup grlcd
-  autocmd!
-  autocmd BufEnter * lcd %:p:h
-augroup END
-
-" vimgrepの結果を常にQuickFixに表示する -> uniteに統一
-"augroup grepToQuickFix
-"  autocmd!
-"  autocmd QuickfixCmdPost vimgrep cw
-"augroup END
-
-"--------------------------------------------------------------------------------
-" インデント
-"--------------------------------------------------------------------------------
+" インデント {{{
 set cindent                                                 " インデント有効
 set autoindent
 set smartindent
 set ts=2 sts=0 sw=2                                         " タブで挿入されるスペース量の設定
+set smarttab                                                " BSで行頭のスペースをまとめて消す
 set expandtab                                               " スペースをタブに展開する
+" }}}
 
-"--------------------------------------------------------------------------------
-" 補完・履歴
-"--------------------------------------------------------------------------------
+" 補完・履歴 {{{
 set wildmenu                                                " コマンド補完の強化
 set wildchar=<tab>                                          " コマンド補完の開始キー
 set wildmode=list:full                                      " リスト表示・最長マッチ
@@ -121,55 +65,60 @@ set history=1000                                            " コマンド履歴
 "     set undodir=~/.vimundo
 "     set undofile
 " endif
+" }}}
 
-"--------------------------------------------------------------------------------
-" 検索
-"--------------------------------------------------------------------------------
+" 検索 {{{
 set wrapscan                                                " 終端まで検索したら先頭に戻る
 set ignorecase                                              " 大文字小文字を無視
 set smartcase                                               " 但し大文字が入力された場合は無視しない
 set incsearch                                               " インクリメンタルサーチ
 set hlsearch                                                " 検索文字のハイライト
+" }}}
 
-"--------------------------------------------------------------------------------
-" エンコーディング
-"--------------------------------------------------------------------------------
-set fileformats=unix,dos,mac                                " ファイル形式の認識順序
-
-set termencoding=utf-8                                      " 適当な文字コード判別
-set encoding=utf-8
-set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp
+" 表示 {{{
+syntax on
+set showmatch                                               " 対応する括弧のハイライト
+set showcmd                                                 " コマンドをステータス行に表示
+set number                                                  " 行番号表示
+set list                                                    " 不可視文字の表示
+set lcs=eol:\ ,tab:>\ ,trail:_,extends:>,precedes:<         " 不可視文字の表示設定
+set display=uhex                                            " 印字不可文字を16進表示
+set cmdheight=2                                             " コマンド行の高さ
+set showtabline=2                                           " タブバーを常に表示
+set title                                                   " タイトルをウィンドウ枠に表示
+set wrap                                                    " 長い行は折り返して表示
 
 if has('win32') && has('kaoriya')                           " 文字幅認識の設定
   set ambiwidth=auto
 else
   set ambiwidth=double
 endif
+" }}}
 
-"--------------------------------------------------------------------------------
-" キーマップ
-"--------------------------------------------------------------------------------
-nnoremap <Leader>.  :<C-u>edit $MYVIMRC<CR>
-nnoremap <Leader>s. :<C-u>source $MYVIMRC<CR>
-"nnoremap <C-h>      :<C-u>help<Space> -> uniteに統一
-"nnoremap <C-h> :<C-u>help<Space><C-r><C-w><CR>
+" キーマップ(filetypeに依存しないもの) {{{
+nnoremap [PREFIX]e. :<C-u>edit $MYVIMRC<CR>
+nnoremap [PREFIX]eg :<C-u>edit $MYGVIMRC<CR>
+nnoremap [PREFIX]en :<C-u>edit $HOME/.neobundle.vim<CR>
+nnoremap [PREFIX].  :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif<CR>
 
-noremap <CR> o<Esc>
-noremap <S-Enter> O<Esc>
+nnoremap <C-h>      :<C-u>help<Space>
+nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><CR>
+
 noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
 
-" noremap ; :
-" noremap : ;
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+nnoremap Q <Nop>
 
 " 最後に変更したテキストを選択する
 nnoremap gcv `[v`]
 vnoremap gcv :<C-u>normal gc<CR>
 onoremap gcv :<C-u>normal gc<CR>
 
-nnoremap <ESC><ESC> :<C-u>nohl<CR>
+nnoremap <C-l> :nohl<CR><C-l>
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *Nzz
@@ -186,7 +135,7 @@ vnoremap > >gv
 "nnoremap <Leader><Leader>g <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
 
 "diff
-nnoremap <Leader>d :<C-u>vertical diffsplit 
+"nnoremap <Leader>d :<C-u>vertical diffsplit 
 
 " クリップボードとの連携 -> fakeclipの導入が前提
 "if has('mac') && !has('gui')
@@ -227,67 +176,33 @@ inoremap <Nul> <C-x><C-o>
 " inoremap "" ""<Left>
 " inoremap '' ''<Left>
 " inoremap `` ``<Left>
+" }}}
 
-"--------------------------------------------------------------------------------
-" コマンド
-"--------------------------------------------------------------------------------
-" 文字コードの自動認識
-if &encoding !=# 'utf-8'
-  set encoding=japan
-  set fileencoding=japan
-endif
-if has('iconv')
-  let s:enc_euc = 'euc-jp'
-  let s:enc_jis = 'iso-2022-jp'
-  " iconvがeucJP-msに対応しているかをチェック
-  if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'eucjp-ms'
-    let s:enc_jis = 'iso-2022-jp-3'
-  " iconvがJISX0213に対応しているかをチェック
-  elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'euc-jisx0213'
-    let s:enc_jis = 'iso-2022-jp-3'
-  endif
-  " fileencodingsを構築
-  if &encoding ==# 'utf-8'
-    let s:fileencodings_default = &fileencodings
-    let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-    let &fileencodings = &fileencodings .','. s:fileencodings_default
-    unlet s:fileencodings_default
-  else
-    let &fileencodings = &fileencodings .','. s:enc_jis
-    set fileencodings+=utf-8,ucs-2le,ucs-2
-    if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
-      set fileencodings+=cp932
-      set fileencodings-=euc-jp
-      set fileencodings-=euc-jisx0213
-      set fileencodings-=eucjp-ms
-      let &encoding = s:enc_euc
-      let &fileencoding = s:enc_euc
-    else
-      let &fileencodings = &fileencodings .','. s:enc_euc
-    endif
-  endif
-  " 定数を処分
-  unlet s:enc_euc
-  unlet s:enc_jis
-endif
-" 日本語を含まない場合は fileencoding に encoding を使うようにする
-if has('autocmd')
-  function! AU_ReCheck_FENC()
-    if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-      let &fileencoding=&encoding
-    endif
-  endfunction
-  autocmd BufReadPost * call AU_ReCheck_FENC()
-endif
-" 改行コードの自動認識
-set fileformats=unix,dos,mac
-" □とか○の文字があってもカーソル位置がずれないようにする
-if exists('&ambiwidth')
-  set ambiwidth=double
-endif
+" オートコマンド {{{
+augroup vimrc
+  autocmd!
+augroup END
 
+" 全角スペースのハイライト
+autocmd vimrc ColorScheme * highlight IdeographicSpace term=underline ctermbg=Red guibg=Red
+autocmd vimrc VimEnter,WinEnter * match IdeographicSpace /　/
+
+" カレントウィンドウのカーソル行のみハイライト
+autocmd vimrc WinEnter,BufWinEnter,WinEnter * setlocal cursorline
+autocmd vimrc WinLeave * setlocal nocursorline
+
+" インサートモードに入った時にカーソル行(列)の色を変更する
+autocmd vimrc InsertEnter * highlight CursorLine ctermbg=24 guibg=#005f87 | highlight CursorColumn ctermbg=24 guibg=#005f87
+autocmd vimrc InsertLeave * highlight CursorLine ctermbg=236 guibg=#303030 | highlight CursorColumn ctermbg=236 guibg=#303030
+
+" 編集中ファイルの場所をカレントディレクトリにする -> デメリットが大きい
+" autocmd vimrc BufEnter * lcd %:p:h
+
+" vimgrepの結果を常にQuickFixに表示する -> uniteに統一
+" autocmd vimrc QuickfixCmdPost vimgrep cw
+" }}}
+
+" コマンド {{{
 " エンコーディングの簡易切替コマンド
 "command! Cp932 edit ++enc=cp932
 "command! Sjis  Cp932
@@ -303,10 +218,10 @@ endfunction
 
 " 既存のcdコマンドを置き換える
 cnoreabbrev <expr> cd (getcmdtype() == ':' && getcmdline() ==# 'cd') ? 'CD' : 'cd'
+" }}}
 
-"---------------------------------------------------------------------------
-" カラー設定
-"---------------------------------------------------------------------------
+" カラー設定 {{{
 "set t_Co=256
 "set background=light
 colorscheme wombat256mod
+" }}}
