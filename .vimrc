@@ -1,6 +1,10 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+if (has('win32') || has('win64'))
+  set runtimepath+=$HOME/.vim,$HOME/.vim/after
+endif
+
 " PREFIXの設定 {{{
 nnoremap [PREFIX] <Nop>
 nmap <Space> [PREFIX]
@@ -11,6 +15,7 @@ nmap <Space> [PREFIX]
 " }}}
 
 " 基本設定 {{{
+set hidden                                                  " 隠しバッファを許す
 set mouse=                                                  " マウスを無効に
 set scrolloff=0                                             " カーソルの上下に表示する行数
 set formatoptions+=lmoq                                     " テキスト整形オプション、マルチバイト系を追加
@@ -26,24 +31,20 @@ set backup                                                  " バックアップ
 set swapfile                                                " スワップを有効に
 set backupdir=~/.vim/backup                                 " バックアップディレクトリを指定
 let &directory=&backupdir                                   " スワップディレクトリを指定
-if exists('+macmeta')                                       " METAキーを有効にする
-  set macmeta
-endif
 set virtualedit=block                                       " 矩形選択時に仮想編集を有効にする
 set nrformats=hex                                           " インクリメントは常に10進数
-if has('win32')                                             " grepの置き換え
-  set grepprg=jvgrep
-endif
-setlocal omnifunc=syntaxcomplete#Complete                   " omni補完用
 set iminsert=0                                              " insert時にIMEをONにしない
 set imsearch=0                                              " 検索時にIMEをONにしない
 set timeout
 set timeoutlen=3000                                         " マッピングの待ち時間
 set ttimeoutlen=100                                         " キーコードの待ち時間
+setlocal omnifunc=syntaxcomplete#Complete                   " omni補完用
+if has('win32') | set grepprg=jvgrep | endif                " grepの置き換え
+if exists('+macmeta') | set macmeta | endif                 " METAキーを有効にする
 
 set fileencodings=ucs-bom,iso-2022-jp,utf-8,cp932,euc-jp,default,latin
 set fileformats=unix,dos,mac                                " ファイル形式の認識順序
-set termencoding=utf-8                                      " 適当な文字コード判別
+set termencoding=utf-8                                      " 端末のエンコーディング
 " }}}
 
 " インデント {{{
@@ -58,7 +59,7 @@ set expandtab                                               " スペースをタ
 " 補完・履歴 {{{
 set wildmenu                                                " コマンド補完の強化
 set wildchar=<tab>                                          " コマンド補完の開始キー
-set wildmode=list:full                                      " リスト表示・最長マッチ
+set wildmode=list:longest,full                              " リスト表示・最長マッチ
 set history=1000                                            " コマンド履歴のサイズ
 "set cdpath=                                                " cdコマンドで移動出来るディレクトリ定義
 " if has('persistent_undo')                                 " undo履歴の永続化
@@ -119,6 +120,9 @@ vnoremap gcv :<C-u>normal gc<CR>
 onoremap gcv :<C-u>normal gc<CR>
 
 nnoremap <C-l> :nohl<CR><C-l>
+
+nnoremap / /\v
+nnoremap ? ?\v
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *Nzz
