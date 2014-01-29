@@ -55,7 +55,9 @@ function! s:bundle.hooks.on_source(bundle)
   let g:Powerline_theme = 'default'
 endfunction
 unlet s:bundle
+" }}}
 
+" vim2hs {{{
 let s:bundle = neobundle#get('vim2hs')
 function! s:bundle.hooks.on_source(bundle)
   " let g:haskell_conceal_wide          = 0

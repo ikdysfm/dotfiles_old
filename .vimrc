@@ -72,6 +72,7 @@ set history=1000                                            " コマンド履歴
 set wrapscan                                                " 終端まで検索したら先頭に戻る
 set ignorecase                                              " 大文字小文字を無視
 set smartcase                                               " 但し大文字が入力された場合は無視しない
+set infercase                                               " 自動補完で大文字小文字を修正する
 set incsearch                                               " インクリメンタルサーチ
 set hlsearch                                                " 検索文字のハイライト
 " }}}
@@ -97,9 +98,9 @@ endif
 " }}}
 
 " キーマップ(filetypeに依存しないもの) {{{
-nnoremap [PREFIX]e. :<C-u>edit $MYVIMRC<CR>
-nnoremap [PREFIX]eg :<C-u>edit $MYGVIMRC<CR>
-nnoremap [PREFIX]en :<C-u>edit $HOME/.neobundle.vim<CR>
+nnoremap [PREFIX]e. :<C-u>tabedit $MYVIMRC<CR>
+nnoremap [PREFIX]eg :<C-u>tabedit $MYGVIMRC<CR>
+nnoremap [PREFIX]en :<C-u>tabedit $HOME/.neobundle.vim<CR>
 nnoremap [PREFIX].  :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif<CR>
 
 nnoremap <C-h>      :<C-u>help<Space>
