@@ -6,6 +6,7 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 " プラグインの読み込み {{{
+
 " 一般 {{{
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
@@ -24,6 +25,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'vim-scripts/tComment'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'kien/ctrlp.vim'
 " }}}
 
 " Haskell {{{
@@ -44,9 +46,23 @@ NeoBundle 'w0ng/vim-hybrid'
 
 filetype plugin indent on
 NeoBundleCheck
+
 " }}}
 
 " プラグインごとの初期設定 {{{
+
+" ctrlp {{{
+let s:bundle = neobundle#get('ctrlp.vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:ctrlp_by_filename = 0           " 起動時にdオプションを有効にするか
+  let g:ctrlp_regexp = 1                " 起動時にrオプションを有効にするか
+  let g:ctrlp_clear_cache_on_exit = 1   " 終了時キャッシュをクリアするか
+  let g:ctrlp_use_migemo = 1            " 日本語ファイル名のマッチ(regexpモード時のみ動作)
+  let g:ctrlp_mruf_max = 1000           " MRUの記録数
+endfunction
+unlet s:bundle
+" }}}
+
 " vim-powerline {{{
 let s:bundle = neobundle#get('vim-powerline')
 function! s:bundle.hooks.on_source(bundle)
@@ -76,11 +92,14 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 unlet s:bundle
 " }}}
+
 " }}}
 
 " プラグインごとのキーマップ(filetypeに依存するmapは ~/.vim/ftplugin/[filetype]/mysetting.vim) {{{
+
 " surround {{{
 nmap s  <Plug>Ysurround
 nmap ss <Plug>Yssurround
 " }}}
+
 " }}}
