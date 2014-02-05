@@ -98,6 +98,7 @@ endif
 " }}}
 
 " キーマップ(filetypeに依存しないもの) {{{
+" filetypeに依存するmapは ~/.vim/ftplugin/[filetype]/mysetting.vim
 nnoremap [PREFIX]e. :<C-u>tabedit $MYVIMRC<CR>
 nnoremap [PREFIX]eg :<C-u>tabedit $MYGVIMRC<CR>
 nnoremap [PREFIX]en :<C-u>tabedit $HOME/.neobundle.vim<CR>

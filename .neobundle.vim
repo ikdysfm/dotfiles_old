@@ -21,11 +21,13 @@ NeoBundle 'Shougo/vimproc', {
 " NeoBundle 'Shougo/unite.vim'
 " NeoBundle 'Shougo/vimfiler'
 " NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tpope/vim-surround'
+NeoBundle 'kana/vim-surround'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'vim-scripts/tComment'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
 " }}}
 
 " Haskell {{{
@@ -51,26 +53,32 @@ NeoBundleCheck
 
 " プラグインごとの初期設定 {{{
 
+" nerdtree {{{
+" 引数なしで起動された場合ツリーを表示
+autocmd vimenter * if !argc() | NERDTree | endif
+" ツリーウィンドウだけ残るような場合はVimを終了する
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+nnoremap [PREFIX]t  :<C-u>NERDTreeToggle<CR>
+" }}}"
+
 " ctrlp {{{
-let s:bundle = neobundle#get('ctrlp.vim')
-function! s:bundle.hooks.on_source(bundle)
-  let g:ctrlp_by_filename = 0           " 起動時にdオプションを有効にするか
-  let g:ctrlp_regexp = 0                " 起動時にrオプションを有効にするか
-  let g:ctrlp_clear_cache_on_exit = 1   " 終了時キャッシュをクリアするか
-  let g:ctrlp_use_migemo = 1            " 日本語ファイル名のマッチ(regexpモード時のみ動作)
-  let g:ctrlp_mruf_max = 1000           " MRUの記録数
-endfunction
-unlet s:bundle
+let g:ctrlp_by_filename = 0           " 起動時にdオプションを有効にするか
+let g:ctrlp_regexp = 0                " 起動時にrオプションを有効にするか
+let g:ctrlp_clear_cache_on_exit = 1   " 終了時キャッシュをクリアするか
+let g:ctrlp_use_migemo = 1            " 日本語ファイル名のマッチ(regexpモード時のみ動作)
+let g:ctrlp_mruf_max = 1000           " MRUの記録数
 " }}}
 
 " vim-powerline {{{
-let s:bundle = neobundle#get('vim-powerline')
-function! s:bundle.hooks.on_source(bundle)
-  let g:Powerline_symbols = 'fancy'
-  let g:Powerline_colorscheme = 'default'
-  let g:Powerline_theme = 'default'
-endfunction
-unlet s:bundle
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_colorscheme = 'default'
+let g:Powerline_theme = 'default'
+" }}}
+
+" vim-surround {{{
+nmap s  <Plug>Ysurround
+nmap ss <Plug>Yssurround
+"call SurroundRegister('g', 'jk', "「\r」") 何故かエラーになる
 " }}}
 
 " vim2hs {{{
@@ -93,13 +101,6 @@ endfunction
 unlet s:bundle
 " }}}
 
-" }}}
-
-" プラグインごとのキーマップ(filetypeに依存するmapは ~/.vim/ftplugin/[filetype]/mysetting.vim) {{{
-
-" surround {{{
-nmap s  <Plug>Ysurround
-nmap ss <Plug>Yssurround
 " }}}
 
 " }}}
