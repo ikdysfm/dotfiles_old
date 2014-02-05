@@ -22,8 +22,7 @@ NeoBundle 'Shougo/vimproc', {
 " NeoBundle 'Shougo/vimfiler'
 " NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kana/vim-surround'
-NeoBundle 'Lokaltog/powerline'
-NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'kien/ctrlp.vim'
@@ -47,6 +46,7 @@ NeoBundle 'desert-warm-256'
 NeoBundle 'Zenburn'
 NeoBundle 'wombat256.vim'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'chriskempson/base16-vim'
 " }}}
 
 filetype plugin indent on
@@ -76,10 +76,11 @@ let g:ctrlp_use_migemo = 1            " 日本語ファイル名のマッチ(reg
 let g:ctrlp_mruf_max = 1000           " MRUの記録数
 " }}}
 
-" powerline {{{
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'default'
-let g:Powerline_theme = 'default'
+" vim-airline {{{
+let g:airline#extensions#tabline#enabled = 1      " タブラインにもairlineを適用
+let g:airline#extensions#tabline#show_buffers = 0 " （タブが一個の場合）バッファのリストをタブラインに表示する機能をオフ
+let g:airline#extensions#tabline#tab_nr_type = 1  " 0でそのタブで開いてるウィンドウ数、1で左のタブから連番
+let g:airline#extensions#tabline#fnamemod = ':t'  " タブに表示する名前（fnamemodifyの第二引数）
 " }}}
 
 " vim-surround {{{
@@ -102,7 +103,7 @@ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrl
 
 " indentLine {{{
 let g:indentLine_color_term = 255
-let g:indentLine_color_gui = '#444444'
+let g:indentLine_color_gui = '#777777'
 let g:indentLine_char = '¦'
 let g:indentLine_fileTypeExclude = ['nerdtree']
 " }}}
