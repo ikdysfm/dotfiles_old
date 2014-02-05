@@ -22,12 +22,15 @@ NeoBundle 'Shougo/vimproc', {
 " NeoBundle 'Shougo/vimfiler'
 " NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kana/vim-surround'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'vim-scripts/tComment'
+NeoBundle 'Lokaltog/powerline'
+NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'Yggdroot/indentLine'
 " }}}
 
 " Haskell {{{
@@ -59,6 +62,10 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " ツリーウィンドウだけ残るような場合はVimを終了する
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nnoremap [PREFIX]t  :<C-u>NERDTreeToggle<CR>
+
+let g:NERDTreeShowHidden=1  " 隠しファイルを表示するか
+let g:NERDTreeMinimalUI=0   " メニューのショートカットを非表示にするかどうか
+let g:NERDTreeDirArrows=0   " ツリー表示の記号を非表示にするかどうか
 " }}}"
 
 " ctrlp {{{
@@ -69,7 +76,7 @@ let g:ctrlp_use_migemo = 1            " 日本語ファイル名のマッチ(reg
 let g:ctrlp_mruf_max = 1000           " MRUの記録数
 " }}}
 
-" vim-powerline {{{
+" powerline {{{
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'default'
 let g:Powerline_theme = 'default'
@@ -79,6 +86,25 @@ let g:Powerline_theme = 'default'
 nmap s  <Plug>Ysurround
 nmap ss <Plug>Yssurround
 "call SurroundRegister('g', 'jk', "「\r」") 何故かエラーになる
+" }}}
+
+" yankround {{{
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+"nmap gp <Plug>(yankround-gp)
+"nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+" yankroundが有効でない場合はCtrlPを動かす
+nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
+nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
+" }}}
+
+" indentLine {{{
+let g:indentLine_color_term = 255
+let g:indentLine_color_gui = '#444444'
+let g:indentLine_char = '¦'
+let g:indentLine_fileTypeExclude = ['nerdtree']
 " }}}
 
 " vim2hs {{{
