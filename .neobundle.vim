@@ -102,7 +102,7 @@ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrl
 " }}}
 
 " indentLine {{{
-let g:indentLine_color_term = 255
+let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#777777'
 let g:indentLine_char = '¦'
 let g:indentLine_fileTypeExclude = ['nerdtree']
