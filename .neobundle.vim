@@ -77,6 +77,8 @@ let g:ctrlp_mruf_max = 1000           " MRUの記録数
 " }}}
 
 " vim-airline {{{
+set laststatus=2
+set noshowmode
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1      " タブラインにもairlineを適用
 let g:airline#extensions#tabline#show_buffers = 0 " （タブが一個の場合）バッファのリストをタブラインに表示する機能をオフ
