@@ -37,12 +37,13 @@ set iminsert=0                                              " insert時にIMEを
 set imsearch=0                                              " 検索時にIMEをONにしない
 set timeout
 set timeoutlen=3000                                         " マッピングの待ち時間
-set ttimeoutlen=100                                         " キーコードの待ち時間
+set ttimeoutlen=10                                          " キーコードの待ち時間
+
 setlocal omnifunc=syntaxcomplete#Complete                   " omni補完用
 if has('win32') | set grepprg=jvgrep | endif                " grepの置き換え
 if exists('+macmeta') | set macmeta | endif                 " METAキーを有効にする
 
-set fileencodings=ucs-bom,iso-2022-jp,utf-8,cp932,euc-jp,default,latin
+set fileencodings=iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,eucjp-ms,cp932
 set fileformats=unix,dos,mac                                " ファイル形式の認識順序
 set termencoding=utf-8                                      " 端末のエンコーディング
 " }}}
@@ -136,10 +137,6 @@ nnoremap g# g#zz
 vnoremap < <gv
 vnoremap > >gv
 
-" grep -> uniteに統一
-"nnoremap <Leader>g <Esc>:<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
-"nnoremap <Leader><Leader>g <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
-
 "diff
 "nnoremap <Leader>d :<C-u>vertical diffsplit 
 
@@ -153,26 +150,6 @@ vnoremap > >gv
   noremap gy "+y
   noremap gp "+p
 "endif
-
-" コマンドラインでのキーバインドを Emacs スタイルにする -> emacscommandlineを導入したのでコメントアウト
-" 行頭へ移動
-"cnoremap <C-a> <Home>
-" 一文字戻る
-"cnoremap <C-b><Left>
-" カーソルの下の文字を削除
-"cnoremap <C-d> <Del>
-" 行末へ移動
-"cnoremap <C-e> <End>
-" 一文字進む
-"cnoremap <C-f> <Right>
-" コマンドライン履歴を一つ進む
-"cnoremap <C-n> <Down>
-" コマンドライン履歴を一つ戻る
-"cnoremap <C-p> <Up>
-" 前の単語へ移動
-"cnoremap <Esc><C-b> <S-Left>
-" 次の単語へ移動
-"cnoremap <Esc><C-f> <S-Right>
 
 inoremap <Nul> <C-x><C-o>
 " inoremap {} {}<Left> -> smartinputに移行
@@ -209,12 +186,6 @@ autocmd vimrc InsertLeave * highlight CursorLine ctermbg=236 guibg=#303030 | hig
 " }}}
 
 " コマンド {{{
-" エンコーディングの簡易切替コマンド
-"command! Cp932 edit ++enc=cp932
-"command! Sjis  Cp932
-"command! Eucjp edit ++enc=euc-jp
-"command! Utf8  edit ++enc=utf-8
-
 " cdpathを考慮した引数補完を可能にする
 command! -complete=customlist,CompleteCD -nargs=? CD  cd <args>
 function! CompleteCD(arglead, cmdline, cursorpos)

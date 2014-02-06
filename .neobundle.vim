@@ -30,6 +30,8 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'houtsnip/vim-emacscommandline'
+NeoBundle 'vim-scripts/ShowMarks'
 " }}}
 
 " Haskell {{{
@@ -64,7 +66,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 nnoremap [PREFIX]t  :<C-u>NERDTreeToggle<CR>
 
 let g:NERDTreeShowHidden=1  " 隠しファイルを表示するか
-let g:NERDTreeMinimalUI=0   " メニューのショートカットを非表示にするかどうか
+let g:NERDTreeMinimalUI=1   " メニューのショートカットを非表示にするかどうか
 let g:NERDTreeDirArrows=0   " ツリー表示の記号を非表示にするかどうか
 " }}}"
 
@@ -109,6 +111,10 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#777777'
 let g:indentLine_char = '¦'
 let g:indentLine_fileTypeExclude = ['nerdtree']
+" }}}
+
+" showmarks {{{
+let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`.^[]<>"
 " }}}
 
 " vim2hs {{{

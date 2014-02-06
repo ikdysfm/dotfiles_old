@@ -16,8 +16,8 @@ if has('win32')
 elseif has('gui_macvim')
   set transparency=5
   set antialias
-  set guifont=Ricty_Discord_for_Powerline:h14
-  set guifontwide=Ricty_Discord:h14
+  set guifont=Ricty_Discord_for_Powerline:h20
+  set guifontwide=Ricty_Discord_for_Powerline:h20
 elseif has('mac')
   set guifont=Osaka－等幅:h20
 elseif has('xfontset')
