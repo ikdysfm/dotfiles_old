@@ -32,6 +32,8 @@ NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'vim-scripts/ShowMarks'
+NeoBundle 'nelstrom/vim-qargs'
+NeoBundle 'tpope/vim-fugitive'
 " }}}
 
 " Haskell {{{
