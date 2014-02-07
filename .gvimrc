@@ -6,13 +6,14 @@ if has('win32')
   "set guifont=MS_Gothic:h12:cSHIFTJIS
   "set guifont=MS_Mincho:h12:cSHIFTJIS
   set guifont=Ricty_Discord_for_Powerline:h14
-  set guifontwide=Ricty_Discord:h14
+  set guifontwide=Ricty_Discord_for_Powerline:h14
   " 行間隔の設定
   set linespace=1
+  set ambiwidth=double " powerlineはautoだと表示が崩れる
   " 一部のUCS文字の幅を自動計測して決める
-  if has('kaoriya')
-    set ambiwidth=auto
-  endif
+"   if has('kaoriya')
+"     set ambiwidth=auto
+"   endif
 elseif has('gui_macvim')
   set transparency=5
   set antialias
