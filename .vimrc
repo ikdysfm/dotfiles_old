@@ -175,7 +175,7 @@ autocmd vimrc WinEnter,BufWinEnter,WinEnter * setlocal cursorline
 autocmd vimrc WinLeave * setlocal nocursorline
 
 " インサートモードに入った時にカーソル行(列)の色を変更する
-autocmd vimrc InsertEnter * highlight CursorLine ctermbg=24 guibg=#005f87 | highlight CursorColumn ctermbg=24 guibg=#005f87
+autocmd vimrc InsertEnter * highlight CursorLine ctermbg=24 guibg=#112299 | highlight CursorColumn ctermbg=24 guibg=#112299
 autocmd vimrc InsertLeave * highlight CursorLine ctermbg=236 guibg=#303030 | highlight CursorColumn ctermbg=236 guibg=#303030
 
 " 編集中ファイルの場所をカレントディレクトリにする -> デメリットが大きい
