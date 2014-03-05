@@ -5,6 +5,9 @@
 	ui = auto
 [core]
 	excludesfile = /Users/Yoshifumi/.gitignore_all
+	editor = vim
+	autocrlf = input
+	safecrlf = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
