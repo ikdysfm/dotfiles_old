@@ -31,6 +31,7 @@ set backup                                                  " バックアップ
 set swapfile                                                " スワップを有効に
 set backupdir=~/.vim/backup                                 " バックアップディレクトリを指定
 let &directory=&backupdir                                   " スワップディレクトリを指定
+set undodir=~/.vim/undo                                     " undofileの保存場所
 set virtualedit=block                                       " 矩形選択時に仮想編集を有効にする
 set nrformats=hex                                           " インクリメントは常に10進数
 set iminsert=0                                              " insert時にIMEをONにしない
