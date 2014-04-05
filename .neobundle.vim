@@ -22,6 +22,8 @@ NeoBundle 'Shougo/vimproc', {
 " NeoBundle 'Shougo/vimfiler'
 " NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kana/vim-surround'
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'thinca/vim-ref'
@@ -95,6 +97,21 @@ nmap s  <Plug>Ysurround
 nmap ss <Plug>Yssurround
 "call SurroundRegister('g', 'jk', "「\r」") 何故かエラーになる
 " }}}
+
+" smart-input {{{
+"トリガの追加
+"call smartinput#map_to_trigger('i', '!', '!', '!')
+"\%# でカーソル位置を表す正規表現
+" call smartinput#define_rule({
+"   \ 'at': '\%#',
+"   \ 'char': '!',
+"   \ 'input': '!!',
+"   \ 'filetype': ['vi']})
+"}}}
+
+" smart-input-endwise {{{
+call smartinput_endwise#define_default_rules()
+"}}}
 
 " yankround {{{
 nmap p <Plug>(yankround-p)
