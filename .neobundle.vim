@@ -36,6 +36,7 @@ NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'nelstrom/vim-qargs'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mattn/emmet-vim'
 " }}}
 
 " Haskell {{{
@@ -136,6 +137,13 @@ let g:indentLine_fileTypeExclude = ['nerdtree']
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`.^[]<>"
 " }}}
 
+" emmet-vim {{{
+  let g:user_emmet_mode='iv'
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,xml,eruby,css EmmetInstall
+  let g:user_emmet_leader_key='<C-Y>'
+" }}}
+
 " vim2hs {{{
 let s:bundle = neobundle#get('vim2hs')
 function! s:bundle.hooks.on_source(bundle)
@@ -154,7 +162,6 @@ function! s:bundle.hooks.on_source(bundle)
   " let g:haskell_multiline_strings     = 0
 endfunction
 unlet s:bundle
-" }}}
 
 " }}}
 
