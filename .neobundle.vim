@@ -85,6 +85,7 @@ let g:ctrlp_regexp = 0                " 起動時にrオプションを有効に
 let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアするか
 let g:ctrlp_use_migemo = 1            " 日本語ファイル名のマッチ(regexpモード時のみ動作)
 let g:ctrlp_mruf_max = 1000           " MRUの記録数
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 " }}}
 
 " syntastic {{{

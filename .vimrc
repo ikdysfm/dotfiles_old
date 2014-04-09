@@ -108,8 +108,9 @@ nnoremap [PREFIX]eg :<C-u>tabedit $MYGVIMRC<CR>
 nnoremap [PREFIX]en :<C-u>tabedit $HOME/.neobundle.vim<CR>
 nnoremap [PREFIX].  :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif<CR>
 
-nnoremap <C-h>      :<C-u>help<Space>
-nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><CR>
+" OSレベルのキーマップで<C-h>を<BS>にしている前提
+nnoremap <BS>       :<C-u>help<Space>
+nnoremap <BS><BS>   :<C-u>help<Space><C-r><C-w><CR>
 
 noremap j gj
 noremap k gk
