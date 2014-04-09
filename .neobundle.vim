@@ -69,11 +69,11 @@ NeoBundleCheck
 
 " quickrun {{{
 " g:quickrun#default_configを参考に上書きする感じで設定する
-let g:quickrun_config = {
-\  "_" : {
-\    "runner" : "vimproc",
-\    "runner/vimproc/updatetime" : 60
-\  },
+" 各言語ごとの設定は ~/.vim/ftplugin/[filetype]/mysetting.vim
+let g:quickrun_config = {}
+let g:quickrun_config['_'] = {
+\  "runner" : "vimproc",
+\  "runner/vimproc/updatetime" : 60,
 \}
 " }}}
 
