@@ -10,17 +10,17 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " 一般 {{{
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
-\ 'build' : {
-\   'windows' : 'make -f make_mingw32.mak',
-\   'cygwin'  : 'make -f make_cygwin.mak',
-\   'mac'     : 'make -f make_mac.mak',
-\   'unix'    : 'make -f make_unix.mak',
-\   },
-\ }
+\  'build' : {
+\    'windows' : 'make -f make_mingw32.mak',
+\    'cygwin'  : 'make -f make_cygwin.mak',
+\    'mac'     : 'make -f make_mac.mak',
+\    'unix'    : 'make -f make_unix.mak',
+\  },
+\}
 
 " NeoBundle 'Shougo/unite.vim'
 " NeoBundle 'Shougo/vimfiler'
-" NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kana/vim-surround'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'cohama/vim-smartinput-endwise'
@@ -67,6 +67,16 @@ NeoBundleCheck
 
 " プラグインごとの初期設定 {{{
 
+" quickrun {{{
+" g:quickrun#default_configを参考に上書きする感じで設定する
+let g:quickrun_config = {
+\  "_" : {
+\    "runner" : "vimproc",
+\    "runner/vimproc/updatetime" : 60
+\  },
+\}
+" }}}
+
 " nerdtree {{{
 " 引数なしで起動された場合ツリーを表示
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -93,8 +103,9 @@ let g:ctrlp_show_hidden = 1
 " syntastic {{{
 " 各言語ごとに走らせるツール設定は ~/.vim/ftplugin/[filetype]/mysetting.vim
 let g:syntastic_mode_map = {
-  \ 'mode': 'active',
-  \ 'passive_filetypes': []}
+\  'mode': 'active',
+\  'passive_filetypes': []
+\}
 " }}}
 
 " vim-airline {{{
