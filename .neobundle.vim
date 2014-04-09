@@ -37,6 +37,7 @@ NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'nelstrom/vim-qargs'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'vimtaku/hl_matchit.vim'
 " }}}
 
 " Haskell {{{
@@ -44,6 +45,9 @@ NeoBundleLazy 'eagletmt/ghcmod-vim',       {'autoload':{'filetypes':['haskell']}
 NeoBundleLazy 'kana/vim-filetype-haskell', {'autoload':{'filetypes':['haskell']}}
 NeoBundleLazy 'dag/vim2hs',                {'autoload':{'filetypes':['haskell']}}
 NeoBundleLazy 'ujihisa/ref-hoogle',        {'autoload':{'filetypes':['haskell']}}
+" }}}
+
+" Ruby {{{
 " }}}
 
 " colorscheme {{{
@@ -81,6 +85,13 @@ let g:ctrlp_regexp = 0                " 起動時にrオプションを有効に
 let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアするか
 let g:ctrlp_use_migemo = 1            " 日本語ファイル名のマッチ(regexpモード時のみ動作)
 let g:ctrlp_mruf_max = 1000           " MRUの記録数
+" }}}
+
+" syntastic {{{
+" 各言語ごとに走らせるツール設定は ~/.vim/ftplugin/[filetype]/mysetting.vim
+let g:syntastic_mode_map = {
+  \ 'mode': 'active',
+  \ 'passive_filetypes': []}
 " }}}
 
 " vim-airline {{{
@@ -138,10 +149,17 @@ let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`.^
 " }}}
 
 " emmet-vim {{{
-  let g:user_emmet_mode='iv'
-  let g:user_emmet_install_global = 0
-  autocmd FileType html,xml,eruby,css EmmetInstall
-  let g:user_emmet_leader_key='<C-Y>'
+let g:user_emmet_mode='iv'
+let g:user_emmet_install_global = 0
+autocmd FileType html,xml,eruby,css EmmetInstall
+let g:user_emmet_leader_key='<C-Y>'
+" }}}
+
+" hl-matchit {{{
+let g:hl_matchit_enable_on_vim_startup = 1
+let g:hl_matchit_hl_groupname = 'Title'
+let g:hl_matchit_speed_level = 1
+let g:hl_matchit_allow_ft = 'html,vim,ruby,sh'
 " }}}
 
 " vim2hs {{{

@@ -11,6 +11,7 @@ nmap <Space> [PREFIX]
 " }}}
 
 " プラグインの読み込み・設定 {{{
+:source $VIMRUNTIME/macros/matchit.vim
 :source <sfile>:h/.neobundle.vim
 " }}}
 
