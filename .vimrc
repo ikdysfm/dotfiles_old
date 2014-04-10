@@ -104,14 +104,16 @@ endif
 
 " キーマップ(filetypeに依存しないもの) {{{
 " filetypeに依存するmapは ~/.vim/ftplugin/[filetype]/mysetting.vim
-nnoremap [PREFIX]e. :<C-u>tabedit $MYVIMRC<CR>
-nnoremap [PREFIX]eg :<C-u>tabedit $MYGVIMRC<CR>
-nnoremap [PREFIX]en :<C-u>tabedit $HOME/.neobundle.vim<CR>
+nnoremap [PREFIX]e. :<C-u>tab drop $MYVIMRC<CR>
+nnoremap [PREFIX]eg :<C-u>tab drop $MYGVIMRC<CR>
+nnoremap [PREFIX]en :<C-u>tab drop $HOME/.neobundle.vim<CR>
+nnoremap <expr> [PREFIX]es ":<C-u>tab drop $HOME/.vim/ftplugin/" . &filetype . "/mysetting.vim<CR>}"
 nnoremap [PREFIX].  :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif<CR>
 
 " OSレベルのキーマップで<C-h>を<BS>にしている前提
-nnoremap <BS>       :<C-u>help<Space>
-nnoremap <BS><BS>   :<C-u>help<Space><C-r><C-w><CR>
+" unite helpに移行
+" nnoremap <BS>       :<C-u>help<Space>
+" nnoremap <BS><BS>   :<C-u>help<Space><C-r><C-w><CR>
 
 noremap j gj
 noremap k gk

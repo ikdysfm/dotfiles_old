@@ -18,8 +18,16 @@ NeoBundle 'Shougo/vimproc', {
 \  },
 \}
 
+" help unite-source-file
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-help'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'ujihisa/unite-colorscheme'
+
 NeoBundle 'bling/vim-airline'
 NeoBundle 'cohama/vim-smartinput-endwise'
+"NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-submode'
@@ -30,7 +38,6 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'nelstrom/vim-qargs'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-" NeoBundle 'Shougo/unite.vim'
 " NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -54,7 +61,6 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundleLazy 'dag/vim2hs',                {'autoload':{'filetypes':['haskell']}}
 NeoBundleLazy 'eagletmt/ghcmod-vim',       {'autoload':{'filetypes':['haskell']}}
 NeoBundleLazy 'kana/vim-filetype-haskell', {'autoload':{'filetypes':['haskell']}}
-NeoBundleLazy 'ujihisa/ref-hoogle',        {'autoload':{'filetypes':['haskell']}}
 " }}}
 
 " Ruby {{{
@@ -76,6 +82,60 @@ NeoBundleCheck
 " }}}
 
 " プラグインごとの初期設定 {{{
+
+" unite {{{
+nnoremap [UNITE] <Nop>
+nmap [PREFIX]<Space> [UNITE]
+
+""let g:unite_enable_start_insert = 1   " 常にインサートモードで起動する
+""imap <Nul> <Plug>(neocomplcache_start_unite_complete)
+""imap <C-q> <Plug>(neocomplcache_start_unite_quick_match)
+"if has('win32')
+"  let g:unite_source_grep_command='jvgrep'
+"  let g:unite_source_grep_default_opts=''
+"  let g:unite_source_grep_recursive_opt='-R'
+"endif
+
+" オプションについてはhelp unite-options
+"nnoremap <silent> [UNITE]a :<C-u>Unite alignta:options<CR>
+"xnoremap <silent> [UNITE]a :<C-u>Unite alignta:arguments<CR>
+"nnoremap <silent> [UNITE]b :<C-u>Unite -buffer-name=files buffer_tab file_mru file<CR>
+nnoremap <silent> [UNITE]c :<C-u>Unite -auto-preview colorscheme<CR>
+nnoremap <silent> [UNITE]g :<C-u>Unite grep -no-quit<CR>
+nnoremap <silent> [UNITE]h :<C-u>Unite -start-insert help<CR>
+nnoremap <silent> [UNITE]H :<C-u>UniteWithCursorWord -start-insert help<CR>
+"nnoremap <silent> [UNITE]l :<C-u>Unite -start-insert line<CR>
+nnoremap <silent> [UNITE]o :<C-u>Unite -start-insert outline<CR>
+" }}}
+
+" vimfiler {{{
+"" nnoremap <silent> <Leader>f :<C-u>execute "VimFiler" expand("%:p:h")<CR>
+"" nnoremap <silent> <Leader>F :<C-u>execute "VimFilerSplit" expand("%:p:h")<CR>
+"let g:vimfiler_as_default_explorer=1                    " netrwの代わりにデフォルトのファイラーにする
+"
+"" VimFilerをExplorerっぽく使う
+"nnoremap <silent> <Leader>f :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<Cr>
+"autocmd! FileType vimfiler call g:my_vimfiler_settings()
+"function! g:my_vimfiler_settings()
+"  nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
+"  nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
+"  nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
+"endfunction
+"
+"let my_action = { 'is_selectable' : 1 }
+"function! my_action.func(candidates)
+"  wincmd p
+"  exec 'split '. a:candidates[0].action__path
+"endfunction
+"call unite#custom_action('file', 'my_split', my_action)
+"
+"let my_action = { 'is_selectable' : 1 }
+"function! my_action.func(candidates)
+"  wincmd p
+"  exec 'vsplit '. a:candidates[0].action__path
+"endfunction
+"call unite#custom_action('file', 'my_vsplit', my_action)
+" }}}
 
 " neosnippet {{{
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -133,17 +193,23 @@ unlet s:bundle
 
 " quickrun {{{
 " g:quickrun#default_configを参考に上書きする感じで設定する
-" 各言語ごとの設定は ~/.vim/ftplugin/[filetype]/mysetting.vim
+" filetypeごとの設定は ~/.vim/ftplugin/[filetype]/mysetting.vim
 let g:quickrun_config = {}
 let g:quickrun_config['_'] = {
 \  "runner" : "vimproc",
 \  "runner/vimproc/updatetime" : 60,
 \}
+" これもそのうち移動
+" let g:quickrun_config['markdown'] = {
+" \  'type': 'markdown/pandoc',
+" \  'outputter': 'browser',
+" \  'cmdopt': '-s'
+" \}
 " }}}
 
 " nerdtree {{{
 " 引数なしで起動された場合ツリーを表示
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 " ツリーウィンドウだけ残るような場合はVimを終了する
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nnoremap [PREFIX]t  :<C-u>NERDTreeToggle<CR>
@@ -165,7 +231,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 " }}}
 
 " syntastic {{{
-" 各言語ごとに走らせるツール設定は ~/.vim/ftplugin/[filetype]/mysetting.vim
+" filetypeごとに走らせるツール設定は ~/.vim/ftplugin/[filetype]/mysetting.vim
 let g:syntastic_mode_map = {
 \  'mode': 'active',
 \  'passive_filetypes': []
@@ -252,6 +318,39 @@ let g:hl_matchit_enable_on_vim_startup = 1
 let g:hl_matchit_hl_groupname = 'Title'
 let g:hl_matchit_speed_level = 1
 let g:hl_matchit_allow_ft = 'html,vim,ruby,sh'
+" }}}
+
+" Alignta {{{
+" let g:alignta_default_options = "<<<1:1"
+"
+" let g:unite_source_alignta_preset_arguments = [
+"       \ ["Align at '='", '='],
+"       \ ["Align at ':'", ':'],
+"       \ ["Align at '|'", '|'],
+"       \ ["Align at ')'", ')'],
+"       \ ["Align at ']'", ']'],
+"       \ ["Align at '}'", '}'],
+"       \]
+"
+" let s:comment_leadings = '^\s*\("\|#\|/\*\|//\|<!--\)'
+" let g:unite_source_alignta_preset_options = [
+"       \ ["Justify Left",      '<<' ],
+"       \ ["Justify Center",    '||' ],
+"       \ ["Justify Right",     '>>' ],
+"       \ ["Justify None",      '==' ],
+"       \ ["Shift Left",        '<-' ],
+"       \ ["Shift Right",       '->' ],
+"       \ ["Shift Left  [Tab]", '<--'],
+"       \ ["Shift Right [Tab]", '-->'],
+"       \ ["Margin 0:0",        '0'  ],
+"       \ ["Margin 0:1",        '01' ],
+"       \ ["Margin 1:0",        '10' ],
+"       \ ["Margin 1:1",        '1'  ],
+"       \
+"       \ 'v/' . s:comment_leadings,
+"       \ 'g/' . s:comment_leadings,
+"       \]
+" unlet s:comment_leadings
 " }}}
 
 " vim2hs {{{

@@ -3,7 +3,6 @@ if exists('b:did_ftplugin_haskell_mysetting')
 endif
 let b:did_ftplugin_haskell_mysetting = 1
 
-nnoremap <buffer> <unique> [PREFIX]es :<C-u>tabedit $HOME/.vim/ftplugin/haskell/mysetting.vim<CR>
 setlocal ts=2 sts=0 sw=2
 
 augroup haskell
