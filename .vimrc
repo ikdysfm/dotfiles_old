@@ -8,7 +8,7 @@ endif
 " PREFIXの設定 {{{
 nnoremap [PREFIX] <Nop>
 nmap <Space> [PREFIX]
-let mapleader = ","
+let mapleader = "s"
 " }}}
 
 " プラグインの読み込み・設定 {{{
@@ -112,9 +112,6 @@ nnoremap [PREFIX].  :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MY
 " OSレベルのキーマップで<C-h>を<BS>にしている前提
 nnoremap <BS>       :<C-u>help<Space>
 nnoremap <BS><BS>   :<C-u>help<Space><C-r><C-w><CR>
-
-" mapleaderで潰したので入れ替える
-noremap \ ,
 
 noremap j gj
 noremap k gk

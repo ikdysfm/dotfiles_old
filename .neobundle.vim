@@ -18,32 +18,42 @@ NeoBundle 'Shougo/vimproc', {
 \  },
 \}
 
-" NeoBundle 'Shougo/unite.vim'
-" NeoBundle 'Shougo/vimfiler'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'kana/vim-surround'
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'thinca/vim-ref'
+NeoBundle 'cohama/vim-smartinput-endwise'
+NeoBundle 'houtsnip/vim-emacscommandline'
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'kana/vim-submode'
+NeoBundle 'kana/vim-surround'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'nelstrom/vim-qargs'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'houtsnip/vim-emacscommandline'
-NeoBundle 'vim-scripts/ShowMarks'
-NeoBundle 'nelstrom/vim-qargs'
+" NeoBundle 'Shougo/unite.vim'
+" NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundleLazy 'Shougo/neocomplete', {
+\  'depends' : ['Shougo/neosnippet', 'Shougo/context_filetype.vim'],
+\  'vim_version' : '7.3.885',
+\  'autoload' : {
+\    'insert' : 1,
+\  }
+\}
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mattn/emmet-vim'
+NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'vimtaku/hl_matchit.vim'
+NeoBundle 'Yggdroot/indentLine'
 " }}}
 
 " Haskell {{{
+NeoBundleLazy 'dag/vim2hs',                {'autoload':{'filetypes':['haskell']}}
 NeoBundleLazy 'eagletmt/ghcmod-vim',       {'autoload':{'filetypes':['haskell']}}
 NeoBundleLazy 'kana/vim-filetype-haskell', {'autoload':{'filetypes':['haskell']}}
-NeoBundleLazy 'dag/vim2hs',                {'autoload':{'filetypes':['haskell']}}
 NeoBundleLazy 'ujihisa/ref-hoogle',        {'autoload':{'filetypes':['haskell']}}
 " }}}
 
@@ -52,12 +62,12 @@ NeoBundleLazy 'ujihisa/ref-hoogle',        {'autoload':{'filetypes':['haskell']}
 
 " colorscheme {{{
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'desert256.vim'
-NeoBundle 'desert-warm-256'
-NeoBundle 'Zenburn'
-NeoBundle 'wombat256.vim'
-NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'desert-warm-256'
+NeoBundle 'desert256.vim'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'wombat256.vim'
+NeoBundle 'Zenburn'
 " }}}
 
 filetype plugin indent on
@@ -66,6 +76,60 @@ NeoBundleCheck
 " }}}
 
 " プラグインごとの初期設定 {{{
+
+" neosnippet {{{
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
+
+" if has('conceal')
+"   set conceallevel=2 concealcursor=i
+" endif
+
+"honza/vim-snippetsとか使う場合
+"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+" }}}
+
+" neocomplete {{{
+let s:bundle = neobundle#get('neocomplete')
+function! s:bundle.hooks.on_source(bundle)
+  let g:acp_enableAtStartup = 0                                 " AutoComplPopを無効にする
+  let g:neocomplete#enable_at_startup = 1                       " 起動時に有効
+  let g:neocomplete#enable_smart_case = 1                       " smart_caseで絞る
+  let g:neocomplete#sources#syntax#min_keyword_length = 4
+  " let g:neocomplete#sources#dictionary#dictionaries = {
+  " \  'default' : '',
+  " \  'vimshell' : $HOME.'/.vimshell_hist',
+  " \  'scheme' : $HOME.'/.gosh_completions'
+  " \}
+
+  inoremap <expr><C-G> neocomplete#undo_completion()
+  inoremap <expr><C-L> neocomplete#complete_common_string()
+
+  inoremap <silent> <CR> <C-R>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
+
+  inoremap <expr><TAB> pumvisible() ? "\<C-N>" : "\<TAB>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  let g:neocomplete#enable_auto_select = 1
+
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+endfunction
+unlet s:bundle
+" }}}
 
 " quickrun {{{
 " g:quickrun#default_configを参考に上書きする感じで設定する
@@ -118,9 +182,23 @@ let g:airline#extensions#tabline#tab_nr_type = 1  " 0でそのタブで開いて
 let g:airline#extensions#tabline#fnamemod = ':t'  " タブに表示する名前（fnamemodifyの第二引数）
 " }}}
 
+" vim-submode {{{
+call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
+call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
+call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>+')
+call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>-')
+call submode#map('winsize', 'n', '', '>', '<C-w>>')
+call submode#map('winsize', 'n', '', '<', '<C-w><')
+call submode#map('winsize', 'n', '', '+', '<C-w>+')
+call submode#map('winsize', 'n', '', '-', '<C-w>-')
+call submode#enter_with('changetab', 'n', '', 'gt', 'gt')
+call submode#enter_with('changetab', 'n', '', 'gT', 'gT')
+call submode#map('changetab', 'n', '', 't', 'gt')
+call submode#map('changetab', 'n', '', 'T', 'gT')
+" }}}
+
 " vim-surround {{{
-nmap s  <Plug>Ysurround
-nmap ss <Plug>Yssurround
+" after/pluginの下にremap定義あり
 "call SurroundRegister('g', 'jk', "「\r」") 何故かエラーになる
 " }}}
 
@@ -129,10 +207,10 @@ nmap ss <Plug>Yssurround
 "call smartinput#map_to_trigger('i', '!', '!', '!')
 "\%# でカーソル位置を表す正規表現
 " call smartinput#define_rule({
-"   \ 'at': '\%#',
-"   \ 'char': '!',
-"   \ 'input': '!!',
-"   \ 'filetype': ['vi']})
+" \ 'at': '\%#',
+" \ 'char': '!',
+" \ 'input': '!!',
+" \ 'filetype': ['vi']})
 "}}}
 
 " smart-input-endwise {{{
@@ -160,7 +238,6 @@ let g:indentLine_fileTypeExclude = ['nerdtree']
 
 " showmarks {{{
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`.^[]<>"
-"nunmap \sm ;の対として\を当てているためウェイトを無くすために潰す
 " }}}
 
 " emmet-vim {{{
