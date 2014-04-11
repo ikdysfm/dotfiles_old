@@ -32,13 +32,12 @@ NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'kana/vim-surround'
-NeoBundle 'kien/ctrlp.vim'
+"NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'nelstrom/vim-qargs'
-NeoBundle 'scrooloose/nerdtree'
+"NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-" NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundleLazy 'Shougo/neocomplete', {
@@ -48,11 +47,12 @@ NeoBundleLazy 'Shougo/neocomplete', {
 \    'insert' : 1,
 \  }
 \}
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'vim-scripts/ShowMarks'
+"NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'vimtaku/hl_matchit.vim'
 NeoBundle 'Yggdroot/indentLine'
 " }}}
@@ -88,53 +88,66 @@ nnoremap [UNITE] <Nop>
 nmap [PREFIX]<Space> [UNITE]
 
 ""let g:unite_enable_start_insert = 1   " 常にインサートモードで起動する
-""imap <Nul> <Plug>(neocomplcache_start_unite_complete)
-""imap <C-q> <Plug>(neocomplcache_start_unite_quick_match)
-"if has('win32')
-"  let g:unite_source_grep_command='jvgrep'
-"  let g:unite_source_grep_default_opts=''
-"  let g:unite_source_grep_recursive_opt='-R'
-"endif
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts =
+  \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+  \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_max_candidates = 200
+endif
 
 " オプションについてはhelp unite-options
 "nnoremap <silent> [UNITE]a :<C-u>Unite alignta:options<CR>
 "xnoremap <silent> [UNITE]a :<C-u>Unite alignta:arguments<CR>
-"nnoremap <silent> [UNITE]b :<C-u>Unite -buffer-name=files buffer_tab file_mru file<CR>
 nnoremap <silent> [UNITE]c :<C-u>Unite -auto-preview colorscheme<CR>
-nnoremap <silent> [UNITE]g :<C-u>Unite grep -no-quit<CR>
+nnoremap <silent> [UNITE]f :<C-u>Unite -buffer-name=files buffer file_mru file<CR>
+nnoremap <silent> [UNITE]g :<C-u>Unite grep:. -no-quit -buffer-name=search-buffer<CR>
+nnoremap <silent> [UNITE]G :<C-u>UniteResume -no-quit search-buffer<CR>
 nnoremap <silent> [UNITE]h :<C-u>Unite -start-insert help<CR>
 nnoremap <silent> [UNITE]H :<C-u>UniteWithCursorWord -start-insert help<CR>
 "nnoremap <silent> [UNITE]l :<C-u>Unite -start-insert line<CR>
 nnoremap <silent> [UNITE]o :<C-u>Unite -start-insert outline<CR>
+
+autocmd! FileType unite call s:my_unite_settings()
+function! s:my_unite_settings()
+  nnoremap <silent><buffer><expr> s unite#smart_map('s', unite#do_action('split'))
+  inoremap <silent><buffer><expr> s unite#smart_map('s', unite#do_action('split'))
+  nnoremap <silent><buffer><expr> v unite#smart_map('v', unite#do_action('vsplit'))
+  inoremap <silent><buffer><expr> v unite#smart_map('v', unite#do_action('vsplit'))
+  nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
+  inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
+endfunction
 " }}}
 
 " vimfiler {{{
-"" nnoremap <silent> <Leader>f :<C-u>execute "VimFiler" expand("%:p:h")<CR>
-"" nnoremap <silent> <Leader>F :<C-u>execute "VimFilerSplit" expand("%:p:h")<CR>
-"let g:vimfiler_as_default_explorer=1                    " netrwの代わりにデフォルトのファイラーにする
-"
-"" VimFilerをExplorerっぽく使う
-"nnoremap <silent> <Leader>f :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<Cr>
-"autocmd! FileType vimfiler call g:my_vimfiler_settings()
-"function! g:my_vimfiler_settings()
-"  nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
-"  nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
-"  nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
-"endfunction
-"
-"let my_action = { 'is_selectable' : 1 }
-"function! my_action.func(candidates)
-"  wincmd p
-"  exec 'split '. a:candidates[0].action__path
-"endfunction
-"call unite#custom_action('file', 'my_split', my_action)
-"
-"let my_action = { 'is_selectable' : 1 }
-"function! my_action.func(candidates)
-"  wincmd p
-"  exec 'vsplit '. a:candidates[0].action__path
-"endfunction
-"call unite#custom_action('file', 'my_vsplit', my_action)
+let g:vimfiler_as_default_explorer=1                    " netrwの代わりにデフォルトのファイラーにする
+
+" VimFilerをExplorerっぽく使う
+nnoremap <silent> [PREFIX]f :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
+
+autocmd! FileType vimfiler call s:my_vimfiler_settings()
+function! s:my_vimfiler_settings()
+  nmap     <buffer><expr><CR> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
+  nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<CR>
+  nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<CR>
+endfunction
+
+let my_action = { 'is_selectable' : 1 }
+function! my_action.func(candidates)
+  wincmd p
+  exec 'split '. a:candidates[0].action__path
+endfunction
+call unite#custom_action('file', 'my_split', my_action)
+
+let my_action = { 'is_selectable' : 1 }
+function! my_action.func(candidates)
+  wincmd p
+  exec 'vsplit '. a:candidates[0].action__path
+endfunction
+call unite#custom_action('file', 'my_vsplit', my_action)
 " }}}
 
 " neosnippet {{{
@@ -211,23 +224,23 @@ let g:quickrun_config['_'] = {
 " 引数なしで起動された場合ツリーを表示
 "autocmd vimenter * if !argc() | NERDTree | endif
 " ツリーウィンドウだけ残るような場合はVimを終了する
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-nnoremap [PREFIX]t  :<C-u>NERDTreeToggle<CR>
-
-let g:NERDTreeShowHidden=1  " 隠しファイルを表示するか
-let g:NERDTreeMinimalUI=1   " メニューのショートカットを非表示にするかどうか
-let g:NERDTreeDirArrows=0   " ツリー表示の記号を非表示にするかどうか
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"nnoremap [PREFIX]t  :<C-u>NERDTreeToggle<CR>
+"
+"let g:NERDTreeShowHidden=1  " 隠しファイルを表示するか
+"let g:NERDTreeMinimalUI=1   " メニューのショートカットを非表示にするかどうか
+"let g:NERDTreeDirArrows=0   " ツリー表示の記号を非表示にするかどうか
 " }}}"
 
 " ctrlp {{{
-let g:ctrlp_by_filename = 0           " 起動時にdオプションを有効にするか
-let g:ctrlp_regexp = 0                " 起動時にrオプションを有効にするか
-let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアするか
-let g:ctrlp_use_migemo = 1            " 日本語ファイル名のマッチ(regexpモード時のみ動作)
-let g:ctrlp_max_files = 100000        " ファイルスキャンのリミット
-let g:ctrlp_mruf_max = 1000           " MRUの記録数
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+"let g:ctrlp_by_filename = 0           " 起動時にdオプションを有効にするか
+"let g:ctrlp_regexp = 0                " 起動時にrオプションを有効にするか
+"let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアするか
+"let g:ctrlp_use_migemo = 1            " 日本語ファイル名のマッチ(regexpモード時のみ動作)
+"let g:ctrlp_max_files = 100000        " ファイルスキャンのリミット
+"let g:ctrlp_mruf_max = 1000           " MRUの記録数
+"let g:ctrlp_show_hidden = 1
+"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 " }}}
 
 " syntastic {{{
@@ -303,7 +316,7 @@ let g:indentLine_fileTypeExclude = ['nerdtree']
 " }}}
 
 " showmarks {{{
-let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`.^[]<>"
+"let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`.^[]<>"
 " }}}
 
 " emmet-vim {{{

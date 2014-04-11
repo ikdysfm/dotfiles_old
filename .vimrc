@@ -8,7 +8,6 @@ endif
 " PREFIXの設定 {{{
 nnoremap [PREFIX] <Nop>
 nmap <Space> [PREFIX]
-let mapleader = "s"
 " }}}
 
 " プラグインの読み込み・設定 {{{
