@@ -102,8 +102,9 @@ endif
 " オプションについてはhelp unite-options
 "nnoremap <silent> [UNITE]a :<C-u>Unite alignta:options<CR>
 "xnoremap <silent> [UNITE]a :<C-u>Unite alignta:arguments<CR>
-nnoremap <silent> [UNITE]c :<C-u>Unite -auto-preview colorscheme<CR>
-nnoremap <silent> [UNITE]f :<C-u>Unite -buffer-name=files buffer file_mru file<CR>
+nnoremap <silent> [UNITE]c :<C-u>Unite -start-insert -auto-preview colorscheme<CR>
+nnoremap <silent> [UNITE]f :<C-u>Unite -start-insert -buffer-name=files buffer file_mru<CR>
+nnoremap <silent> [UNITE]F :<C-u>Unite -start-insert -buffer-name=files buffer file_mru file_rec<CR>
 nnoremap <silent> [UNITE]g :<C-u>Unite grep:. -no-quit -buffer-name=search-buffer<CR>
 nnoremap <silent> [UNITE]G :<C-u>UniteResume -no-quit search-buffer<CR>
 nnoremap <silent> [UNITE]h :<C-u>Unite -start-insert help<CR>
