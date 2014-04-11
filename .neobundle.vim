@@ -84,8 +84,8 @@ NeoBundleCheck
 " プラグインごとの初期設定 {{{
 
 " unite {{{
-nnoremap [UNITE] <Nop>
-nmap [PREFIX]<Space> [UNITE]
+"nnoremap [UNITE] <Nop>
+"nmap [PREFIX]<Space> [UNITE]
 
 ""let g:unite_enable_start_insert = 1   " 常にインサートモードで起動する
 
@@ -100,17 +100,17 @@ if executable('ag')
 endif
 
 " オプションについてはhelp unite-options
-"nnoremap <silent> [UNITE]a :<C-u>Unite alignta:options<CR>
-"xnoremap <silent> [UNITE]a :<C-u>Unite alignta:arguments<CR>
-nnoremap <silent> [UNITE]c :<C-u>Unite -start-insert -auto-preview colorscheme<CR>
-nnoremap <silent> [UNITE]f :<C-u>Unite -start-insert -buffer-name=files buffer file_mru<CR>
-nnoremap <silent> [UNITE]F :<C-u>Unite -start-insert -buffer-name=files buffer file_mru file_rec<CR>
-nnoremap <silent> [UNITE]g :<C-u>Unite grep:. -no-quit -buffer-name=search-buffer<CR>
-nnoremap <silent> [UNITE]G :<C-u>UniteResume -no-quit search-buffer<CR>
-nnoremap <silent> [UNITE]h :<C-u>Unite -start-insert help<CR>
-nnoremap <silent> [UNITE]H :<C-u>UniteWithCursorWord -start-insert help<CR>
-"nnoremap <silent> [UNITE]l :<C-u>Unite -start-insert line<CR>
-nnoremap <silent> [UNITE]o :<C-u>Unite -start-insert outline<CR>
+"nnoremap <silent> [PREFIX]a :<C-u>Unite alignta:options<CR>
+"xnoremap <silent> [PREFIX]a :<C-u>Unite alignta:arguments<CR>
+nnoremap <silent> [PREFIX]b :<C-u>Unite -start-insert -buffer-name=files buffer file_mru<CR>
+nnoremap <silent> [PREFIX]B :<C-u>Unite -start-insert -buffer-name=files buffer file_mru file_rec<CR>
+"nnoremap <silent> [PREFIX]c :<C-u>Unite -start-insert -auto-preview colorscheme<CR>
+nnoremap <silent> [PREFIX]g :<C-u>Unite grep:. -no-quit -buffer-name=search-buffer<CR>
+nnoremap <silent> [PREFIX]G :<C-u>UniteResume -no-quit search-buffer<CR>
+nnoremap <silent> [PREFIX]h :<C-u>Unite -start-insert help<CR>
+nnoremap <silent> [PREFIX]H :<C-u>UniteWithCursorWord -start-insert help<CR>
+"nnoremap <silent> [PREFIX]l :<C-u>Unite -start-insert line<CR>
+nnoremap <silent> [PREFIX]o :<C-u>Unite -start-insert outline<CR>
 
 autocmd! FileType unite call s:my_unite_settings()
 function! s:my_unite_settings()
