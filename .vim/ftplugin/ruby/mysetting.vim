@@ -9,6 +9,9 @@ augroup ruby
   autocmd!
 augroup END
 
+nnoremap <buffer> <unique> [UNITE]r :<C-u>Unite -start-insert ref/refe<CR>
+nnoremap <buffer> <unique> [UNITE]R :<C-u>UniteWithCursorWord -start-insert ref/refe<CR>
+
 " syntastic {{{
 let g:syntastic_ruby_checkers = ['rubocop']
 " }}}
