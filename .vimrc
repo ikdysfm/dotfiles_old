@@ -99,6 +99,17 @@ if has('win32') && has('kaoriya')                           " 文字幅認識の
 else
   set ambiwidth=double
 endif
+
+" markdownのハイライト設定
+let g:markdown_fenced_languages = [
+\ 'css',
+\ 'erb=eruby',
+\ 'javascript',
+\ 'js=javascript',
+\ 'json=javascript',
+\ 'ruby',
+\ 'xml',
+\]
 " }}}
 
 " キーマップ(filetypeに依存しないもの) {{{
