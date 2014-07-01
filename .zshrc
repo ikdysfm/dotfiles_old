@@ -18,6 +18,7 @@ export PATH=$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/bin:/usr
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias g='git'
 
 eval "$(rbenv init -)"
 
