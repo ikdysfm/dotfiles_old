@@ -43,6 +43,19 @@ case ${UID} in
     ;;
 esac
 
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats '%F{5}[%F{2}%b%F{7}:%F{6}%r%F{3}|%F{1}%a%F{5}]%f'
+zstyle ':vcs_info:*' formats '%F{5}[%F{2}%b%F{7}:%F{6}%r%F{5}]%f'
+zstyle ':vcs_info:*' enable git
+
+vcs_info_wrapper() {
+    vcs_info
+    if [ -n "$vcs_info_msg_0_" ]; then
+        echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+    fi
+}
+RPROMPT=$'$(vcs_info_wrapper)'
 
 # auto change directory
 #
