@@ -13,7 +13,7 @@ esac
 
 export JAVA_HOME=`/usr/libexec/java_home`
 export DERBY_HOME=/usr/share/java/derby-10.8.1.2
-export PATH=$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/bin:/usr/bin:$JAVA_HOME/bin:$DERBY_HOME/bin:$HOME/glassfish4/bin:$HOME/Library/Haskell/bin
+export PATH=$HOME/.nodebrew/current/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:$JAVA_HOME/bin:$DERBY_HOME/bin:$HOME/glassfish4/bin:$HOME/Library/Haskell/bin:$PATH
 
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
