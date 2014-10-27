@@ -314,6 +314,7 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#777777'
 let g:indentLine_char = '¦'
 let g:indentLine_fileTypeExclude = ['nerdtree']
+let g:indentLine_faster = 1
 " }}}
 
 " showmarks {{{
