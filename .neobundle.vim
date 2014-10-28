@@ -63,7 +63,8 @@ NeoBundleLazy 'eagletmt/ghcmod-vim',       {'autoload':{'filetypes':['haskell']}
 NeoBundleLazy 'kana/vim-filetype-haskell', {'autoload':{'filetypes':['haskell']}}
 " }}}
 
-" Ruby {{{
+" TypeScript {{{
+NeoBundleLazy 'leafgarland/typescript-vim', {'autoload':{'filetypes':['typescript']}}
 " }}}
 
 " colorscheme {{{
