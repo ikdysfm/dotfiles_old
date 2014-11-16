@@ -1,9 +1,6 @@
-# users generic .zshrc file for zsh(1)
+# -*- mode: sh; indent-tabs-mode: nil -*-
 
-## Environment variable configuration
-#
 # LANG
-#
 export LANG=ja_JP.UTF-8
 case ${UID} in
 0)
@@ -11,23 +8,8 @@ case ${UID} in
     ;;
 esac
 
-export JAVA_HOME=`/usr/libexec/java_home`
-export DERBY_HOME=/usr/share/java/derby-10.8.1.2
-export PATH=$HOME/.nodebrew/current/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:$JAVA_HOME/bin:$DERBY_HOME/bin:$HOME/glassfish4/bin:$HOME/Library/Haskell/bin:$PATH
-
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias g='git'
-alias cd='pushd'
-alias p='popd'
-
-eval "$(rbenv init -)"
-
-## Default shell configuration
-#
-# set prompt
-#
+# Default shell configuration
+## set prompt
 autoload colors
 colors
 case ${UID} in
@@ -60,39 +42,30 @@ vcs_info_wrapper() {
 RPROMPT=$'$(vcs_info_wrapper)'
 
 # auto change directory
-#
 setopt auto_cd
 
 # auto directory pushd that you can get dirs list by cd -[tab]
-#
 setopt auto_pushd
 
 # command correct edition before each completion attempt
-#
 setopt correct
 
 # compacked complete list display
-#
 setopt list_packed
 
 
 # no remove postfix slash of command line
-#
 setopt noautoremoveslash
 
 # no beep sound when complete list displayed
-#
 setopt nolistbeep
 
-## Keybind configuration
-#
-# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes
-# to end of it)
-#
+# Keybind configuration
+## emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes
+## to end of it)
 bindkey -e
 
 # historical backward/forward search with linehead string binded to ^P/^N
-#
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -102,8 +75,7 @@ bindkey "^R" history-incremental-pattern-search-backward
 #bindkey "\\ep" history-beginning-search-backward-end
 #bindkey "\\en" history-beginning-search-forward-end
 
-## Command history configuration
-#
+# Command history configuration
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
@@ -122,16 +94,24 @@ setopt noclobber
 
 setopt check_jobs
 
-## Completion configuration
-#
+# Completion configuration
 autoload -U compinit
 compinit
 
-## Alias configuration
-#
-# expand aliases before completing
-#
+# Alias configuration
+## expand aliases before completing
 setopt complete_aliases # aliased ls needs if file/dir completions work
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+
+alias g='git'
+
+#alias la="ls -a"
+#alias lf="ls -F"
+#alias ll="ls -l"
+#alias du="du -h"
+#alias df="df -h"
+#alias su="su -l"
 
 #alias where="command -v"
 #alias j="jobs -l"
@@ -145,17 +125,7 @@ linux*)
   ;;
 esac
 
-#alias la="ls -a"
-#alias lf="ls -F"
-#alias ll="ls -l"
-
-#alias du="du -h"
-#alias df="df -h"
-
-#alias su="su -l"
-
-## terminal configuration
-#
+# terminal configuration
 case "${TERM}" in
 screen)
     TERM=xterm
@@ -191,7 +161,6 @@ jfbterm-color)
 esac
 
 # set terminal title including current directory
-#
 case "${TERM}" in
 xterm|xterm-color|kterm|kterm-color)
     precmd() {
@@ -200,14 +169,10 @@ xterm|xterm-color|kterm|kterm-color)
     ;;
 esac
 
-
-## load user .zshrc configuration file
-#
+# load user .zshrc configuration file
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
-#=============================
 # source auto-fu.zsh
-#=============================
 if [ -f ~/.zsh/auto-fu.zsh ]; then
     source ~/.zsh/auto-fu.zsh
     function zle-line-init () {
@@ -217,10 +182,7 @@ if [ -f ~/.zsh/auto-fu.zsh ]; then
     zstyle ':completion:*' completer _oldlist _complete
 fi
 
-
-#=============================
 # tmux auto launch
-#=============================
 if [ -z "$TMUX" -a -z "$STY" ]; then
   if type tmuxx >/dev/null 2>&1; then
     tmuxx
