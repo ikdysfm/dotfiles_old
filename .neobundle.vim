@@ -211,6 +211,8 @@ unlet s:bundle
 " quickrun {{{
 " g:quickrun#default_configを参考に上書きする感じで設定する
 " filetypeごとの設定は ~/.vim/ftplugin/[filetype]/mysetting.vim
+nnoremap <silent> [PREFIX]r :<C-u>QuickRun -outputter/buffer/split ":botright"<CR>
+let g:quickrun_no_default_key_mappings = 1
 let g:quickrun_config = {}
 let g:quickrun_config['_'] = {
 \  "runner" : "vimproc",
