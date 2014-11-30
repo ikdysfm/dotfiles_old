@@ -17,6 +17,8 @@
 [alias]
 	br = branch
 	di = diff
+	dic = diff --cached
+	ad = add
 	cm = commit
 	co = checkout
 	mg = merge
