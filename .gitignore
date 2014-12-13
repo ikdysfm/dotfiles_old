@@ -15,6 +15,8 @@
 !/.zshrc
 !/.zshenv
 !/.tmux.conf
+!/.Brewfile
+!/.brew2sh.py
 
 # 管理したいファイルの中で個別に無視したいものを以下に設定
 .DS_store
