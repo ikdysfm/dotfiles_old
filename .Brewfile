@@ -31,6 +31,7 @@ cask install google-chrome
 cask install lastpass
 cask install vlc
 cask install mplayerx
+cask install makemkv
 cask install handbrake
 cask install scansnap-manager
 cask install dropbox
