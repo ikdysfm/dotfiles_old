@@ -179,7 +179,9 @@ if [ -f ~/.zsh/auto-fu.zsh ]; then
         auto-fu-init
     }
     zle -N zle-line-init
+    zstyle ':auto-fu:var' postdisplay $''
     zstyle ':completion:*' completer _oldlist _complete
+    zle -N zle-keymap-select auto-fu-zle-keymap-select
 fi
 
 # tmux auto launch

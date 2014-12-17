@@ -14,6 +14,7 @@ install zsh
 install git
 install tig
 install tmux
+install reattach-to-user-namespace
 install wget
 install curl
 install openssl
