@@ -23,6 +23,6 @@
 	co = checkout
 	mg = merge
 	rb = rebase
-	st = status -sb
+	st = status
 [push]
 	default = simple
