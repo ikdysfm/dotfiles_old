@@ -41,18 +41,31 @@ vcs_info_wrapper() {
 }
 RPROMPT=$'$(vcs_info_wrapper)'
 
+# General configuration
+setopt extendedglob
+setopt numeric_glob_sort
+setopt glob_dots
+setopt noclobber
+setopt check_jobs
+
 # auto change directory
 setopt auto_cd
 
+# if a parameter name was completed and the next character typed is one of those that have to come directly after the name
+setopt auto_param_keys
+
+# if a parameter is completed whose content is the name of a directory, then add a trailing slash
+setopt auto_param_slash
+
 # auto directory pushd that you can get dirs list by cd -[tab]
 setopt auto_pushd
+setopt pushd_ignore_dups
 
 # command correct edition before each completion attempt
 setopt correct
 
 # compacked complete list display
 setopt list_packed
-
 
 # no remove postfix slash of command line
 setopt noautoremoveslash
@@ -87,13 +100,6 @@ setopt hist_no_store
 setopt hist_reduce_blanks
 setopt hist_ignore_space
 
-setopt extendedglob
-setopt numeric_glob_sort
-setopt glob_dots
-setopt noclobber
-
-setopt check_jobs
-
 # Completion configuration
 autoload -U compinit
 compinit
@@ -125,7 +131,7 @@ linux*)
   ;;
 esac
 
-# terminal configuration
+# Terminal configuration
 case "${TERM}" in
 screen)
     TERM=xterm
@@ -172,16 +178,16 @@ esac
 # load user .zshrc configuration file
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
-# source auto-fu.zsh
-if [ -f ~/.zsh/auto-fu.zsh ]; then
-    source ~/.zsh/auto-fu.zsh
+# auto-fu.zsh
+if [ -f ~/src/auto-fu.zsh/auto-fu.zsh ]; then
+    source ~/src/auto-fu.zsh/auto-fu.zsh
     function zle-line-init () {
         auto-fu-init
     }
     zle -N zle-line-init
+    zle -N zle-keymap-select auto-fu-zle-keymap-select
     zstyle ':auto-fu:var' postdisplay $''
     zstyle ':completion:*' completer _oldlist _complete
-    zle -N zle-keymap-select auto-fu-zle-keymap-select
 fi
 
 # tmux auto launch
