@@ -24,6 +24,7 @@ cask install alfred
 cask install karabiner
 cask install bettertouchtool
 cask install xtrafinder
+cask install timemachineeditor
 cask install the-unarchiver
 cask install iterm2
 cask install macvim
