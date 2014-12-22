@@ -107,22 +107,19 @@ compinit
 # Alias configuration
 ## expand aliases before completing
 setopt complete_aliases # aliased ls needs if file/dir completions work
-alias vi='env LANG=ja_JP.UTF-8 /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVim-snapshot-73/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVim-snapshot-73/MacVim.app/Contents/MacOS/Vim "$@"'
-
-alias g='git'
 
 alias bb='~/.brew2sh.py ~/.Brewfile | sh'
-
+alias g='git'
+#alias j="jobs -l"
 alias la="ls -a"
 alias ll="ls -l"
 #alias lf="ls -F"
 #alias du="du -h"
 #alias df="df -h"
 #alias su="su -l"
-
+alias vi='env LANG=ja_JP.UTF-8 /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVim-snapshot-73/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVim-snapshot-73/MacVim.app/Contents/MacOS/Vim "$@"'
 #alias where="command -v"
-#alias j="jobs -l"
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
