@@ -112,9 +112,11 @@ alias vim='env LANG=ja_JP.UTF-8 /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVim
 
 alias g='git'
 
-#alias la="ls -a"
+alias bb='~/.brew2sh.py ~/.Brewfile | sh'
+
+alias la="ls -a"
+alias ll="ls -l"
 #alias lf="ls -F"
-#alias ll="ls -l"
 #alias du="du -h"
 #alias df="df -h"
 #alias su="su -l"
