@@ -49,6 +49,7 @@ NeoBundleLazy 'Shougo/neocomplete', {
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'tyru/eskk.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-fugitive'
 "NeoBundle 'vim-scripts/ShowMarks'
@@ -96,7 +97,7 @@ if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts =
   \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-  \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+  \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
   let g:unite_source_grep_recursive_opt = ''
   let g:unite_source_grep_max_candidates = 200
 endif
@@ -205,6 +206,42 @@ function! s:bundle.hooks.on_source(bundle)
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 endfunction
 unlet s:bundle
+" }}}
+
+" eskk.vim {{{
+" smartinputのマッピングを上書く
+autocmd VimEnter * imap <C-j> <Plug>(eskk:toggle)
+autocmd VimEnter * cmap <C-j> <Plug>(eskk:toggle)
+
+" let g:eskk#directory = "~/.eskk"
+" let g:eskk#auto_save_dictionary_at_exit = 1
+
+" ユーザ辞書
+let g:eskk#dictionary = {
+\  'path': "~/.skk-jisyo",
+\  'sorted': 0,
+\  'encoding': 'utf-8',
+\}
+
+" システム辞書
+let g:eskk#large_dictionary = {
+\  'path': "~/.eskk_dic/SKK-JISYO.L",
+\  'sorted': 1,
+\  'encoding': 'euc-jp',
+\}
+
+" ascii: ivory4:#8b8b83, gray:#bebebe
+" hira: coral4:#8b3e2f, pink:#ffc0cb
+" kata: forestgreen:#228b22, green:#00ff00
+" abbrev: royalblue:#4169e1
+" zenei: gold:#ffd700
+let g:eskk#cursor_color = {
+\  'ascii': ['#8b8b83', '#bebebe'],
+\  'hira': ['#8b3e2f', '#ffc0cb'],
+\  'kata': ['#228b22', '#00ff00'],
+\  'abbrev': '#4169e1',
+\  'zenei': '#ffd700',
+\}
 " }}}
 
 " quickrun {{{

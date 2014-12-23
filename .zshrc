@@ -68,7 +68,8 @@ setopt correct
 setopt list_packed
 
 # no remove postfix slash of command line
-setopt noautoremoveslash
+#setopt noautoremoveslash
+unsetopt noautoremoveslash # for auto-fu.zsh
 
 # no beep sound when complete list displayed
 setopt nolistbeep
@@ -117,8 +118,8 @@ alias ll="ls -l"
 #alias du="du -h"
 #alias df="df -h"
 #alias su="su -l"
-alias vi='env LANG=ja_JP.UTF-8 /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVim-snapshot-73/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVim-snapshot-73/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 #alias where="command -v"
 
 case "${OSTYPE}" in
