@@ -22,11 +22,12 @@ install --HEAD ctags-objc-ja
 install gettext-mk
 install cscope
 install lua
-install --HEAD macvim --with-lua --with-cscope
+install --HEAD macvim --with-lua --with-cscope --override-system-vim
 
 # cask
-tap phinze/homebrew-cask
-install brew-cask
+install caskroom/cask/brew-cask
+tap caskroom/versions
+
 cask install alfred
 cask install karabiner
 cask install bettertouchtool
@@ -42,9 +43,11 @@ cask install makemkv
 cask install handbrake
 cask install scansnap-manager
 cask install dropbox
+cask install parallels9
 
 # 不要なファイルを削除
 cleanup
+cask cleanup
 
 # Applicationにリンクを作成する
 linkapps
