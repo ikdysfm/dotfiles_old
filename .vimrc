@@ -37,6 +37,7 @@ set virtualedit=block                                       " 矩形選択時に
 set nrformats=hex                                           " インクリメントは常に10進数
 set iminsert=0                                              " insert時にIMEをONにしない
 set imsearch=0                                              " 検索時にIMEをONにしない
+set imdisable                                               " IM無効化
 set timeout
 set timeoutlen=3000                                         " マッピングの待ち時間
 set ttimeoutlen=10                                          " キーコードの待ち時間
@@ -64,6 +65,7 @@ set wildmenu                                                " コマンド補完
 set wildchar=<tab>                                          " コマンド補完の開始キー
 set wildmode=list:longest,full                              " リスト表示・最長マッチ
 set history=1000                                            " コマンド履歴のサイズ
+set pumheight=10                                            " 補完メニューの高さ
 "set cdpath=                                                " cdコマンドで移動出来るディレクトリ定義
 " if has('persistent_undo')                                 " undo履歴の永続化
 "     set undodir=~/.vimundo
@@ -83,12 +85,13 @@ set hlsearch                                                " 検索文字のハ
 " 表示 {{{
 syntax on
 set showmatch                                               " 対応する括弧のハイライト
+set matchtime=1                                             " 対応する括弧のハイライト時間
 set showcmd                                                 " コマンドをステータス行に表示
 set number                                                  " 行番号表示
 set relativenumber                                          " 行番号表示
 set list                                                    " 不可視文字の表示
 set lcs=eol:\ ,tab:>\ ,trail:_,extends:>,precedes:<         " 不可視文字の表示設定
-set display=uhex                                            " 印字不可文字を16進表示
+set display=uhex,lastline                                   " 印字不可文字を16進表示,長い行を表示
 set cmdheight=2                                             " コマンド行の高さ
 set showtabline=2                                           " タブバーを常に表示
 set title                                                   " タイトルをウィンドウ枠に表示
@@ -129,6 +132,8 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+
+nnoremap Y y$
 
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
@@ -187,6 +192,9 @@ autocmd vimrc WinLeave * setlocal nocursorline
 " インサートモードに入った時にカーソル行(列)の色を変更する
 autocmd vimrc InsertEnter * highlight CursorLine ctermbg=24 guibg=#112299 | highlight CursorColumn ctermbg=24 guibg=#112299
 autocmd vimrc InsertLeave * highlight CursorLine ctermbg=236 guibg=#303030 | highlight CursorColumn ctermbg=236 guibg=#303030
+
+" スワップファイルがあった場合常にRead-Onlyで開く
+autocmd vimrc SwapExists * let v:swapchoice = 'o'
 
 " 編集中ファイルの場所をカレントディレクトリにする -> デメリットが大きい
 " autocmd vimrc BufEnter * lcd %:p:h
