@@ -213,7 +213,6 @@ source ~/.antigen-rep/antigen.zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle autojump
 antigen bundle brew
 
 # Syntax highlighting bundle.

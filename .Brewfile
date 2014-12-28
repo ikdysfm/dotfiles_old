@@ -43,7 +43,7 @@ cask install makemkv
 cask install handbrake
 cask install scansnap-manager
 cask install dropbox
-cask install parallels9
+# cask install parallels9
 
 # 不要なファイルを削除
 cleanup
