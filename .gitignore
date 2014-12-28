@@ -14,7 +14,8 @@
 !/.neobundle.vim
 !/.zshrc
 !/.zshenv
-!/antigen
+!/.auto-fu
+!/.antigen-rep
 !/.tmux.conf
 !/.Brewfile
 !/.brew2sh.py

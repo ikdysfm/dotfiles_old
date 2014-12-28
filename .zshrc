@@ -179,8 +179,8 @@ esac
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
 # auto-fu.zsh
-if [ -f ~/src/auto-fu.zsh/auto-fu.zsh ]; then
-    source ~/src/auto-fu.zsh/auto-fu.zsh
+if [ -f ~/.auto-fu/auto-fu.zsh ]; then
+    source ~/.auto-fu/auto-fu.zsh
     function zle-line-init () {
         auto-fu-init
     }
@@ -206,7 +206,7 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
 fi
 
 # antigen
-source ~/antigen/antigen.zsh
+source ~/.antigen-rep/antigen.zsh
 
 # Load the oh-my-zsh's library.
 # antigen use oh-my-zsh
