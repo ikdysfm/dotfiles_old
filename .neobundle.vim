@@ -17,6 +17,8 @@ NeoBundle 'Shougo/vimproc', {
 \  },
 \}
 
+NeoBundle 'vim-jp/vimdoc-ja'
+
 " help unite-source-file
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
@@ -55,6 +57,13 @@ NeoBundle 'tpope/vim-fugitive'
 "NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'vimtaku/hl_matchit.vim'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundleLazy "majutsushi/tagbar", {"autoload":{"commands":["TagbarToggle"]}}
+"NeoBundleLazy "wesleyche/SrcExpl", {"autoload":{"commands":["SrcExplToggle"]}}
+" }}}
+
+" markdown {{{
+NeoBundleLazy 'tpope/vim-markdown', {'autoload':{'filetypes':['markdown']}}
+NeoBundleLazy 'kannokanno/previm', {'autoload':{'filetypes':['markdown']}}
 " }}}
 
 " Haskell {{{
@@ -262,6 +271,43 @@ let g:quickrun_config['_'] = {
 " \}
 " }}}
 
+" tagbar {{{
+let s:bundle = neobundle#get('tagbar')
+function! s:bundle.hooks.on_source(bundle)
+  let g:tagbar_width = 40
+  nnoremap <silent> [PREFIX]t :TagbarToggle<CR>
+endfunction
+unlet s:bundle
+" }}}
+
+" SrcExpl {{{
+" nnoremap [SRC_EXPL] <Nop>
+" nmap [PREFIX]s [SRC_EXPL]
+" nnoremap <silent> [SRC_EXPL]<CR> :SrcExplToggle<CR>
+"
+" let s:bundle = neobundle#get('SrcExpl')
+" function! s:bundle.hooks.on_source(bundle)
+"   let g:SrcExpl_gobackKey = '<C-b>'
+"   let g:SrcExpl_RefreshTime = 1000                        " カーソルを移動した際の更新時間
+"   let g:SrcExpl_isUpdateTags = 0                          " 自動的にタグを更新しない
+"   let g:SrcExpl_updateTagsCmd = 'ctags --sort=foldcase %' " タグの更新コマンド
+"   let g:SrcExpl_winHeight = 12                            " 表示行数
+"
+"   " プロジェクト全体のタグを更新する関数
+"   function! g:SrcExpl_UpdateAllTags()
+"     let g:SrcExpl_updateTagsCmd = 'ctags --sort=foldcase -R .'
+"     call g:SrcExpl_UpdateTags()
+"     let g:SrcExpl_updateTagsCmd = 'ctags --sort=foldcase %'
+"   endfunction
+"
+"   nnoremap <silent> [SRC_EXPL]u :call g:SrcExpl_UpdateTags()<CR>
+"   nnoremap <silent> [SRC_EXPL]a :call g:SrcExpl_UpdateAllTags()<CR>
+"   nnoremap <silent> [SRC_EXPL]n :call g:SrcExpl_NextDef()<CR>
+"   nnoremap <silent> [SRC_EXPL]p :call g:SrcExpl_PrevDef()<CR>
+" endfunction
+" unlet s:bundle
+" }}}
+
 " nerdtree {{{
 " 引数なしで起動された場合ツリーを表示
 "autocmd vimenter * if !argc() | NERDTree | endif
@@ -365,8 +411,33 @@ let g:indentLine_faster = 1
 " emmet-vim {{{
 let g:user_emmet_mode='iv'
 let g:user_emmet_install_global = 0
-autocmd FileType html,xml,eruby,css EmmetInstall
+autocmd FileType html,xml,eruby,css,markdown EmmetInstall
 let g:user_emmet_leader_key='<C-Y>'
+" }}}
+
+" vim-markdown {{{
+let g:markdown_fenced_languages = [
+\ 'vim',
+\ 'css',
+\ 'xml',
+\ 'javascript',
+\ 'js=javascript',
+\ 'json=javascript',
+\ 'haskell',
+\ 'hs=haskell',
+\ 'ruby',
+\ 'erb=eruby',
+\ 'sql',
+\ 'sh',
+\]
+" }}}
+
+" previm {{{
+let g:previm_open_cmd = 'open -a Safari'
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 " }}}
 
 " hl-matchit {{{

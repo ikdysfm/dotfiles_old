@@ -16,6 +16,7 @@ nmap <Space> [PREFIX]
 " }}}
 
 " 基本設定 {{{
+set helplang=ja,en                                          " helpの優先順位
 set hidden                                                  " 隠しバッファを許す
 set mouse=                                                  " マウスを無効に
 set scrolloff=0                                             " カーソルの上下に表示する行数
@@ -41,6 +42,10 @@ set imdisable                                               " IM無効化
 set timeout
 set timeoutlen=3000                                         " マッピングの待ち時間
 set ttimeoutlen=10                                          " キーコードの待ち時間
+set tags=./tags,tags                                        " タグファイルのパスリスト
+if has('path_extra')                                        " 親方向へ再帰的にtagsを探す
+  set tags+=tags;
+endif
 
 setlocal omnifunc=syntaxcomplete#Complete                   " omni補完用
 if has('win32') | set grepprg=jvgrep | endif                " grepの置き換え
