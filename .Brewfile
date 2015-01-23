@@ -53,5 +53,5 @@ cask cleanup
 # Applicationにリンクを作成する
 linkapps
 
-# alfredの検索対象に入れる
-cask alfred link
+# alfredの検索対象に入れる -> Powerpackが必要らしい
+# cask alfred link
