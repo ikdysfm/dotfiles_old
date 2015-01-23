@@ -1,7 +1,7 @@
-if exists('b:did_ftplugin_ruby_mysetting')
+if exists('b:did_after_ftplugin_ruby_mysetting')
   finish
 endif
-let b:did_ftplugin_ruby_mysetting = 1
+let b:did_after_ftplugin_ruby_mysetting = 1
 
 setlocal ts=2 sts=0 sw=2
 

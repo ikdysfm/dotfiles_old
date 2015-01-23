@@ -125,7 +125,7 @@ let g:markdown_fenced_languages = [
 nnoremap [PREFIX]e. :<C-u>tab drop $MYVIMRC<CR>
 nnoremap [PREFIX]eg :<C-u>tab drop $MYGVIMRC<CR>
 nnoremap [PREFIX]en :<C-u>tab drop $HOME/.neobundle.vim<CR>
-nnoremap <expr> [PREFIX]es ":<C-u>tab drop $HOME/.vim/ftplugin/" . &filetype . "/mysetting.vim<CR>}"
+nnoremap <expr> [PREFIX]es ":<C-u>tab drop $HOME/.vim/after/ftplugin/" . &filetype . "/mysetting.vim<CR>}"
 nnoremap [PREFIX].  :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif<CR>
 
 " OSレベルのキーマップで<C-h>を<BS>にしている前提

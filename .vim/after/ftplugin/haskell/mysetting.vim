@@ -1,7 +1,7 @@
-if exists('b:did_ftplugin_haskell_mysetting')
+if exists('b:did_after_ftplugin_haskell_mysetting')
   finish
 endif
-let b:did_ftplugin_haskell_mysetting = 1
+let b:did_after_ftplugin_haskell_mysetting = 1
 
 setlocal ts=2 sts=0 sw=2
 
