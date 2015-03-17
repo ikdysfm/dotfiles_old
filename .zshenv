@@ -4,6 +4,7 @@
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 export JAVA_HOME=`/usr/libexec/java_home`
 export DERBY_HOME=/usr/share/java/derby-10.8.1.2
+export PYTHONPATH="/lib/python2.7/site-packages/"
 
 # PATHの設定
 ##   typeset
