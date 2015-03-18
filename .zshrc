@@ -114,6 +114,7 @@ alias g='git'
 #alias j="jobs -l"
 alias la="ls -a"
 alias ll="ls -l"
+alias lla="ls -la"
 #alias lf="ls -F"
 #alias du="du -h"
 #alias df="df -h"

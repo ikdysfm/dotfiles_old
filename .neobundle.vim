@@ -26,7 +26,7 @@ NeoBundle 'Shougo/unite-help'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'ujihisa/unite-colorscheme'
 
-NeoBundle 'bling/vim-airline'
+"NeoBundle 'bling/vim-airline'
 NeoBundle 'cohama/vim-smartinput-endwise'
 "NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'houtsnip/vim-emacscommandline'
@@ -340,13 +340,22 @@ let g:syntastic_mode_map = {
 " }}}
 
 " vim-airline {{{
+" set laststatus=2
+" set noshowmode
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1      " タブラインにもairlineを適用
+" let g:airline#extensions#tabline#show_buffers = 0 " （タブが一個の場合）バッファのリストをタブラインに表示する機能をオフ
+" let g:airline#extensions#tabline#tab_nr_type = 1  " 0でそのタブで開いてるウィンドウ数、1で左のタブから連番
+" let g:airline#extensions#tabline#fnamemod = ':t'  " タブに表示する名前（fnamemodifyの第二引数）
+" }}}
+
+" powerline {{{
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 set laststatus=2
+set showtabline=2
 set noshowmode
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1      " タブラインにもairlineを適用
-let g:airline#extensions#tabline#show_buffers = 0 " （タブが一個の場合）バッファのリストをタブラインに表示する機能をオフ
-let g:airline#extensions#tabline#tab_nr_type = 1  " 0でそのタブで開いてるウィンドウ数、1で左のタブから連番
-let g:airline#extensions#tabline#fnamemod = ':t'  " タブに表示する名前（fnamemodifyの第二引数）
 " }}}
 
 " vim-submode {{{

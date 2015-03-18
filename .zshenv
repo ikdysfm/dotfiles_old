@@ -35,6 +35,8 @@ path=(
   $HOME/.gem/ruby/*/bin(N-/)
   # rbenv
   $HOME/.rbenv/bin(N-/)
+  # python
+  $HOME/Library/Python/2.7/bin(N-/)
   # Haskell
   $HOME/Library/Haskell/bin(N-/)
   # nodebrew
