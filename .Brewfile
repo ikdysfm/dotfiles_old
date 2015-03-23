@@ -8,6 +8,7 @@ upgrade
 tap homebrew/versions
 
 install zsh
+install peco
 install git
 install tig
 install tmux
@@ -29,6 +30,7 @@ install --HEAD macvim --with-lua --with-cscope --override-system-vim
 install caskroom/cask/brew-cask
 tap caskroom/versions
 
+cask install atom
 cask install alfred
 cask install karabiner
 cask install bettertouchtool
