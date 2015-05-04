@@ -46,7 +46,9 @@ cask install makemkv
 cask install handbrake
 cask install scansnap-manager
 cask install dropbox
+cask install 0xed
 # cask install parallels9
+cask install haskell-platform
 
 # 不要なファイルを削除
 cleanup
