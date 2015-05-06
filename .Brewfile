@@ -31,6 +31,7 @@ install caskroom/cask/brew-cask
 tap caskroom/versions
 
 cask install atom
+cask install visual-studio-code
 cask install alfred
 cask install karabiner
 cask install bettertouchtool
