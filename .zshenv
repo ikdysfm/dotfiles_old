@@ -63,6 +63,6 @@ typeset -U sudo_path
 sudo_path=({,/usr/pkg,/usr/local,/usr}/sbin(N-/))
 
 # rbenv homebrew経由の場合はzprofileに書く
-if [ -d ${HOME}/.rbenv ] ; then
-  eval "$(rbenv init -)"
-fi
+# if [ -d ${HOME}/.rbenv ] ; then
+#   eval "$(rbenv init -)"
+# fi

@@ -14,6 +14,7 @@
 !/.neobundle.vim
 !/.zshrc
 !/.zshenv
+!/.zprofile
 !/.auto-fu
 !/.antigen-rep
 !/.tmux.conf

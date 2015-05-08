@@ -17,6 +17,8 @@ install wget
 install curl
 install openssl
 install the_silver_searcher
+install rbenv
+install ruby-build
 
 tap splhack/homebrew-splhack
 install --HEAD cmigemo-mk
