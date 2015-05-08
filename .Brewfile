@@ -2,7 +2,7 @@
 update
 
 # formulaを更新
-upgrade
+upgrade --all
 
 # バージョン違いを個別のformulaとして提供する
 tap homebrew/versions
