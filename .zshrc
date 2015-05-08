@@ -122,6 +122,41 @@ alias lla="ls -la"
 #alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 #alias where="command -v"
 
+alias ga='git add'
+alias gaa='git add .'
+alias gaaa='git add -A'
+alias gb='git branch'
+alias gbd='git branch -d '
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcom='git checkout master'
+alias gd='git diff'
+alias gda='git diff HEAD'
+alias gdc='git diff --cached'
+alias gi='git init'
+alias gl='git log'
+alias glg='git log --graph --oneline --decorate --all'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias glp='git log -p'
+alias gm='git merge --no-ff'
+alias gpull='git pull'
+alias gpush='git pull'
+alias gs='git status'
+alias gss='git status -s'
+# alias gst='git stash'
+# alias gstl='git stash list'
+# alias gstp='git stash pop'
+# alias gstd='git stash drop'
+
+# ----------------------
+# Git Function
+# ----------------------
+# Git log find by commit message
+function glf() { git log --all --grep="$1"; }
+
 case "${OSTYPE}" in
 freebsd*|darwin*)
   alias ls="ls -G -w"
@@ -212,7 +247,7 @@ source ~/.antigen-rep/antigen.zsh
 # antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
+# antigen bundle git -> unable to adapt alias
 antigen bundle brew
 
 # Syntax highlighting bundle.
