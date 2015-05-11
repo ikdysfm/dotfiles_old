@@ -19,6 +19,7 @@ install openssl
 install the_silver_searcher
 install rbenv
 install ruby-build
+install pyenv
 
 tap splhack/homebrew-splhack
 install --HEAD cmigemo-mk

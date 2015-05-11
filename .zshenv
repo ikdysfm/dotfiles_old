@@ -36,7 +36,7 @@ path=(
   # rbenv
   $HOME/.rbenv/bin(N-/)
   # python
-  $HOME/Library/Python/2.7/bin(N-/)
+  $HOME/.pyenv/bin(N-/)
   # Haskell
   $HOME/Library/Haskell/bin(N-/)
   # nodebrew
