@@ -44,6 +44,9 @@ cask install timemachineeditor
 cask install the-unarchiver
 cask install iterm2
 cask install google-chrome
+cask install vagrant
+cask install virtualbox
+cask install boot2docker
 cask install lastpass
 cask install vlc
 cask install mplayerx
@@ -52,6 +55,7 @@ cask install handbrake
 cask install scansnap-manager
 cask install dropbox
 cask install 0xed
+cask install skype
 # cask install parallels9
 cask install haskell-platform
 
