@@ -34,9 +34,8 @@ install --HEAD macvim --with-lua --with-cscope --override-system-vim
 install caskroom/cask/brew-cask
 tap caskroom/versions
 
-cask install atom
-cask install visual-studio-code
 cask install alfred
+cask install dash
 cask install karabiner
 cask install bettertouchtool
 cask install xtrafinder
@@ -46,7 +45,6 @@ cask install iterm2
 cask install google-chrome
 cask install vagrant
 cask install virtualbox
-cask install boot2docker
 cask install lastpass
 cask install vlc
 cask install mplayerx
@@ -58,6 +56,7 @@ cask install 0xed
 cask install skype
 # cask install parallels9
 cask install haskell-platform
+cask install kindle
 
 # 不要なファイルを削除
 cleanup
