@@ -17,9 +17,6 @@ install wget
 install curl
 install openssl
 install the_silver_searcher
-install rbenv
-install ruby-build
-install pyenv
 install homebrew/games/nethack4
 
 tap splhack/homebrew-splhack

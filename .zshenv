@@ -36,14 +36,10 @@ path=(
   $HOME/local/bin(N-/)
   # gem install --user-installでインストールしたもの
   $HOME/.gem/ruby/*/bin(N-/)
-  # rbenv
-  $HOME/.rbenv/bin(N-/)
-  # python
-  $HOME/.pyenv/bin(N-/)
+  # anyenv
+  $HOME/.anyenv/bin(N-/)
   # Haskell
   $HOME/Library/Haskell/bin(N-/)
-  # nodebrew
-  $HOME/.nodebrew/current/bin(N-/)
   # java
   $JAVA_HOME/bin(N-/)
   $DERBY_HOME/bin(N-/)
@@ -65,7 +61,7 @@ typeset -xT SUDO_PATH sudo_path
 typeset -U sudo_path
 sudo_path=({,/usr/pkg,/usr/local,/usr}/sbin(N-/))
 
-# rbenv homebrew経由の場合はzprofileに書く
-# if [ -d ${HOME}/.rbenv ] ; then
-#   eval "$(rbenv init -)"
+# *env homebrew経由の場合はzprofileに書く
+# if [ -d ${HOME}/.*env ] ; then
+#   eval "$(*env init -)"
 # fi

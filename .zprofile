@@ -1,7 +1,9 @@
-if [ -d ${HOME}/.rbenv ] ; then
-  eval "$(rbenv init -)"
-fi
+if [ -d ${HOME}/.anyenv ] ; then
+  eval "$(anyenv init -)"
 
-if [ -d ${HOME}/.pyenv ] ; then
-  eval "$(pyenv init -)"
+  # for tmux
+  for D in `\ls $HOME/.anyenv/envs`
+  do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+  done
 fi
