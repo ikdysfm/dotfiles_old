@@ -33,6 +33,7 @@ tap caskroom/versions
 
 cask install alfred
 cask install dash
+cask install sourcetree
 cask install karabiner
 cask install bettertouchtool
 cask install xtrafinder
