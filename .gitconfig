@@ -8,6 +8,8 @@
 	editor = vim
 	autocrlf = input
 	safecrlf = true
+[ghq]
+  root = ~/src
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

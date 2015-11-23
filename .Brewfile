@@ -8,6 +8,8 @@ upgrade --all
 tap homebrew/versions
 
 install zsh
+install go
+install ghq
 install peco
 install git
 install tig

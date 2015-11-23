@@ -157,6 +157,18 @@ alias gss='git status -s'
 # Git log find by commit message
 function glf() { git log --all --grep="$1"; }
 
+# ghq + peco
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
+
 case "${OSTYPE}" in
 freebsd*|darwin*)
   alias ls="ls -G -w"
