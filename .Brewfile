@@ -42,6 +42,7 @@ cask install xtrafinder
 cask install timemachineeditor
 cask install the-unarchiver
 cask install iterm2
+cask install webstorm
 cask install google-chrome
 cask install vagrant
 cask install virtualbox
