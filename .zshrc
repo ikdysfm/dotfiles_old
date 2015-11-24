@@ -226,8 +226,8 @@ esac
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
 # auto-fu.zsh
-if [ -f ~/.auto-fu/auto-fu.zsh ]; then
-    source ~/.auto-fu/auto-fu.zsh
+if [ -f ~/src/github.com/ikdysfm/auto-fu.zsh/auto-fu.zsh ]; then
+    source ~/src/github.com/ikdysfm/auto-fu.zsh/auto-fu.zsh
     function zle-line-init () {
         auto-fu-init
     }
