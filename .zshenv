@@ -9,7 +9,6 @@ export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/Yoshifumi/.boot2docker/certs/boot2docker-vm
 export GOPATH=$HOME
-export PATH=$PATH:$GOPATH/bin
 
 # PATHの設定
 ##   typeset
@@ -38,14 +37,14 @@ path=(
   $HOME/local/bin(N-/)
   # gem install --user-installでインストールしたもの
   $HOME/.gem/ruby/*/bin(N-/)
-  # anyenv
-  $HOME/.anyenv/bin(N-/)
   # Haskell
   $HOME/Library/Haskell/bin(N-/)
   # java
   $JAVA_HOME/bin(N-/)
   $DERBY_HOME/bin(N-/)
   $HOME/glassfish4/bin(N-/)
+  # golang
+  $GOPATH/bin(N-/)
   # Debian GNU/Linux用
   #/var/lib/gems/*/bin(N-/)
   # MacPorts用
