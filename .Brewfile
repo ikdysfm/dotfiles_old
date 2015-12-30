@@ -21,13 +21,13 @@ install openssl
 install the_silver_searcher
 install homebrew/games/nethack4
 
-tap splhack/homebrew-splhack
-install --HEAD cmigemo-mk
-install --HEAD ctags-objc-ja
-install gettext-mk
-install cscope
-install lua
-install --HEAD macvim --with-lua --with-cscope --override-system-vim
+#tap splhack/homebrew-splhack
+#install --HEAD cmigemo-mk
+#install --HEAD ctags-objc-ja
+#install gettext-mk
+#install cscope
+#install lua
+#install --HEAD macvim --with-lua --with-cscope --override-system-vim
 
 # cask
 install caskroom/cask/brew-cask
@@ -53,11 +53,13 @@ cask install makemkv
 cask install handbrake
 cask install scansnap-manager
 cask install dropbox
+cask install flux
 cask install 0xed
 cask install skype
 # cask install parallels9
 cask install haskell-platform
 cask install kindle
+cask install steam
 
 # 不要なファイルを削除
 cleanup
