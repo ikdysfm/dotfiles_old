@@ -30,7 +30,6 @@ install homebrew/games/nethack4
 #install --HEAD macvim --with-lua --with-cscope --override-system-vim
 
 # cask
-#install caskroom/cask/brew-cask
 tap caskroom/cask
 tap caskroom/versions
 
