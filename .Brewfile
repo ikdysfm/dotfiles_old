@@ -30,7 +30,8 @@ install homebrew/games/nethack4
 #install --HEAD macvim --with-lua --with-cscope --override-system-vim
 
 # cask
-install caskroom/cask/brew-cask
+#install caskroom/cask/brew-cask
+tap caskroom/cask
 tap caskroom/versions
 
 cask install alfred
@@ -53,6 +54,7 @@ cask install makemkv
 cask install handbrake
 cask install scansnap-manager
 cask install dropbox
+cask install near-lock
 cask install flux
 cask install 0xed
 cask install skype
