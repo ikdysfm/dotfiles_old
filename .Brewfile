@@ -6,6 +6,8 @@ upgrade --all
 
 # バージョン違いを個別のformulaとして提供する
 tap homebrew/versions
+# for ergodox ez customize
+tap osx-cross/avr
 
 install zsh
 install go
@@ -20,6 +22,7 @@ install curl
 install openssl
 install the_silver_searcher
 install homebrew/games/nethack4
+install avr-libc
 
 #tap splhack/homebrew-splhack
 #install --HEAD cmigemo-mk
@@ -36,6 +39,7 @@ tap caskroom/versions
 cask install alfred
 cask install dash
 cask install sourcetree
+cask install teensy
 cask install karabiner
 cask install bettertouchtool
 cask install xtrafinder
