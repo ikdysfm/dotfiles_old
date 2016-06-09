@@ -65,6 +65,7 @@ cask install skype
 cask install haskell-platform
 cask install kindle
 cask install steam
+cask install dockertoolbox
 
 # 不要なファイルを削除
 cleanup
