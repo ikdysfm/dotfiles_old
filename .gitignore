@@ -21,6 +21,7 @@
 !/.Brewfile
 !/.brew2sh.py
 !/.pydistutils.cfg
+!/*.nodoka
 
 # 管理したいファイルの中で個別に無視したいものを以下に設定
 .DS_store
