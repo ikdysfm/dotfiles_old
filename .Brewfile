@@ -64,6 +64,7 @@ cask install skype
 # cask install parallels9
 cask install haskell-platform
 cask install kindle
+cask install android-file-transfer
 cask install steam
 cask install dockertoolbox
 
