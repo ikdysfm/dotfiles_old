@@ -54,11 +54,13 @@ cask install lastpass
 cask install vlc
 cask install mplayerx
 cask install makemkv
+cask install air-video-server-hd
 cask install handbrake
 cask install scansnap-manager
 cask install dropbox
 cask install near-lock
 cask install flux
+cask install lumen
 cask install 0xed
 cask install skype
 # cask install parallels9
