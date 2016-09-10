@@ -42,7 +42,7 @@ cask install sourcetree
 cask install teensy
 cask install karabiner
 cask install bettertouchtool
-cask install xtrafinder
+cask install path-finder
 cask install timemachineeditor
 cask install the-unarchiver
 cask install iterm2
@@ -68,7 +68,6 @@ cask install haskell-platform
 cask install kindle
 cask install android-file-transfer
 cask install steam
-cask install dockertoolbox
 
 # 不要なファイルを削除
 cleanup
