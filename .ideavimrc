@@ -2,4 +2,7 @@ set ignorecase
 set smartcase
 set hlsearch
 
+noremap gp "+p
+noremap gy "+y
+
 inoremap <C-v> <C-r>*
