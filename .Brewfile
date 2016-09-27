@@ -23,6 +23,7 @@ install openssl
 install the_silver_searcher
 install homebrew/games/nethack4
 install avr-libc
+install watchman
 
 #tap splhack/homebrew-splhack
 #install --HEAD cmigemo-mk
