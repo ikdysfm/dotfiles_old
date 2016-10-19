@@ -37,6 +37,7 @@ install watchman
 tap caskroom/cask
 tap caskroom/versions
 
+cask install java
 cask install alfred
 cask install dash
 cask install sourcetree
