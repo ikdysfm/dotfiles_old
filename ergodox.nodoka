@@ -70,3 +70,8 @@ mod !win
 
 # *BS‚¾‚ÆC-BS‚É‚È‚Á‚Ä‚µ‚Ü‚¤
 key C-*H = *A-*S-BS 
+
+# CapsLock‚ğControl‚É
+def subst *‰p” = *‰p” # from http://d.hatena.ne.jp/kaosf/20101120
+mod control += ‰p”
+key *‰p” = *LeftControl
